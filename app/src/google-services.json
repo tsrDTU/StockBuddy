@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91647901445",
+    "project_id": "stockbuddy-3c871",
+    "storage_bucket": "stockbuddy-3c871.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91647901445:android:806264d050b3bef397816c",
+        "android_client_info": {
+          "package_name": "com.stockbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEiTiQxbjbwdCeuB2t0zYSaYSi88JRGB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
