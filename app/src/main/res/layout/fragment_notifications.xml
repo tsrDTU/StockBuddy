@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+    <!-- Toolbar for the menu bar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarToolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:contentInsetStart="0dp" style="@style/groupStylewhite_A700">
+        <LinearLayout android:gravity="center_horizontal"
+            android:id="@+id/linearColumnmenu"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent" android:orientation="vertical">
+            <LinearLayout android:id="@+id/linearContents"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginStart="19dp"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <ImageView android:id="@+id/imageMenu"
+                    android:layout_height="@dimen/_12pxh"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="@dimen/_18pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_menu"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_menu"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtTitle"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="0.63"
+                    android:layout_width="0dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="@dimen/_4pxh"
+                    android:singleLine="true"
+                    android:text="Notifications"
+                    style="@style/txtRobotomedium20"
+                    tools:text="Notifications"/>
+                <ImageView android:id="@+id/imageUser"
+                    android:layout_height="@dimen/_20pxh"
+                    android:layout_marginBottom="@dimen/_3pxv"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="@dimen/_20pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_user"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_user"/>
+                <ImageView android:id="@+id/imageNotification"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="@dimen/_3pxv"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="@dimen/_16pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_notification"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_notification"/>
+                <ImageView android:id="@+id/imageSearch"
+                    android:layout_height="@dimen/_17pxh"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="@dimen/_3pxh"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginTop="@dimen/_3pxv"
+                    android:layout_width="@dimen/_17pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_search"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_search"/>
+            </LinearLayout>
+            <View android:background="@color/black_900"
+                android:id="@+id/lineBorderbottom"
+                android:layout_gravity="start"
+                android:layout_height="1dp"
+                android:layout_marginTop="14dp"
+                android:layout_width="360dp"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:spacing="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+
+
+            <!-- Layout Stock 1 -->
+            <LinearLayout
+                android:id="@+id/notification_background1"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time1"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title1"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text1"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText "
+                    tools:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 2 -->
+            <LinearLayout
+                android:id="@+id/notification_background2"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time2"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title2"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text2"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText "
+                    tools:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 3 -->
+            <LinearLayout
+                android:id="@+id/notification_background3"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time3"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title3"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text3"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText "
+                    tools:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 4 -->
+            <LinearLayout
+                android:id="@+id/notification_background4"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time4"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title4"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text4"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText "
+                    tools:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 5 -->
+            <LinearLayout
+                android:id="@+id/notification_background5"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time5"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title5"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text5"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText @{buySellVM.buySellModel.txtStockCounter}"
+                    tools:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 6 -->
+            <LinearLayout
+                android:id="@+id/notification_background6"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time6"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title6"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text6"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText "
+                    tools:text="StockText_StockText_StockText
+             StockText_StockText_StockText
+             StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+            <!-- Layout Stock 7 -->
+            <LinearLayout
+                android:id="@+id/notification_background7"
+                style="dpgroupStylebluegray_100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/stockBackground"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="241dp">
+
+                <TextView
+                    android:id="@+id/notification_time7"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Today 19:18"
+                    tools:text="Today 19:18" />
+
+
+                <TextView
+                    android:id="@+id/notification_title7"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.02"
+                    android:letterSpacing="0.01"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="-31dp"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="true"
+                    android:text="Notification Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Notification Name" />
+
+                <TextView
+                    android:id="@+id/notification_text7"
+                    style="txtRobotomedium20_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_weight="0.5"
+                    android:ellipsize="end"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:singleLine="false"
+                    android:text="StockText_StockText_StockText
+                     StockText_StockText_StockText
+                     StockText_StockText_StockText @{buySellVM.buySellModel.txtStockCounter}"
+                    tools:text="StockText_StockText_StockText
+             StockText_StockText_StockText
+             StockText_StockText_StockText " />
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
