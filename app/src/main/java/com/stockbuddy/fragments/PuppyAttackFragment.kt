@@ -37,6 +37,16 @@ class PuppyAttackFragment : Fragment() {
         binding.imageRectangleNineteen.setOnClickListener {
             findNavController().navigate(R.id.action_puppyAttackFragment_to_firstFragment)
         }
+
+        //menu
+        //account
+        binding.imageUser.setOnClickListener {
+            findNavController().navigate(R.id.action_puppyAttackFragment_to_accountFragment)
+        }
+        //notifications
+        binding.imageNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_puppyAttackFragment_to_settingsFragment)
+        }
     }
 
     override fun onDestroyView() {

@@ -47,6 +47,17 @@ class AccountFragment : Fragment() {
             findNavController().navigate(R.id.action_accountFragment_to_tradingFragment)
         }
 
+        //newbtns
+        binding.btnTradingHistoryOne.setOnClickListener {
+            findNavController().navigate(R.id.action_accountFragment_to_settingsFragment)
+        }
+        binding.btnTradingHistoryOne2.setOnClickListener {
+            findNavController().navigate(R.id.action_accountFragment_to_historyFragment)
+        }
+        binding.btnTradingHistoryOne3.setOnClickListener {
+            findNavController().navigate(R.id.action_accountFragment_to_puppyAttackFragment)
+        }
+
         //PUPPYATTACK
 //        binding.StockBackground1.setOnClickListener {
 //            findNavController().navigate(R.id.action_)

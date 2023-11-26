@@ -48,6 +48,16 @@ class HistoryFragment : Fragment() {
             findNavController().navigate(R.id.action_historyFragment_to_notificationsFragment)
         }
 
+        //menu
+        //account
+        binding.imageUser.setOnClickListener {
+            findNavController().navigate(R.id.action_historyFragment_to_accountFragment)
+        }
+        //notifications
+        binding.imageNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_historyFragment_to_notificationsFragment)
+        }
+
         //PUPPYATTACK
 //        binding.StockBackground1.setOnClickListener {
 //            findNavController().navigate(R.id.action_)

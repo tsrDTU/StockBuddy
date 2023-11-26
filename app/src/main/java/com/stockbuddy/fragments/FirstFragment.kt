@@ -36,6 +36,46 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragment_to_secondFragment)//action_FirstFragment_to_SecondFragment
         }
+
+        //stocks
+        binding.StockBackground1.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground2.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground3.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground4.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground5.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground6.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground7.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground8.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground9.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground10.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground11.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+        binding.StockBackground12.setOnClickListener {
+            findNavController().navigate(R.id.action_firstFragment_to_stockFragment)
+        }
+
+
     }
 
     override fun onDestroyView() {

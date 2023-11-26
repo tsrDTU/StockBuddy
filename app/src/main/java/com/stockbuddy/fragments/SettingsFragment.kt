@@ -49,6 +49,16 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(R.id.action_settingsFragment_to_stockFragment)
         }
 
+        //menu
+        //account
+        binding.imageUser.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_accountFragment)
+        }
+        //notifications
+        binding.imageNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_notificationsFragment)
+        }
+
         //PUPPYATTACK
 //        binding.StockBackground1.setOnClickListener {
 //            findNavController().navigate(R.id.action_)

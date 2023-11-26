@@ -48,6 +48,25 @@ class StockFragment : Fragment() {
             findNavController().navigate(R.id.action_stockFragment_to_puppyAttackFragment)
         }
 
+        //buysell
+        binding.btnBuy.setOnClickListener {
+            findNavController().navigate(R.id.action_stockFragment_to_tradingFragment)
+        }
+        binding.btnSell.setOnClickListener {
+            findNavController().navigate(R.id.action_stockFragment_to_tradingFragment)
+        }
+
+        //menu
+        //account
+        binding.imageUser.setOnClickListener {
+            findNavController().navigate(R.id.action_stockFragment_to_accountFragment)
+        }
+        //notifications
+        binding.imageNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_stockFragment_to_notificationsFragment)
+        }
+
+
 
         //PUPPYATTACK
 //        binding.StockBackground1.setOnClickListener {
