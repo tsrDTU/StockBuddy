@@ -59,7 +59,7 @@
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="4dp"
                         android:singleLine="true"
-                        android:text="StockName"
+                        android:text="StckName"
                         tools:text="StockName" />
 
                     <LinearLayout
