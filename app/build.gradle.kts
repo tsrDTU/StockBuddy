@@ -59,6 +59,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.google.dagger:hilt-android:2.48.1")
+    implementation("com.google.firebase:firebase-firestore:24.10.0")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 
 
