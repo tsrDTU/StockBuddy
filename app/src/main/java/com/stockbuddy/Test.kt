@@ -43,7 +43,7 @@ class Test: ComponentActivity() {
     @Composable
     fun Greeting(name: String, modifier: Modifier = Modifier) {
 
-        addUser("tsr", "Torben", "Rasmussen","tsr@dtu")
+     //   addUser("tsr", "Torben", "Rasmussen","tsr@dtu")
         readUser("tsr")
         Text(
             text = "Hello $name!",

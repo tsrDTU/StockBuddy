@@ -1,13 +1,17 @@
 package com.stockbuddy.domain.users
 
+//noinspection SuspiciousImport
+import android.R
 import android.content.ContentValues.TAG
+import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
-
-
-
+import com.google.firebase.installations.remote.TokenResult
 
 
 fun addUser (userId : String, first : String, last : String, email : String) {
@@ -29,11 +33,19 @@ fun addUser (userId : String, first : String, last : String, email : String) {
         }
 }
 
+
 fun readUser(userId: String){
     val textView: TextView? = null
     val db = Firebase.firestore
-  val usr = db.collection("users.userId")
-        .get()
+
+//    val docRef = db.collection("users").document(userId)
+
+
+ //   docRef.get().addOnSuccessListener { OnSuccessListener<TokenResult>(TokenResult) -> Unit }
+
+//  val usr = db.collection("users/tsr/FirstName")
+ //       .get().result
+        /*
         .addOnSuccessListener { result ->
             for (document in result){
                 Log.d(TAG, "${document.id} => ${document.data}")
@@ -44,6 +56,61 @@ fun readUser(userId: String){
         .addOnFailureListener { exception ->
             Log.d(TAG, "Error adding document", exception)
         }
-    textView?.text = usr.toString()
+
+         */
+ //   textView?.text = usr.toString()
+ //   val db = FirebaseFirestore.getInstance()
+    val docRef = db.collection("users").document("0Il6viDGKOoaZmsSOwxR")
+    docRef.get().addOnCompleteListener { task ->
+        if (task.isSuccessful) {
+            val document = task.result
+            if (document.exists()) {
+                // Update your TextView with the user's data from Firestore
+                val data = document.getString("FirstName")
+                if (textView != null) {
+                    textView.setText(data)
+                }
+            } else {
+                Log.d(TAG, "No such document")
+            }
+        } else {
+            Log.d(TAG, "get failed with ", task.exception)
+        }
+    }
 
 }
+
+/* From Co-pilot */
+/*
+class YourActivity : AppCompatActivity() {
+    private var textView: TextView? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+  //      setContentView(binding.root)
+ //       textView = findViewById<TextView>(R.id.textView)
+        val db = FirebaseFirestore.getInstance()
+   //     val user: FirebaseUser = FirebaseAuth.getInstance().getCurrentUser()
+        val user = "tsr"
+        if (user != null) {
+     //       val userId: String = user.getUid()
+            val userId = "tsr"
+            val docRef = db.collection("users").document(userId)
+            docRef.get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val document = task.result
+                    if (document.exists()) {
+                        // Update your TextView with the user's data from Firestore
+                        val data = document.getString("yourField")
+                        textView.setText(data)
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.exception)
+                }
+            }
+        }
+    }
+}
+
+ */
