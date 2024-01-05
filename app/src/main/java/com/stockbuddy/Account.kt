@@ -128,7 +128,7 @@ fun AccountPage() {
                             .padding(top = 8.dp, bottom = 0.dp)
                     ) {
                     Text(
-                        text = "Puppy Pictures",
+                        text = "Name Namerson",
                         color = Color.Black, // Set the text color
                         modifier = Modifier
                             .wrapContentWidth()
