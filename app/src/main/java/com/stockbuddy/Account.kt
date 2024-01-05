@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +19,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,6 +35,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -44,20 +50,20 @@ import androidx.navigation.compose.rememberNavController
 import com.stockbuddy.ui.theme.StockBuddyTheme
 import com.stockbuddy.ui.components.StockBuddyTabRow
 
-class History : ComponentActivity() {
+class Account : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            HistoryPage()
+            AccountPage()
         }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
-@Preview(name = "History")
+@Preview(name = "Account")
 @Composable
-fun HistoryPage() {
+fun AccountPage() {
     StockBuddyTheme {
         val navController = rememberNavController()
         val currentBackStack by navController.currentBackStackEntryAsState()
@@ -85,6 +91,58 @@ fun HistoryPage() {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .height(150.dp)
+                            .padding(top = 20.dp, bottom = 4.dp)
+                    ) {
+                        // Content of the first Box
+                        Box(
+                            modifier = Modifier
+                                .width(125.dp)
+                                .height(240.dp)
+                                .background(
+                                    color = Color(R.color.stockBackground),
+                                    shape = RoundedCornerShape(64.dp)
+                                )
+                                .align(Alignment.Center)
+                                .padding(8.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_ellipse1),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(
+                                        color = Color.Gray, // Placeholder background color
+                                        shape = RoundedCornerShape(64.dp)
+                                    ),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
+                    }
+                }
+                item {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                            .padding(top = 8.dp, bottom = 0.dp)
+                    ) {
+                    Text(
+                        text = "Puppy Pictures",
+                        color = Color.Black, // Set the text color
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .padding(top = 0.dp)
+                            .align(Alignment.Center),
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                }
+                item {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
                             .height(110.dp)
                             .padding(top = 20.dp, bottom = 4.dp)
                     ) {
@@ -93,19 +151,21 @@ fun HistoryPage() {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(120.dp)
-                                .background(Color(R.color.stockBackground))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
+                                .background(
+                                    color = Color(R.color.stockBackground),
+                                    shape = RoundedCornerShape(64.dp)
+                                )
+                                .align(Alignment.Center)
+                                .padding(0.dp)
                         ) {
                             // Third Text (Fills the rest of the space)
                             Text(
-                                text = "Welcome to the app",
+                                text = "Trading History",
                                 color = Color.White, // Set the text color
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .wrapContentWidth()
                                     .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
+                                    .align(Alignment.Center),
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -117,26 +177,30 @@ fun HistoryPage() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .padding(top = 4.dp, bottom = 4.dp),
+                        contentAlignment = Alignment.Center
                     ) {
                         // Content of the first Box
                         Box(
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(120.dp)
-                                .background(Color(R.color.stockBackground))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
+                                .background(
+                                    color = Color(R.color.stockBackground),
+                                    shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
+                                )
+                                .align(Alignment.Center)
+                                .padding(0.dp),
+                            contentAlignment = Alignment.Center
                         ) {
                             // Third Text (Fills the rest of the space)
                             Text(
-                                text = "Welcome to the app",
+                                text = "Settings",
                                 color = Color.White, // Set the text color
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .wrapContentWidth()
                                     .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
+                                    .align(Alignment.Center),
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold
                             )
@@ -148,93 +212,38 @@ fun HistoryPage() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .padding(top = 4.dp, bottom = 4.dp),
+                        contentAlignment = Alignment.Center
                     ) {
                         // Content of the first Box
                         Box(
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(120.dp)
-                                .background(Color(R.color.stockBackground))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
+                                .background(
+                                    color = Color(R.color.stockBackground),
+                                    shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
+                                )
+                                .align(Alignment.Center)
+                                .padding(0.dp),
+                            contentAlignment = Alignment.Center
                         ) {
                             // Third Text (Fills the rest of the space)
                             Text(
-                                text = "Welcome to the app",
+                                text = "Puppy Pictures",
                                 color = Color.White, // Set the text color
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .wrapContentWidth()
                                     .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
+                                    .align(Alignment.Center),
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Bold
                             )
                         }
                     }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.stockBackground))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.stockBackground))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
+
+
+
 
 
 
