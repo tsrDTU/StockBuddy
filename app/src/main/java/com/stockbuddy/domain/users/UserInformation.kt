@@ -2,6 +2,12 @@ package com.stockbuddy.domain.users
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -10,6 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 private var userIdFirestore = ""
+
 
 fun addUser (userId : String, first : String, last : String, email : String) {
     val user = hashMapOf<String, String>(
@@ -38,7 +45,7 @@ fun selectUserInFirestore(userId: String){
 /*
 With assistance from chatGPT
  */
-class MyViewModel : ViewModel() {
+class UserViewModel : ViewModel() {
     private var _actUser = MutableStateFlow<List<UserData>>(emptyList())
     var actUser: StateFlow<List<UserData>> = _actUser
 
@@ -86,5 +93,20 @@ class MyViewModel : ViewModel() {
                 }
             }
 
+    }
+}
+
+@Composable
+fun ShowUserInformation(viewModel: UserViewModel) {
+
+    val dataList by viewModel.actUser.collectAsState()
+
+    LazyColumn {
+        items(dataList) { dataList ->
+            // ListItemComposable
+            //             Text(text = dataList.toString())
+            Text(text = dataList.FirstName.toString())
+            Text(text = dataList.LastName.toString())
+        }
     }
 }
