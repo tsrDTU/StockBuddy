@@ -56,6 +56,12 @@ android {
 
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+ //   val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
+ //   implementation(composeBom)
+
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+
     implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.google.dagger:hilt-android:2.48.1")

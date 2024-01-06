@@ -1,18 +1,28 @@
 package com.stockbuddy.domain.users
 
 //noinspection SuspiciousImport
-import android.R
+
 import android.content.ContentValues.TAG
-import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.OnSuccessListener
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
-import com.google.firebase.installations.remote.TokenResult
+import com.google.firebase.firestore.toObject
+import com.stockbuddy.data.UserData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import java.lang.Thread.sleep
+import kotlinx.coroutines.*
+import kotlinx.coroutines.android.awaitFrame
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
+private var FirstName : String = " XY "
+private var LarstName : String = " AB "
 
 fun addUser (userId : String, first : String, last : String, email : String) {
     val user = hashMapOf<String, String>(
@@ -34,83 +44,135 @@ fun addUser (userId : String, first : String, last : String, email : String) {
 }
 
 
-fun readUser(userId: String){
-    val textView: TextView? = null
+ fun ReadUser(userId: String){
+
     val db = Firebase.firestore
+    var fieldValue : String = ""
 
-//    val docRef = db.collection("users").document(userId)
 
-
- //   docRef.get().addOnSuccessListener { OnSuccessListener<TokenResult>(TokenResult) -> Unit }
-
-//  val usr = db.collection("users/tsr/FirstName")
- //       .get().result
-        /*
-        .addOnSuccessListener { result ->
-            for (document in result){
-                Log.d(TAG, "${document.id} => ${document.data}")
- //               textView?.text = "${document.id}=> ${document.data}  "
-            }
-
-        }
-        .addOnFailureListener { exception ->
-            Log.d(TAG, "Error adding document", exception)
-        }
-
-         */
- //   textView?.text = usr.toString()
- //   val db = FirebaseFirestore.getInstance()
-    val docRef = db.collection("users").document("0Il6viDGKOoaZmsSOwxR")
-    docRef.get().addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            val document = task.result
-            if (document.exists()) {
-                // Update your TextView with the user's data from Firestore
-                val data = document.getString("FirstName")
-                if (textView != null) {
-                    textView.setText(data)
+   db.collection("users")
+        .whereEqualTo("UserId", userId)
+        .get()
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                for (document in task.result) {
+                    Log.d(TAG, document.id + " => " + document.data)
+                    // You can now work with the document
+                    // For example, to get a field's value:
+                     fieldValue = document.getString("FirstName").toString()
                 }
             } else {
-                Log.d(TAG, "No such document")
+                Log.d(TAG, "Error getting documents: ", task.exception)
             }
-        } else {
-            Log.d(TAG, "get failed with ", task.exception)
         }
-    }
 
 }
 
-/* From Co-pilot */
-/*
-class YourActivity : AppCompatActivity() {
-    private var textView: TextView? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-  //      setContentView(binding.root)
- //       textView = findViewById<TextView>(R.id.textView)
-        val db = FirebaseFirestore.getInstance()
-   //     val user: FirebaseUser = FirebaseAuth.getInstance().getCurrentUser()
-        val user = "tsr"
-        if (user != null) {
-     //       val userId: String = user.getUid()
-            val userId = "tsr"
-            val docRef = db.collection("users").document(userId)
-            docRef.get().addOnCompleteListener { task ->
+
+
+fun  ReadUserOnly(userId: String, actUser: List<UserData>): String= runBlocking{
+    val db = Firebase.firestore
+
+    val textView: TextView? = null
+
+    val job = launch {
+        db.collection("users")
+            .whereEqualTo("UserId", userId)
+            .get()
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val document = task.result
-                    if (document.exists()) {
-                        // Update your TextView with the user's data from Firestore
-                        val data = document.getString("yourField")
-                        textView.setText(data)
-                    } else {
-                        Log.d(TAG, "No such document")
+                    for (document in task.result) {
+                        Log.d(TAG, document.id + " => " + document.data)
+                        // You can now work with the document
+                        // For example, to get a field's value:
+                        FirstName = document.getString("FirstName").toString()
+                        actUser
+
+                        textView?.setText(FirstName)
+
+
+
+
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.exception)
+                    Log.d(TAG, "Error getting documents: ", task.exception)
                 }
             }
-        }
+    }
+
+    job.join() // wait until child coroutine completes
+
+    return@runBlocking FirstName
+}
+
+fun getFirstName(): String {
+
+    return FirstName
+}
+
+
+fun getLastName(): String {
+
+    return LarstName
+}
+
+fun getNytTal(n : Int) : Int {
+
+    return n + 1
+}
+
+/*
+With assistance from chatGPT
+ */
+class MyViewModel : ViewModel() {
+    private var _actUser = MutableStateFlow<List<UserData>>(emptyList())
+    var actUser: StateFlow<List<UserData>> = _actUser
+
+    init {
+        ReadUser("tsr")
+    }
+
+  private fun ReadUser(userId: String){
+
+        val db = Firebase.firestore
+        var fieldValue : String = ""
+      val usr = UserData (
+          Emailaddress = "",
+          FirstName = "",
+          LastName = "",
+          UserId = ""
+      )
+
+
+        db.collection("users")
+            .whereEqualTo("UserId", userId)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    for (document in task.result) {
+                        Log.d(TAG, document.id + " => " + document.data)
+                        // You can now work with the document
+                        // For example, to get a field's value:
+                    //    fieldValue = document.getString("FirstName").toString()
+                        usr.UserId = document.getString("UserId").toString()
+                        usr.FirstName = document.getString("FirstName").toString()
+                        usr.LastName = document.getString("LastName").toString()
+                        usr.Emailaddress = document.getString("Emailaddress").toString()
+
+
+                        val updatedList = _actUser.value.toMutableList().apply {
+                            add(usr)
+                        }
+                        _actUser.value = updatedList
+
+
+                    }
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.exception)
+                }
+            }
+
     }
 }
 
- */
+
