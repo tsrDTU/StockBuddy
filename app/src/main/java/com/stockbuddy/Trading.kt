@@ -46,6 +46,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.stockbuddy.ui.theme.StockBuddyTheme
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.filled.AttachMoney
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TextField
+import androidx.compose.ui.text.input.KeyboardType
 import com.stockbuddy.ui.components.StockBuddyTabRow
 
 
@@ -82,6 +90,10 @@ fun TradingPage() {
 //                )
 //            }
 //        ) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {}
         LazyColumn {
             item {
                 Box(
@@ -110,7 +122,7 @@ fun TradingPage() {
                                 .wrapContentWidth()
                                 .padding(top = 0.dp)
                                 .align(Alignment.Center),
-                            fontSize = 16.sp,
+                            fontSize = 24.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -142,7 +154,7 @@ fun TradingPage() {
                             modifier = Modifier
                                 .wrapContentWidth()
                                 .padding(top = 0.dp)
-                                .align(Alignment.Center),
+                                .align(Alignment.CenterStart),
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold,
 
@@ -154,121 +166,112 @@ fun TradingPage() {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(80.dp)
+                        .height(90.dp)
                         .padding(top = 4.dp, bottom = 4.dp)
+
+                ) {
+                    var price by remember { mutableStateOf(0f) }
+
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .height(80.dp)
+                            .background(Color.Gray)
+                            .padding(8.dp)
+                            .align(Alignment.Center),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            // Left side (input field)
+                            OutlinedTextField(
+                                value = price.toString(),
+                                onValueChange = {
+                                    // Handle input change
+                                    price = it.toFloatOrNull() ?: 0f
+                                },
+                                label = { Text("Enter Amount") },
+                                keyboardOptions = KeyboardOptions.Default.copy(
+                                    keyboardType = KeyboardType.Number
+                                ),
+                                singleLine = true,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(end = 8.dp)
+                            )
+
+                            // Right side (text)
+                            Icon(
+                                imageVector = Icons.Default.AttachMoney,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                    }
+                }
+            }
+item {
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .height(60.dp)
+        .padding(top = 0.dp, bottom = 0.dp)) {
+        Button(
+            onClick = { /* Handle Buy button click */ },
+            colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
+            modifier = Modifier
+                .height(48.dp)
+                .width(320.dp)
+                .align(Alignment.Center)
+
+        ) {
+            Text(text = "Approve", color = Color.White, fontWeight = FontWeight.Bold)
+        }
+    }
+
+}
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(360.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+
                 ) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .height(120.dp)
+                            .height(360.dp)
                             .background(Color(R.color.stockBackground))
                             .align(Alignment.Center)
-                            .padding(8.dp)
-//                                .clickable { navController.navigate("home") }
-                        ,
-                        contentAlignment = Alignment.Center
-                    ) {
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center,
+
+                        ) {
                         // Third Text (Fills the rest of the space)
                         Text(
-                            text = "Amount Owned - Amount",
+                            text = "Details",
                             color = Color.White, // Set the text color
                             modifier = Modifier
                                 .wrapContentWidth()
                                 .padding(top = 0.dp)
                                 .align(Alignment.Center),
                             fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold
-                        )
+                            fontWeight = FontWeight.Medium,
+
+                            )
                     }
                 }
-
-
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(100.dp)
-//                    .background(Color.Gray)
-//                    .padding(16.dp)
-//            ) {
-//                // First item
-//                Text(
-//                    text = "Item 1",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//
-//                // Spacer to create space between items
-//                Spacer(modifier = Modifier.width(8.dp))
-//
-//                // Second item
-//                Text(
-//                    text = "Item 2",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//            }
-
-//                item {
-//                    Box(
-//                        modifier = Modifier
-//                            .width(360.dp)
-//                            .height(800.dp)
-//                            .clip(
-//                                RoundedCornerShape(
-//                                    topStart = 0.dp,
-//                                    topEnd = 0.dp,
-//                                    bottomStart = 0.dp,
-//                                    bottomEnd = 0.dp
-//                                )
-//                            )
-//                            .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
-//                            .padding(start = 0.dp, top = 0.dp, end = 0.dp, bottom = 0.dp)
-//                            .alpha(1f)
-//                    ) {
-//
-//                        Box(
-//                            modifier = Modifier
-//                                .width(329.dp)
-//                                .height(146.dp)
-//                                .padding(8.dp)
-//                                .clip(
-//                                    RoundedCornerShape(
-//                                        topStart = 0.dp,
-//                                        topEnd = 0.dp,
-//                                        bottomStart = 0.dp,
-//                                        bottomEnd = 0.dp
-//                                    )
-//                                )
-//                                .align(Alignment.TopCenter)
-//
-//                                .background(
-//                                    Color(
-//                                        red = 0.8509804010391235f,
-//                                        green = 0.8509804010391235f,
-//                                        blue = 0.8509804010391235f,
-//                                        alpha = 1f
-//                                    )
-//                                )
-//                        )
-//                    }
-
-//                    StockBuddyNavHost(
-//                        navController = navController,
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
             }
+
         }
     }
 }
+
 
 
 
