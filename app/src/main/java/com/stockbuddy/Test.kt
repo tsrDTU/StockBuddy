@@ -7,9 +7,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.stockbuddy.domain.users.ShowStockInformation
 import com.stockbuddy.domain.users.UserViewModel
+import com.stockbuddy.domain.users.StockViewModel
 import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.addStock
+import com.stockbuddy.domain.users.addUser
 import com.stockbuddy.domain.users.selectUserInFirestore
 
 
@@ -28,9 +31,11 @@ class Test: ComponentActivity() {
                 ) {
 
                //     addUser("bd", "Stock", "Buddy", "stock.buddy@mail.dummy")
-                    addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
+                    addUser("aa", "Anders", "And", "anders.and@mail.andeby")
+               //     addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
                     selectUserInFirestore("bd")
                     ShowUserInformation(viewModel = UserViewModel())
+                    ShowStockInformation(viewModel = StockViewModel())
 
                 }
             }

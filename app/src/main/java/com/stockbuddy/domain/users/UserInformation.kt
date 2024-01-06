@@ -11,20 +11,21 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import com.stockbuddy.data.StockData
 import com.stockbuddy.data.UserData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-private var userIdFirestore = ""
+var userIdFirestore = ""
 
 
 fun addUser (userId : String, first : String, last : String, email : String) {
-    val user = hashMapOf<String, String>(
-       "UserId" to userId,
-        "FirstName" to first,
-        "LastName" to last,
-        "EmailAddress" to email
 
+    val user = UserData (
+        UserId = userId,
+        FirstName = first,
+        LastName = last,
+        Emailaddress = email
     )
     val db = Firebase.firestore
     db.collection("users")
@@ -72,9 +73,7 @@ class UserViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     for (document in task.result) {
                         Log.d(TAG, document.id + " => " + document.data)
-                        // You can now work with the document
-                        // For example, to get a field's value:
-                    //    fieldValue = document.getString("FirstName").toString()
+
                         usr.UserId = document.getString("UserId").toString()
                         usr.FirstName = document.getString("FirstName").toString()
                         usr.LastName = document.getString("LastName").toString()

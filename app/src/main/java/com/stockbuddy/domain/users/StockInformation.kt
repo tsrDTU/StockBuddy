@@ -3,9 +3,18 @@ package com.stockbuddy.domain.users
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.stockbuddy.data.StockData
+import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 //private var userIdFirestore = ""
 
@@ -50,7 +59,7 @@ fun selectUserInFirestore(userId: String){
  */
 
 
-/*
+
 class StockViewModel : ViewModel() {
     private var _actStock = MutableStateFlow<List<StockData>>(emptyList())
     var actStock: StateFlow<List<StockData>> = _actStock
@@ -64,33 +73,43 @@ class StockViewModel : ViewModel() {
         val db = Firebase.firestore
         var fieldValue : String = ""
         val usr = StockData (
-            Emailaddress = "",
-            FirstName = "",
-            LastName = "",
-            StockId = ""
+            UserId = userId,
+            StockName = "",
+            NumberOfStocks = 0,
+            PurPriceEuro = 0.0,
+            PurCostEuro = 0.0,
+            PurDate = "",
+            Sold = false,
+            SellPriceEuro = 0.0,
+            SellCostEuro = 0.0,
+            SellDate = ""
         )
 
 
-        db.collection("users")
+        db.collection("stockTradingHistory")
             .whereEqualTo("StockId", userId)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
                         Log.d(TAG, document.id + " => " + document.data)
-                        // You can now work with the document
-                        // For example, to get a field's value:
-                        //    fieldValue = document.getString("FirstName").toString()
+
                         usr.UserId = document.getString("UserId").toString()
-                        usr.FirstName = document.getString("FirstName").toString()
-                        usr.LastName = document.getString("LastName").toString()
-                        usr.Emailaddress = document.getString("Emailaddress").toString()
+                        usr.StockName = document.getString("StockName").toString()
+                        usr.NumberOfStocks = document.getString("NumberOfStocks")!!.toInt()
+                        usr.PurPriceEuro = document.getString("PurPriceEuro")!!.toDouble()
+                        usr.PurCostEuro = document.getString("PurCostEuro")!!.toDouble()
+                        usr.PurDate = document.getString("PurDate").toString()
+                        usr.Sold = document.getString("Sold")!!.toBoolean()
+                        usr.SellPriceEuro = document.getString("SellPriceEuro")!!.toDouble()
+                        usr.SellCostEuro = document.getString("SellCostEuro")!!.toDouble()
+                        usr.SellDate = document.getString("SellDate").toString()
 
 
-                        val updatedList = _actUser.value.toMutableList().apply {
+                        val updatedList = _actStock.value.toMutableList().apply {
                             add(usr)
                         }
-                        _actUser.value = updatedList
+                        _actStock.value = updatedList
 
 
                     }
@@ -105,16 +124,16 @@ class StockViewModel : ViewModel() {
 @Composable
 fun ShowStockInformation(viewModel: StockViewModel) {
 
-    val dataList by viewModel.actUser.collectAsState()
+    val dataList by viewModel.actStock.collectAsState()
 
     LazyColumn {
         items(dataList) { dataList ->
             // ListItemComposable
             //             Text(text = dataList.toString())
-            Text(text = dataList.FirstName.toString())
-            Text(text = dataList.LastName.toString())
+            Text(text = dataList.StockName.toString())
+
         }
     }
 }
 
- */
+
