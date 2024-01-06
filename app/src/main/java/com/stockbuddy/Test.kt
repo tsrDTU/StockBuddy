@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.stockbuddy.domain.users.UserViewModel
 import com.stockbuddy.domain.users.ShowUserInformation
-import com.stockbuddy.domain.users.addUser
+import com.stockbuddy.domain.users.addStock
 import com.stockbuddy.domain.users.selectUserInFirestore
 
 
@@ -28,6 +28,7 @@ class Test: ComponentActivity() {
                 ) {
 
                //     addUser("bd", "Stock", "Buddy", "stock.buddy@mail.dummy")
+                    addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
                     selectUserInFirestore("bd")
                     ShowUserInformation(viewModel = UserViewModel())
 
