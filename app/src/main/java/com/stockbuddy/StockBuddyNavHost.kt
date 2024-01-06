@@ -6,7 +6,6 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.stockbuddy.StockBuddyDestination
 
 
 @Composable
@@ -58,6 +57,7 @@ fun StockBuddyNavHost(
 
          */
         }
+        composable("stockPage")  { StockPage(navController) }
     }
 }
     fun NavHostController.navigateSingleTopTo(route: String) =
