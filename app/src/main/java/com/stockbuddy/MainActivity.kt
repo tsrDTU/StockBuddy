@@ -1,5 +1,6 @@
 package com.stockbuddy
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -15,8 +16,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -72,6 +80,35 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
+
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun search(){
+    var input by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf(false) }
+    Scaffold{
+        SearchBar(query = input,
+            onQueryChange = {
+                input = it
+            },
+            onSearch ={
+                status = false
+            },
+            active = status,
+            onActiveChange ={
+                status = it
+            } )
+        {
+
+        }
+    }
+}
+
+
+
+
 
 /*
 @Composable
