@@ -1,10 +1,10 @@
 package com.stockbuddy.data
 
 data class UserData(
-    var Emailaddress: String,
-    var FirstName: String,
-    var LastName: String,
-    var UserId: String
+    var emailaddress: String,
+    var firstName: String,
+    var lastName: String,
+    var userId: String
 )
 
 data class StockData(

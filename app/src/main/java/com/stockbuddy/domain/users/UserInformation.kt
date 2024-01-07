@@ -20,13 +20,23 @@ var userIdFirestore = ""
 
 
 fun addUser (userId : String, first : String, last : String, email : String) {
-
+/*
     val user = UserData (
-        UserId = userId,
-        FirstName = first,
-        LastName = last,
-        Emailaddress = email
+        userId = userId,
+        firstName = first,
+        lastName = last,
+        emailaddress = email
     )
+
+ */
+   val user = hashMapOf(
+        "UserId" to userId,
+        "FirstName" to first,
+        "LastName" to last,
+       "Emailaddress" to email
+)
+
+
     val db = Firebase.firestore
     db.collection("users")
         .add(user)
@@ -56,13 +66,14 @@ class UserViewModel : ViewModel() {
 
   private fun ReadUser(userId: String){
 
-        val db = Firebase.firestore
-        var fieldValue : String = ""
-      val usr = UserData (
-          Emailaddress = "",
-          FirstName = "",
-          LastName = "",
-          UserId = ""
+      val db = Firebase.firestore
+
+
+      val usr: UserData = UserData (
+          emailaddress = "",
+          firstName = "",
+          lastName = "",
+          userId = ""
       )
 
 
@@ -74,10 +85,10 @@ class UserViewModel : ViewModel() {
                     for (document in task.result) {
                         Log.d(TAG, document.id + " => " + document.data)
 
-                        usr.UserId = document.getString("UserId").toString()
-                        usr.FirstName = document.getString("FirstName").toString()
-                        usr.LastName = document.getString("LastName").toString()
-                        usr.Emailaddress = document.getString("Emailaddress").toString()
+                        usr.userId = document.getString("UserId").toString()
+                        usr.firstName = document.getString("FirstName").toString()
+                        usr.lastName = document.getString("LastName").toString()
+                        usr.emailaddress = document.getString("Emailaddress").toString()
 
 
                         val updatedList = _actUser.value.toMutableList().apply {
@@ -104,8 +115,8 @@ fun ShowUserInformation(viewModel: UserViewModel) {
         items(dataList) { dataList ->
             // ListItemComposable
             //             Text(text = dataList.toString())
-            Text(text = dataList.FirstName.toString())
-            Text(text = dataList.LastName.toString())
+            Text(text = dataList.firstName.toString())
+            Text(text = dataList.lastName.toString())
         }
     }
 }

@@ -30,12 +30,14 @@ class Test: ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-               //     addUser("bd", "Stock", "Buddy", "stock.buddy@mail.dummy")
-                    addUser("aa", "Anders", "And", "anders.and@mail.andeby")
-               //     addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
-                    selectUserInFirestore("bd")
+                //    addUser("bd", "Stock", "Buddy", "stock.buddy@mail.dummy")
+               //     addUser("tt", "Tin", "Tin", "tin.tin@mail.belg")
+                    addUser("kh", "Kaptajn", "Haddock", "kaptajn.haddock@mail.belg")
+               //     addUser("ll", "Lucky", "Luke", "lucky.luke@mail.detvildevesten")
+          //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
+                    selectUserInFirestore("kh")
                     ShowUserInformation(viewModel = UserViewModel())
-                    ShowStockInformation(viewModel = StockViewModel())
+           //         ShowStockInformation(viewModel = StockViewModel())
 
                 }
             }

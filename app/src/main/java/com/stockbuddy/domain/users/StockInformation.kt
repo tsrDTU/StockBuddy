@@ -20,15 +20,20 @@ import kotlinx.coroutines.flow.StateFlow
 
 
 fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Double, purCost: Double, purDate: String) {
-  /*  val stock = hashMapOf<StockData>(
-        "StockId" to userId,
-        "FirstName" to first,
-        "LastName" to last,
-        "EmailAddress" to email
-
+   val stock = hashMapOf(
+        "UserId" to userId,
+        "StockName" to stockName,
+        "NumberOfStocks" to numOfStocks,
+        "PurPriceEuro" to purPrice,
+        "PurCostEuro" to purCost,
+         "PurDate"  to purDate,
+        "Sold" to false,
+       "SellPriceEuro" to 0.0,
+       "SellCostEuro" to 0.0,
+       "SellDate" to ""
     )
 
-   */
+   /*
     val stock = StockData (
         UserId = userId,
         StockName = stockName,
@@ -41,6 +46,8 @@ fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Do
      SellCostEuro = 0.0,
      SellDate = ""
     )
+
+   */
     val db = Firebase.firestore
     db.collection("stockTradingHistory")
         .add(stock)
@@ -87,22 +94,23 @@ class StockViewModel : ViewModel() {
 
 
         db.collection("stockTradingHistory")
-            .whereEqualTo("StockId", userId)
+            .whereEqualTo("UserId", userId)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
-                        Log.d(TAG, document.id + " => " + document.data)
+                //        Log.d(TAG, document.id + " => " + document.data)
 
                         usr.UserId = document.getString("UserId").toString()
                         usr.StockName = document.getString("StockName").toString()
-                        usr.NumberOfStocks = document.getString("NumberOfStocks")!!.toInt()
-                        usr.PurPriceEuro = document.getString("PurPriceEuro")!!.toDouble()
-                        usr.PurCostEuro = document.getString("PurCostEuro")!!.toDouble()
-                        usr.PurDate = document.getString("PurDate").toString()
-                        usr.Sold = document.getString("Sold")!!.toBoolean()
-                        usr.SellPriceEuro = document.getString("SellPriceEuro")!!.toDouble()
-                        usr.SellCostEuro = document.getString("SellCostEuro")!!.toDouble()
+          //              usr.NumberOfStocks = document.getLong("NumberOfStocks")!!.toInt()
+          //              usr.NumberOfStocks = document.get("NumberOfStocks")?.toInt()
+          //              usr.PurPriceEuro = document.getString("PurPriceEuro")!!.toDouble()
+          //              usr.PurCostEuro = document.getString("PurCostEuro")!!.toDouble()
+          //              usr.PurDate = document.getString("PurDate").toString()
+          //              usr.Sold = document.getString("Sold")!!.toBoolean()
+          //              usr.SellPriceEuro = document.getString("SellPriceEuro")!!.toDouble()
+         //               usr.SellCostEuro = document.getString("SellCostEuro")!!.toDouble()
                         usr.SellDate = document.getString("SellDate").toString()
 
 
@@ -120,6 +128,7 @@ class StockViewModel : ViewModel() {
 
     }
 }
+
 
 @Composable
 fun ShowStockInformation(viewModel: StockViewModel) {
