@@ -58,7 +58,7 @@ import androidx.compose.foundation.clickable
 //}
 
 @OptIn(ExperimentalFoundationApi::class)
-@SuppressLint("RestrictedApi")
+
 //@Preview(name = "Stock") // NavController param needs to be commented to see preview
 @Composable
 fun StockPage(navController: NavHostController) {

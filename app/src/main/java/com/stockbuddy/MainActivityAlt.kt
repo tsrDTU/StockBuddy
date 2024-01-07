@@ -123,9 +123,7 @@ fun MainPage(navController : NavHostController) {
                                     .height(146.dp)
                                     .background(Color(R.color.stockBackground))
                                     .align(Alignment.TopCenter)
-                                    .clickable {
-                                        navController.navigate("stockPage")
-                                               },
+                                    .clickable {navController.navigate("stockPage")},
                                 contentAlignment = Alignment.Center
 
                             ) {
