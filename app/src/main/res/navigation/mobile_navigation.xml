@@ -33,6 +33,21 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_accountFragment2"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_stockFragment2"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -41,6 +56,18 @@
         <action
             android:id="@+id/action_secondFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_accountFragment2"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_stockFragment2"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -49,6 +76,21 @@
         <action
             android:id="@+id/action_accountFragment_to_tradingFragment"
             app:destination="@id/tradingFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_puppyAttackFragment"
+            app:destination="@id/puppyAttackFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/tradingFragment"
@@ -57,6 +99,15 @@
         <action
             android:id="@+id/action_tradingFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_tradingFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_tradingFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_tradingFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -65,6 +116,12 @@
         <action
             android:id="@+id/action_historyFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
@@ -73,6 +130,9 @@
         <action
             android:id="@+id/action_notificationsFragment_to_portfolioFragment"
             app:destination="@id/portfolioFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/portfolioFragment"
@@ -81,6 +141,18 @@
         <action
             android:id="@+id/action_portfolioFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_portfolioFragment_to_stockFragment2"
+            app:destination="@id/stockFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -89,6 +161,18 @@
         <action
             android:id="@+id/action_settingsFragment_to_stockFragment"
             app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_stockFragment2"
+            app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_puppyAttackFragment"
+            app:destination="@id/puppyAttackFragment" />
     </fragment>
     <fragment
         android:id="@+id/stockFragment"
@@ -97,6 +181,18 @@
         <action
             android:id="@+id/action_stockFragment_to_puppyAttackFragment"
             app:destination="@id/puppyAttackFragment" />
+        <action
+            android:id="@+id/action_stockFragment_to_tradingFragment"
+            app:destination="@id/tradingFragment" />
+        <action
+            android:id="@+id/action_stockFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_stockFragment_to_notificationsFragment2"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_stockFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
     <fragment
         android:id="@+id/puppyAttackFragment"
@@ -105,5 +201,17 @@
         <action
             android:id="@+id/action_puppyAttackFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
+        <action
+            android:id="@+id/action_puppyAttackFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_puppyAttackFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_puppyAttackFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+        <action
+            android:id="@+id/action_puppyAttackFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
 </navigation>
