@@ -75,7 +75,7 @@ class StockViewModel : ViewModel() {
         ReadStock(userIdFirestore)
     }
 
-    private fun ReadStock(userId: String){
+    private fun ReadStock(userId: String) {
 
         val db = Firebase.firestore
         var fieldValue : String = ""
@@ -99,18 +99,17 @@ class StockViewModel : ViewModel() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
-                //        Log.d(TAG, document.id + " => " + document.data)
+                        Log.d(TAG, document.id + " => " + document.data)
 
                         usr.UserId = document.getString("UserId").toString()
                         usr.StockName = document.getString("StockName").toString()
-          //              usr.NumberOfStocks = document.getLong("NumberOfStocks")!!.toInt()
-          //              usr.NumberOfStocks = document.get("NumberOfStocks")?.toInt()
-          //              usr.PurPriceEuro = document.getString("PurPriceEuro")!!.toDouble()
-          //              usr.PurCostEuro = document.getString("PurCostEuro")!!.toDouble()
-          //              usr.PurDate = document.getString("PurDate").toString()
-          //              usr.Sold = document.getString("Sold")!!.toBoolean()
-          //              usr.SellPriceEuro = document.getString("SellPriceEuro")!!.toDouble()
-         //               usr.SellCostEuro = document.getString("SellCostEuro")!!.toDouble()
+                          usr.NumberOfStocks = document.getLong("NumberOfStocks")?.toInt()
+                        usr.PurPriceEuro = document.getDouble("PurPriceEuro")
+                        usr.PurCostEuro = document.getDouble("PurCostEuro")
+                        usr.PurDate = document.getString("PurDate").toString()
+                        usr.Sold = document.getBoolean("Sold")
+                        usr.SellPriceEuro = document.getDouble("SellPriceEuro")
+                        usr.SellCostEuro = document.getDouble("SellCostEuro")
                         usr.SellDate = document.getString("SellDate").toString()
 
 
@@ -119,7 +118,6 @@ class StockViewModel : ViewModel() {
                         }
                         _actStock.value = updatedList
 
-
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.exception)
@@ -127,7 +125,11 @@ class StockViewModel : ViewModel() {
             }
 
     }
+
+
 }
+
+
 
 
 @Composable
@@ -135,11 +137,13 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 
     val dataList by viewModel.actStock.collectAsState()
 
+
     LazyColumn {
         items(dataList) { dataList ->
             // ListItemComposable
             //             Text(text = dataList.toString())
             Text(text = dataList.StockName.toString())
+
 
         }
     }

@@ -35,9 +35,10 @@ class Test: ComponentActivity() {
               //      addUser("kh", "Kaptajn", "Haddock", "kaptajn.haddock@mail.belg")
                //     addUser("ll", "Lucky", "Luke", "lucky.luke@mail.detvildevesten")
           //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
-                    selectUserInFirestore("kh")
-                    ShowUserInformation(viewModel = UserViewModel())
-           //         ShowStockInformation(viewModel = StockViewModel())
+          //          addStock("bd", "HP", 2475,733.0,15.0, "2024-01-08" )
+                    selectUserInFirestore("bd")
+           //         ShowUserInformation(viewModel = UserViewModel())
+                    ShowStockInformation(viewModel = StockViewModel())
 
                 }
             }
