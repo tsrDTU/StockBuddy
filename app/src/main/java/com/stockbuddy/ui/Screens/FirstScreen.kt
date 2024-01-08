@@ -10,7 +10,7 @@ import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import com.stockbuddy.di.AppModule_ProvideStockApiFactory
+//import com.stockbuddy.di.AppModule_ProvideStockApiFactory
 
 @Composable
 fun FirstScreen(

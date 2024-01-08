@@ -2,11 +2,13 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 
-    // https://github.com/raamcosta/compose-destinations/blob/main/README.md
-    id("com.google.devtools.ksp") version "1.9.20-1.0.14" // Depends on your kotlin version
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
-    id("com.google.gms.google-services")
+//    // https://github.com/raamcosta/compose-destinations/blob/main/README.md
+//    id("com.google.devtools.ksp") version "1.9.20-1.0.14" // Depends on your kotlin version
+//    kotlin("kapt")
+////    id("com.google.dagger.hilt.android")
+//    id("com.google.gms.google-services")
+//    id("dagger.hilt.android.plugin")
+
 
 }
 
@@ -58,8 +60,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
 
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+//    implementation("com.google.dagger:hilt-android:2.48.1")
+//    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
 
     //navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
@@ -101,16 +103,16 @@ dependencies {
 
     implementation("javax.inject:javax.inject:1")
 
-    implementation ("com.google.dagger:hilt-android:2.48.1")
-    annotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
+//    implementation ("com.google.dagger:hilt-android:2.48.1")
+//    annotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
 
     // For instrumentation tests
-    androidTestImplementation  ("com.google.dagger:hilt-android-testing:2.48.1")
-    androidTestAnnotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
+//    androidTestImplementation  ("com.google.dagger:hilt-android-testing:2.48.1")
+//    androidTestAnnotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
 
     // For local unit tests
-    testImplementation ("com.google.dagger:hilt-android-testing:2.48.1")
-    testAnnotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
+//    testImplementation ("com.google.dagger:hilt-android-testing:2.48.1")
+//    testAnnotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
     val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -173,14 +175,45 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+//    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7")
+
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // In the dependencies block of your app's build.gradle file
+
+    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.navigation:navigation-compose:2.4.0")
+
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+    implementation ("androidx.compose.material:material")
+    implementation ("androidx.compose.material:material-icons-extended")
+
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+    implementation ("androidx.compose.material:material")
+    implementation ("androidx.compose.material:material-icons-extended")
 }
 
-kapt {
-    correctErrorTypes = true
-}
+//kapt {
+//    correctErrorTypes = true
+//}
 
 
 
