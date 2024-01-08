@@ -1,4 +1,4 @@
-package com.example.composenaviga
+package com.stockbuddy
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

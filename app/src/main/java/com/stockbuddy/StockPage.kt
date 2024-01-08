@@ -1,4 +1,4 @@
-package com.example.composenaviga
+package com.stockbuddy
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background

@@ -1,4 +1,4 @@
-package com.example.composenaviga
+package com.stockbuddy
 
 //import androidx.compose.material3.MaterialTheme
 import androidx.compose.foundation.background
