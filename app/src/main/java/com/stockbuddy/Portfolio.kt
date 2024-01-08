@@ -43,6 +43,7 @@ import  androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.material3.Scaffold
+import com.stockbuddy.R
 
 
 //class Portfolio : ComponentActivity() {

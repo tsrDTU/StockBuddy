@@ -7,13 +7,15 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
-import com.example.composenaviga.ui.theme.ComposeNavigaTheme
+import com.stockbuddy.R
+import com.stockbuddy.ui.theme.StockBuddyTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeNavigaTheme {
+            StockBuddyTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
