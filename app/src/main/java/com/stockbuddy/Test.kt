@@ -32,7 +32,7 @@ class Test: ComponentActivity() {
 
                 //    addUser("bd", "Stock", "Buddy", "stock.buddy@mail.dummy")
                //     addUser("tt", "Tin", "Tin", "tin.tin@mail.belg")
-                    addUser("kh", "Kaptajn", "Haddock", "kaptajn.haddock@mail.belg")
+              //      addUser("kh", "Kaptajn", "Haddock", "kaptajn.haddock@mail.belg")
                //     addUser("ll", "Lucky", "Luke", "lucky.luke@mail.detvildevesten")
           //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
                     selectUserInFirestore("kh")
