@@ -1,9 +1,6 @@
-package com.stockbuddy
+package com.example.composenaviga
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,10 +14,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,35 +25,23 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.stockbuddy.ui.theme.StockBuddyTheme
+import androidx.navigation.NavHostController
 
-class Account : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            AccountPage()
-        }
-    }
-}
+//class Account : ComponentActivity() {
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContent {
+//            AccountPage()
+//        }
+//    }
+//}
 
 @OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
-@Preview(name = "Account")
+//@Preview(name = "Account")
 @Composable
-fun AccountPage() {
-    StockBuddyTheme {
-        val navController = rememberNavController()
-        val currentBackStack by navController.currentBackStackEntryAsState()
-        val currentDestination = currentBackStack?.destination
-        val currentScreen =
-            stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
-
-
-
-
-        Scaffold(
+fun AccountPage(navController: NavHostController) {
+    
 //            topBar = {
 //                StockBuddyTabRow(
 //                    allScreens = stockBuddyTabRowScreens,
@@ -69,7 +52,6 @@ fun AccountPage() {
 //                    currentScreen = currentScreen
 //                )
 //            }
-        ) { innerPadding ->
             LazyColumn {
                 item {
                     Box(
@@ -84,7 +66,7 @@ fun AccountPage() {
                                 .width(125.dp)
                                 .height(240.dp)
                                 .background(
-                                    color = Color(R.color.stockBackground),
+                                    color = Color(R.color.purple_200),
                                     shape = RoundedCornerShape(64.dp)
                                 )
                                 .align(Alignment.Center)
@@ -136,7 +118,7 @@ fun AccountPage() {
                                 .width(370.dp)
                                 .height(120.dp)
                                 .background(
-                                    color = Color(R.color.stockBackground),
+                                    color = Color(R.color.purple_200),
                                     shape = RoundedCornerShape(64.dp)
                                 )
                                 .align(Alignment.Center)
@@ -170,7 +152,7 @@ fun AccountPage() {
                                 .width(370.dp)
                                 .height(120.dp)
                                 .background(
-                                    color = Color(R.color.stockBackground),
+                                    color = Color(R.color.purple_200),
                                     shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                                 )
                                 .align(Alignment.Center)
@@ -205,7 +187,7 @@ fun AccountPage() {
                                 .width(370.dp)
                                 .height(120.dp)
                                 .background(
-                                    color = Color(R.color.stockBackground),
+                                    color = Color(R.color.purple_200),
                                     shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                                 )
                                 .align(Alignment.Center)
@@ -308,15 +290,9 @@ fun AccountPage() {
 //                                )
 //                        )
 //                    }
-                    StockBuddyNavHost(
-                        navController = navController,
-                        modifier = Modifier.padding(innerPadding)
-                    )
                 }
             }
         }
-    }
-}
 
 
 

@@ -1,10 +1,9 @@
-package com.example.composenaviga
+package com.stockbuddy.OldVersion
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -20,10 +19,13 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ToggleOff
+import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,42 +37,59 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import  androidx.compose.material.icons.*
-import androidx.compose.material.icons.filled.ToggleOff
-import androidx.compose.material.icons.filled.ToggleOn
-import androidx.compose.material3.Scaffold
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.stockbuddy.R
+import com.stockbuddy.ui.theme.StockBuddyTheme
 
+class Portfolio : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            PortfolioPage()
+        }
+    }
+}
 
-//class Portfolio : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContent {
-//            PortfolioPage()
-//        }
-//    }
-//}
-
-@OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
-//@Preview(name = "Portfolio")
+@Preview(name = "Portfolio")
 @Composable
-fun PortfolioPage(navController : NavHostController) {
-//        Scaffold(
-//            topBar = {
-//                StockBuddyTabRow(
-//                    allScreens = stockBuddyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                        navController.navigate(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }        ) {// innerPadding ->
+fun PortfolioPage() {
+    StockBuddyTheme {
+        val navController = rememberNavController()
+        val currentBackStack by navController.currentBackStackEntryAsState()
+        val currentDestination = currentBackStack?.destination
+        val currentScreen = stockBuddyTabRowScreens.find { FirstScreen.route == currentDestination?.route } ?: FirstScreen
+
+
+
+
+        Scaffold(
+            topBar = {
+                StockBuddyTabRow(
+                    allScreens = stockBuddyTabRowScreens,
+                    onTabSelected = { newScreen ->
+                        navController
+                        navController.navigate(newScreen.route)
+                    },
+                    currentScreen = currentScreen
+
+                )
+            }
+        ) { innerPadding ->
+
             LazyColumn {
+                item {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(100.dp)
+                            .background(Color.Transparent)
+                    )
+                }
                 item {
                     Box(
                         modifier = Modifier
@@ -83,7 +102,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(120.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.Center)
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
@@ -114,7 +133,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(120.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.Center)
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
@@ -145,7 +164,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.Center)
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
@@ -176,7 +195,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(180.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.Center)
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
@@ -210,7 +229,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(48.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .clip(RoundedCornerShape(8.dp))
                                 .align(Alignment.Center),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -254,7 +273,7 @@ fun PortfolioPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.Center)
                                 .padding(8.dp),
                             contentAlignment = Alignment.Center
@@ -386,15 +405,15 @@ fun PortfolioPage(navController : NavHostController) {
 //                                )
 //                        )
 //                    }
-//                    StockBuddyNavHost(
-//                        navController = navController,
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
+                    StockBuddyNavHost(
+                        navController = navController,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
-
-
+    }
+}
 @Composable
 fun FilterButtonport(
     text: String,

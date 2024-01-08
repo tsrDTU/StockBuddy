@@ -1,9 +1,6 @@
-package com.stockbuddy
+package com.example.composenaviga
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,35 +22,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.stockbuddy.ui.theme.StockBuddyTheme
 
-class Notifications : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            NotificationsPage()
-        }
-    }
-}
 
 @OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
-@Preview
+//@Preview
 @Composable
-fun NotificationsPage() {
-    StockBuddyTheme {
-        val navController = rememberNavController()
-        val currentBackStack by navController.currentBackStackEntryAsState()
-        val currentDestination = currentBackStack?.destination
-        val currentScreen =
-            stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
-
-
-
-
-        Scaffold(
+fun NotificationsPage(navController : NavHostController) {
 //            topBar = {
 //                StockBuddyTabRow(
 //                    allScreens = stockBuddyTabRowScreens,
@@ -64,7 +42,6 @@ fun NotificationsPage() {
 //                    currentScreen = currentScreen
 //                )
 //            }
-        ) { innerPadding ->
             LazyColumn {
                 item {
                     Box(
@@ -78,7 +55,7 @@ fun NotificationsPage() {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.stockBackground))
+                                .background(Color(R.color.purple_200))
                                 .align(Alignment.TopCenter)
                                 .padding(4.dp),
                             contentAlignment = Alignment.TopStart
@@ -130,7 +107,7 @@ fun NotificationsPage() {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.stockBackground))
+                                .background(Color(R.color.purple_200))
                                 .align(Alignment.TopCenter)
                                 .padding(4.dp),
                             contentAlignment = Alignment.TopStart
@@ -182,7 +159,7 @@ fun NotificationsPage() {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.stockBackground))
+                                .background(Color(R.color.purple_200))
                                 .align(Alignment.TopCenter)
                                 .padding(4.dp),
                             contentAlignment = Alignment.TopStart
@@ -234,7 +211,7 @@ fun NotificationsPage() {
                             modifier = Modifier
                                 .width(370.dp)
                                 .height(160.dp)
-                                .background(Color(R.color.stockBackground))
+                                .background(Color(R.color.purple_200))
                                 .align(Alignment.TopCenter)
                                 .padding(4.dp),
                             contentAlignment = Alignment.TopStart
@@ -350,15 +327,9 @@ fun NotificationsPage() {
 //                                )
 //                        )
 //                    }
-                    StockBuddyNavHost(
-                        navController = navController,
-                        modifier = Modifier.padding(innerPadding)
-                    )
                 }
             }
         }
-    }
-}
 
 
 

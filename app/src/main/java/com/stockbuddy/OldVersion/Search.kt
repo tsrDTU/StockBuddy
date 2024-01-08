@@ -1,11 +1,6 @@
-package com.example.composenaviga
+package com.stockbuddy.OldVersion
 
 import android.annotation.SuppressLint
-import android.graphics.Matrix
-import android.graphics.RectF
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -13,19 +8,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -36,12 +27,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import com.stockbuddy.R
+import com.stockbuddy.ui.theme.StockBuddyTheme
 
 //class Search : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,8 +71,16 @@ import androidx.navigation.compose.rememberNavController
 //@Preview
 @Composable
 fun SearchPage(navController : NavHostController) {
+    StockBuddyTheme {
+        //val navController = rememberNavController()
+//        val currentBackStack by navController.currentBackStackEntryAsState()
+//        val currentDestination = currentBackStack?.destination
+//        val currentScreen = stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
 
-//        Scaffold(
+
+
+
+        Scaffold(
 //            topBar = {
 //                StockBuddyTabRow(
 //                    allScreens = stockBuddyTabRowScreens,
@@ -93,13 +91,13 @@ fun SearchPage(navController : NavHostController) {
 //                    currentScreen = currentScreen
 //                )
 //            }
-//        ) { innerPadding ->
+        ) { innerPadding ->
             LazyColumn {
                 item {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(46.dp)
+                            .height(48.dp)
                             .clip(
                                 RoundedCornerShape(
                                     topStart = 0.dp,
@@ -230,7 +228,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -255,7 +253,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -280,7 +278,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -305,7 +303,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -330,7 +328,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -355,7 +353,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -380,7 +378,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -405,7 +403,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -430,7 +428,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -455,7 +453,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -480,7 +478,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -505,7 +503,7 @@ fun SearchPage(navController : NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.stockBackground))
                                 .align(Alignment.TopCenter)
                                 .padding(8.dp),
                             contentAlignment = Alignment.CenterStart
@@ -596,7 +594,18 @@ fun SearchPage(navController : NavHostController) {
 //                        )
 //                    }
 
+
+
+
+
+            StockBuddyNavHost(
+                navController = navController,
+                modifier = Modifier.padding(innerPadding)
+            )
         }
+
+    }
+}
 
 
 
