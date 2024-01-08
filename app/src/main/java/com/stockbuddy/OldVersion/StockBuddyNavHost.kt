@@ -1,4 +1,4 @@
-package com.stockbuddy
+package com.stockbuddy.OldVersion
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

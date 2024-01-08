@@ -1,4 +1,4 @@
-package com.stockbuddy
+package com.stockbuddy.OldVersion
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

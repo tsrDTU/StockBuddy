@@ -1,4 +1,4 @@
-package com.stockbuddy
+package com.stockbuddy.OldVersion
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Money
