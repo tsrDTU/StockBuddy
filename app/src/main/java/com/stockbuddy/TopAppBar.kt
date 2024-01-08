@@ -52,19 +52,21 @@ fun TopBar(navController : NavHostController, title: String) {
         Modifier
             .height(56.dp)
             .fillMaxWidth()
+
     ){
         Box(
             modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Transparent)
+                .height(56.dp)
+                .fillMaxWidth()
+                .background(Color.Blue)
+                .align(Alignment.Top)
 
         ){
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
+                    .matchParentSize()
+                    .matchParentSize()
                     .background(Color(R.color.purple_200))
-                    .clip(RoundedCornerShape(8.dp))
                     .align(Alignment.Center),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
