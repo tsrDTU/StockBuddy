@@ -5,6 +5,8 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -53,8 +55,18 @@ fun AccountPage(navController: NavHostController) {
 //                    currentScreen = currentScreen
 //                )
 //            }
-            LazyColumn {
-                item {
+
+
+    TopBar(navController = navController, title = "Account")
+
+    LazyColumn {
+
+        item {
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp)
+                .background(Color.Transparent)
+            )
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -294,6 +306,7 @@ fun AccountPage(navController: NavHostController) {
                 }
             }
         }
+
 
 
 

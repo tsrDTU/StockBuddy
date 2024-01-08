@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
 
+//@Preview
 @Composable
 fun HomePage(navController: NavHostController) {
 //        Scaffold(
@@ -37,6 +38,7 @@ fun HomePage(navController: NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
+
     Column {
         LazyColumn {
             item {
@@ -60,6 +62,8 @@ fun HomePage(navController: NavHostController) {
                                     navController.navigate("portfolioPage")
                                 },
                             contentAlignment = Alignment.Center
+
+
 
                         ) {
                             Text(
