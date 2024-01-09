@@ -175,6 +175,7 @@ fun SearchPage(navController : NavHostController) {
                         Spacer(modifier = Modifier.width(24.dp))
 
                         // Right side (Filter)
+
                         Box(
                             modifier = Modifier
                                 .width(200.dp)
