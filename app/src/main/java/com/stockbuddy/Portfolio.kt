@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -71,244 +72,242 @@ fun PortfolioPage(navController : NavHostController) {
 //                    currentScreen = currentScreen
 //                )
 //            }        ) {// innerPadding ->
-            LazyColumn {
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(90.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Stock Name",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(80.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Amount Owned - Amount",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(160.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Details",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Normal
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(180.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(180.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Image - Graph",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Normal
-                            )
-                        }
-                    }
-                }
-                item {
-                    var allSelected by remember { mutableStateOf(true) }
-                    var yearSelected by remember { mutableStateOf(true) }
-                    var monthSelected by remember { mutableStateOf(true) }
-                    var weekSelected by remember { mutableStateOf(true) }
+    Column {
+        TopBar(navController = navController, title = "Portfolio")
 
+        LazyColumn {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(90.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Stock Name",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(48.dp)
-                                .background(Color(R.color.purple_200))
-                                .clip(RoundedCornerShape(8.dp))
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
                                 .align(Alignment.Center),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            FilterButtonport(
-                                text = "All",
-                                isSelected = allSelected,
-                                onToggle = { allSelected = it }
-                            )
-
-                            FilterButtonport(
-                                text = "Year",
-                                isSelected = yearSelected,
-                                onToggle = { yearSelected = it }
-                            )
-
-                            FilterButtonport(
-                                text = "Month",
-                                isSelected = monthSelected,
-                                onToggle = { monthSelected = it }
-                            )
-
-                            FilterButtonport(
-                                text = "Week",
-                                isSelected = weekSelected,
-                                onToggle = { weekSelected = it }
-                            )
-                        }
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(160.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Amount Owned - Amount",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "information",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Normal
-                            )
-                        }
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(160.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Details",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Normal
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .height(180.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Image - Graph",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Normal
+                        )
+                    }
+                }
+            }
+            item {
+                var allSelected by remember { mutableStateOf(true) }
+                var yearSelected by remember { mutableStateOf(true) }
+                var monthSelected by remember { mutableStateOf(true) }
+                var weekSelected by remember { mutableStateOf(true) }
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
                     Row(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                            .width(370.dp)
+                            .height(48.dp)
+                            .background(Color(R.color.regularBox))
+                            .clip(RoundedCornerShape(8.dp))
+                            .align(Alignment.Center),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Button(
-                            onClick = { /* Handle Buy button click */ },
-                            colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
+                        FilterButtonport(
+                            text = "All",
+                            isSelected = allSelected,
+                            onToggle = { allSelected = it }
+                        )
+
+                        FilterButtonport(
+                            text = "Year",
+                            isSelected = yearSelected,
+                            onToggle = { yearSelected = it }
+                        )
+
+                        FilterButtonport(
+                            text = "Month",
+                            isSelected = monthSelected,
+                            onToggle = { monthSelected = it }
+                        )
+
+                        FilterButtonport(
+                            text = "Week",
+                            isSelected = weekSelected,
+                            onToggle = { weekSelected = it }
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(160.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "information",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .weight(1f)
-                                .height(48.dp)
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Normal
+                        )
+                    }
+                }
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Button(
+                        onClick = { /* Handle Buy button click */ },
+                        colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp)
 
-                        ) {
-                            Text(text = "Buy", color = Color.White, fontWeight = FontWeight.Bold)
-                        }
-
-                        Spacer(modifier = Modifier.width(16.dp)) // Add some space between buttons
-
-                        Button(
-                            onClick = { /* Handle Sell button click */ },
-                            colors = ButtonDefaults.buttonColors(Color.Red.copy(alpha = 0.6f)),
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(48.dp)
-                        ) {
-                            Text(text = "Sell", color = Color.White, fontWeight = FontWeight.Bold)
-                        }
+                    ) {
+                        Text(text = "Buy", color = Color.White, fontWeight = FontWeight.Bold)
                     }
 
+                    Spacer(modifier = Modifier.width(16.dp)) // Add some space between buttons
 
-
-
-
+                    Button(
+                        onClick = { /* Handle Sell button click */ },
+                        colors = ButtonDefaults.buttonColors(Color.Red.copy(alpha = 0.6f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(48.dp)
+                    ) {
+                        Text(text = "Sell", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                }
 
 
 //            Row(
@@ -391,38 +390,39 @@ fun PortfolioPage(navController : NavHostController) {
 //                        navController = navController,
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
-                }
             }
         }
-
-
-@Composable
-fun FilterButtonport(
-    text: String,
-    isSelected: Boolean,
-    onToggle: (Boolean) -> Unit
-) {
-    Row(
-        modifier = Modifier
-            .clickable { onToggle(!isSelected) }
-            .padding(8.dp),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            imageVector = if (isSelected) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.size(24.dp)
-        )
-        Spacer(modifier = Modifier.width(4.dp))
-        Text(
-            text = text,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onSurface
-        )
     }
 }
+
+
+    @Composable
+    fun FilterButtonport(
+        text: String,
+        isSelected: Boolean,
+        onToggle: (Boolean) -> Unit
+    ) {
+        Row(
+            modifier = Modifier
+                .clickable { onToggle(!isSelected) }
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = if (isSelected) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            Text(
+                text = text,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        }
+    }
 
 
 

@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -42,7 +45,7 @@ import com.stockbuddy.R
 //@Preview(name = "Account")
 @Composable
 fun AccountPage(navController: NavHostController) {
-    
+
 //            topBar = {
 //                StockBuddyTabRow(
 //                    allScreens = stockBuddyTabRowScreens,
@@ -53,47 +56,65 @@ fun AccountPage(navController: NavHostController) {
 //                    currentScreen = currentScreen
 //                )
 //            }
-            LazyColumn {
-                item {
+
+
+    Column {
+        TopBar(navController = navController, title = "Account")
+
+
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+
+        ) {
+
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .background(Color.Transparent)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(150.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(125.dp)
-                                .height(240.dp)
-                                .background(
-                                    color = Color(R.color.purple_200),
-                                    shape = RoundedCornerShape(64.dp)
-                                )
-                                .align(Alignment.Center)
-                                .padding(8.dp)
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_ellipse1),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
+                            .width(125.dp)
+                            .height(240.dp)
+                            .background(
+                                color = Color(R.color.regularBox),
+                                shape = RoundedCornerShape(64.dp)
                             )
-                        }
+                            .align(Alignment.Center)
+                            .padding(8.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_ellipse1),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
                     }
                 }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight()
-                            .padding(top = 8.dp, bottom = 0.dp)
-                    ) {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .padding(top = 8.dp, bottom = 0.dp)
+                ) {
                     Text(
                         text = "Name Namerson",
                         color = Color.Black, // Set the text color
@@ -105,114 +126,118 @@ fun AccountPage(navController: NavHostController) {
                         fontWeight = FontWeight.Bold
                     )
                 }
-                }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(110.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(110.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(
-                                    color = Color(R.color.purple_200),
-                                    shape = RoundedCornerShape(64.dp)
-                                )
-                                .align(Alignment.Center)
-                                .padding(0.dp)
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Trading History",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(
+                                color = Color(R.color.regularBox),
+                                shape = RoundedCornerShape(64.dp)
                             )
-                        }
+                            .align(Alignment.Center)
+                            .padding(0.dp)
+                            .clickable {
+                                navController.navigate("tradingPage")
+                            }
+                    ) {
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Trading History",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp),
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(
+                                color = Color(R.color.regularBox),
+                                shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
+                            )
+                            .align(Alignment.Center)
+                            .padding(0.dp)
+                            .clickable {
+                                navController.navigate("settingsPage")
+                            }
+                        ,
                         contentAlignment = Alignment.Center
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Settings",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(
-                                    color = Color(R.color.purple_200),
-                                    shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
-                                )
-                                .align(Alignment.Center)
-                                .padding(0.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Settings",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp),
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(
+                                color = Color(R.color.regularBox),
+                                shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
+                            )
+                            .align(Alignment.Center)
+                            .padding(0.dp).clickable {
+                                navController.navigate("puppyattackPage")
+                            },
                         contentAlignment = Alignment.Center
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Puppy Pictures",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(
-                                    color = Color(R.color.purple_200),
-                                    shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
-                                )
-                                .align(Alignment.Center)
-                                .padding(0.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Puppy Pictures",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .wrapContentWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .wrapContentWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
-
-
-
-
-
+                }
 
 
 //            Row(
@@ -291,9 +316,12 @@ fun AccountPage(navController: NavHostController) {
 //                                )
 //                        )
 //                    }
-                }
             }
         }
+    }
+}
+
+
 
 
 

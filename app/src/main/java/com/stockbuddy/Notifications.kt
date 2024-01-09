@@ -5,6 +5,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -43,213 +44,216 @@ fun NotificationsPage(navController : NavHostController) {
 //                    currentScreen = currentScreen
 //                )
 //            }
-            LazyColumn {
-                item {
+    Column {
+        TopBar(navController = navController, title = "Notifications")
+
+        LazyColumn {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(120.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(120.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.TopStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(4.dp),
-                            contentAlignment = Alignment.TopStart
+                        // Use a Row for the first and second Text fields
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            // Use a Row for the first and second Text fields
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.Top,
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                // First Text (Top Left)
-                                Text(
-                                    text = "Purchase Confirmed",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-
-                                // Second Text (Top Right)
-                                Text(
-                                    text = "Today - 12:07",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-                            }
-
-                            // Third Text (Fills the rest of the space)
+                            // First Text (Top Left)
                             Text(
-                                text = "You bought X amount of X stock for X price",
+                                text = "Purchase Confirmed",
                                 color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 21.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 14.sp
+                                fontWeight = FontWeight.Bold // Set the text to bold
+                            )
+
+                            // Second Text (Top Right)
+                            Text(
+                                text = "Today - 12:07",
+                                color = Color.White, // Set the text color
+                                fontWeight = FontWeight.Bold // Set the text to bold
                             )
                         }
-                    }
 
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "You bought X amount of X stock for X price",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 21.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 14.sp
+                        )
+                    }
                 }
-                item {
+
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(104.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(104.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.TopStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(4.dp),
-                            contentAlignment = Alignment.TopStart
+                        // Use a Row for the first and second Text fields
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            // Use a Row for the first and second Text fields
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.Top,
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                // First Text (Top Left)
-                                Text(
-                                    text = "Purchase Confirmed",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-
-                                // Second Text (Top Right)
-                                Text(
-                                    text = "Today - 12:07",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-                            }
-
-                            // Third Text (Fills the rest of the space)
+                            // First Text (Top Left)
                             Text(
-                                text = "You bought X amount of X stock for X price",
+                                text = "Purchase Confirmed",
                                 color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 21.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 14.sp
+                                fontWeight = FontWeight.Bold // Set the text to bold
+                            )
+
+                            // Second Text (Top Right)
+                            Text(
+                                text = "Today - 12:07",
+                                color = Color.White, // Set the text color
+                                fontWeight = FontWeight.Bold // Set the text to bold
                             )
                         }
-                    }
 
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "You bought X amount of X stock for X price",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 21.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 14.sp
+                        )
+                    }
                 }
-                item {
+
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(104.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(104.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.TopStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(4.dp),
-                            contentAlignment = Alignment.TopStart
+                        // Use a Row for the first and second Text fields
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            // Use a Row for the first and second Text fields
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.Top,
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                // First Text (Top Left)
-                                Text(
-                                    text = "Purchase Confirmed",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-
-                                // Second Text (Top Right)
-                                Text(
-                                    text = "Today - 12:07",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-                            }
-
-                            // Third Text (Fills the rest of the space)
+                            // First Text (Top Left)
                             Text(
-                                text = "You bought X amount of X stock for X price",
+                                text = "Purchase Confirmed",
                                 color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 21.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 14.sp
+                                fontWeight = FontWeight.Bold // Set the text to bold
+                            )
+
+                            // Second Text (Top Right)
+                            Text(
+                                text = "Today - 12:07",
+                                color = Color.White, // Set the text color
+                                fontWeight = FontWeight.Bold // Set the text to bold
                             )
                         }
-                    }
 
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "You bought X amount of X stock for X price",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 21.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 14.sp
+                        )
+                    }
                 }
-                item {
+
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(104.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(104.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(160.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.TopStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(160.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(4.dp),
-                            contentAlignment = Alignment.TopStart
+                        // Use a Row for the first and second Text fields
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.Top,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            // Use a Row for the first and second Text fields
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                verticalAlignment = Alignment.Top,
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                // First Text (Top Left)
-                                Text(
-                                    text = "Purchase Confirmed",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-
-                                // Second Text (Top Right)
-                                Text(
-                                    text = "Today - 12:07",
-                                    color = Color.White, // Set the text color
-                                    fontWeight = FontWeight.Bold // Set the text to bold
-                                )
-                            }
-
-                            // Third Text (Fills the rest of the space)
+                            // First Text (Top Left)
                             Text(
-                                text = "You bought X amount of X stock for X price",
+                                text = "Purchase Confirmed",
                                 color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 21.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 14.sp
+                                fontWeight = FontWeight.Bold // Set the text to bold
+                            )
+
+                            // Second Text (Top Right)
+                            Text(
+                                text = "Today - 12:07",
+                                color = Color.White, // Set the text color
+                                fontWeight = FontWeight.Bold // Set the text to bold
                             )
                         }
+
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "You bought X amount of X stock for X price",
+                            color = Color.White, // Set the text color
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 21.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 14.sp
+                        )
                     }
+                }
 
 
 //            Row(
@@ -328,10 +332,10 @@ fun NotificationsPage(navController : NavHostController) {
 //                                )
 //                        )
 //                    }
-                }
             }
         }
-
+    }
+}
 
 
 
