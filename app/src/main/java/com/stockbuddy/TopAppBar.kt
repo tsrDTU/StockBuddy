@@ -74,11 +74,22 @@ fun TopBar(navController : NavHostController, title: String) {
 
                 Box(
                     modifier = Modifier
-                        .height(10.dp)
+                        .height(20.dp)
                         .width(36.dp)
                         .padding(start = 16.dp)
                         .background(Color.Blue)
+                        .clickable { navController.navigate("back") }, // Navigate on click
+                            contentAlignment = Alignment.CenterEnd
 
+                ){
+                    Image(
+                        painter = painterResource(id = R.drawable.img_back),
+                        contentDescription = null
+                    )
+                }
+                androidx.compose.material3.Text(
+                    text = title,
+                    color = Color.White // Set the text color
                 )
                 Spacer(modifier = Modifier.width(200.dp))
 

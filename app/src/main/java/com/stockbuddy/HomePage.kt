@@ -40,6 +40,8 @@ fun HomePage(navController: NavHostController) {
 //        ) { innerPadding ->
 
     Column {
+        TopBar(navController = navController, title = "Home")
+
         LazyColumn {
             item {
                 Row() {
@@ -56,7 +58,7 @@ fun HomePage(navController: NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.purple_200))
+                                .background(Color(R.color.regularBox))
                                 .align(Alignment.TopCenter)
                                 .clickable {
                                     navController.navigate("portfolioPage")
