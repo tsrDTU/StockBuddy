@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -144,6 +145,9 @@ fun AccountPage(navController: NavHostController) {
                             )
                             .align(Alignment.Center)
                             .padding(0.dp)
+                            .clickable {
+                                navController.navigate("tradingPage")
+                            }
                     ) {
                         // Third Text (Fills the rest of the space)
                         Text(
@@ -177,7 +181,11 @@ fun AccountPage(navController: NavHostController) {
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
-                            .padding(0.dp),
+                            .padding(0.dp)
+                            .clickable {
+                                navController.navigate("settingsPage")
+                            }
+                        ,
                         contentAlignment = Alignment.Center
                     ) {
                         // Third Text (Fills the rest of the space)
@@ -212,7 +220,9 @@ fun AccountPage(navController: NavHostController) {
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
-                            .padding(0.dp),
+                            .padding(0.dp).clickable {
+                                navController.navigate("puppyattackPage")
+                            },
                         contentAlignment = Alignment.Center
                     ) {
                         // Third Text (Fills the rest of the space)
