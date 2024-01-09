@@ -5,6 +5,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,10 +42,10 @@ import com.stockbuddy.R
 @Composable
 fun PuppyAttackPage(navController : NavHostController) {
 //    StockBuddyTheme {
-        //val navController = rememberNavController()
-        //val currentBackStack by navController.currentBackStackEntryAsState()
-        //val currentDestination = currentBackStack?.destination
-        //val currentScreen = stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
+    //val navController = rememberNavController()
+    //val currentBackStack by navController.currentBackStackEntryAsState()
+    //val currentDestination = currentBackStack?.destination
+    //val currentScreen = stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
 
 
 //        Scaffold(
@@ -59,163 +60,167 @@ fun PuppyAttackPage(navController : NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
-    ) {}
-            LazyColumn {
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_rectangle19),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_rectangle20),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_rectangle21),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_rectangle22),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
-                }
-                item {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
-                    ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.img_rectangle23),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(
-                                        color = Color.Gray, // Placeholder background color
-                                        shape = RoundedCornerShape(64.dp)
-                                    ),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
-                }
+    Column {
+        TopBar(navController = navController, title = "Account")
 
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {}
+        LazyColumn {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_rectangle19),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
             }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_rectangle20),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_rectangle21),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_rectangle22),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(370.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_rectangle23),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    color = Color.Gray, // Placeholder background color
+                                    shape = RoundedCornerShape(64.dp)
+                                ),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                }
+            }
+
+        }
+    }
 }
 
 

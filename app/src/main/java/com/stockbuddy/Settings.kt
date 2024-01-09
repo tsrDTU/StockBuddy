@@ -5,6 +5,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -49,7 +50,6 @@ import com.stockbuddy.R
 fun SettingsPage(navController: NavHostController) {
 
 
-
 //        Scaffold(
 //            topBar = {
 //                StockBuddyTabRow(
@@ -62,436 +62,437 @@ fun SettingsPage(navController: NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
-            LazyColumn {
-                item {
+    Column {
+        TopBar(navController = navController, title = "Account")
+
+
+        LazyColumn {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(80.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(80.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Setting1",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Setting1",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
-
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
-                                )
-                            )
-                        }
-
-
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
+                            )
+                        )
+                    }
+
+
                 }
+            }
 
-                item {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
 
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.6f
-                                    ),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.2f
-                                    )
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.6f
+                                ),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.2f
                                 )
                             )
-                        }
-
-
+                        )
                     }
+
+
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
 
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.6f
-                                    ),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.2f
-                                    )
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.6f
+                                ),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.2f
                                 )
                             )
-                        }
-
-
+                        )
                     }
+
+
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
 
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.6f
-                                    ),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.2f
-                                    )
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.6f
+                                ),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.2f
                                 )
                             )
-                        }
-
-
+                        )
                     }
+
+
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
 
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.6f
-                                    ),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.2f
-                                    )
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.6f
+                                ),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.2f
                                 )
                             )
-                        }
-
-
+                        )
                     }
+
+
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
-                            )
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
 
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.6f
-                                    ),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
-                                        alpha = 0.2f
-                                    )
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.6f
+                                ),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = 0.2f
                                 )
                             )
-                        }
-
-
+                        )
                     }
+
+
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(90.dp)
+                            .background(Color(R.color.purple_200))
+                            .align(Alignment.Center)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
-                            modifier = Modifier
-                                .width(370.dp)
-                                .height(90.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.Center)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "SomeSetting",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.Center),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                        var isChecked by remember { mutableStateOf(false) }
-                        Row(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "SomeSetting",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(end = 40.dp, top = 4.dp),
-                            horizontalArrangement = Arrangement.End,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary
+                                .padding(top = 0.dp)
+                                .align(Alignment.Center),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    var isChecked by remember { mutableStateOf(false) }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 40.dp, top = 4.dp),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = if (isChecked) Icons.Default.ToggleOn else Icons.Default.ToggleOff,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+
+                        Switch(
+                            checked = isChecked,
+                            onCheckedChange = { isChecked = it },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                                checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                                uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
                             )
-
-                            Switch(
-                                checked = isChecked,
-                                onCheckedChange = { isChecked = it },
-                                colors = SwitchDefaults.colors(
-                                    checkedThumbColor = MaterialTheme.colorScheme.primary,
-                                    uncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                                    checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                                    uncheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
-                                )
-                            )
-                        }
-
-
+                        )
                     }
 
 
-
+                }
 
 
 //            Row(
@@ -570,12 +571,12 @@ fun SettingsPage(navController: NavHostController) {
 //                                )
 //                        )
 //                    }
-                    
-                }
+
             }
         }
+    }
 
-
+}
 
 
 

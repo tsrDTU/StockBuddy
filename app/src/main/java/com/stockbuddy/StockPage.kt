@@ -43,7 +43,8 @@ fun StockPage(navController: NavHostController) {
 //            }
 //        ) { innerPadding ->
     Column {
-    LazyColumn {
+        TopBar(navController = navController, title = "Account")
+        LazyColumn {
         item {
             Box(
                 modifier = Modifier
