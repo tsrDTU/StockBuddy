@@ -79,7 +79,7 @@ fun TopBar(navController : NavHostController, title: String) {
                         .padding(start = 16.dp)
                         .background(Color.Blue)
                         .clickable { navController.navigate("back") }, // Navigate on click
-                            contentAlignment = Alignment.CenterEnd
+                            contentAlignment = Alignment.Center
 
                 ){
                     Image(
