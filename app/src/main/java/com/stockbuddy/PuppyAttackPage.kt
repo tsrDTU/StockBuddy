@@ -61,7 +61,7 @@ fun PuppyAttackPage(navController : NavHostController) {
 //            }
 //        ) { innerPadding ->
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "PuppyAttack")
 
         Surface(
             modifier = Modifier.fillMaxSize(),

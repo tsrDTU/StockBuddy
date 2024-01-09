@@ -48,7 +48,7 @@ fun HistoryPage(navController : NavHostController) {
 //            }
 //        ) { innerPadding ->
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "History")
         LazyColumn {
             item {
                 Box(

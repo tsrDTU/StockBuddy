@@ -63,7 +63,7 @@ fun SettingsPage(navController: NavHostController) {
 //            }
 //        ) { innerPadding ->
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "Settings")
 
 
         LazyColumn {

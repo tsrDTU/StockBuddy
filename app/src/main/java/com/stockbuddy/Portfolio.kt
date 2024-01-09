@@ -73,7 +73,7 @@ fun PortfolioPage(navController : NavHostController) {
 //                )
 //            }        ) {// innerPadding ->
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "Portfolio")
 
         LazyColumn {
             item {

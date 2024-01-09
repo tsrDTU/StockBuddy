@@ -45,7 +45,7 @@ fun NotificationsPage(navController : NavHostController) {
 //                )
 //            }
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "Notifications")
 
         LazyColumn {
             item {

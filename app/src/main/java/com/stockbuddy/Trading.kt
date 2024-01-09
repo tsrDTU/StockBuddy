@@ -70,7 +70,7 @@ fun TradingPage(navController : NavHostController) {
 //            }
 //        ) {
     Column {
-        TopBar(navController = navController, title = "Account")
+        TopBar(navController = navController, title = "Trading")
 
         Surface(
             modifier = Modifier.fillMaxSize(),
