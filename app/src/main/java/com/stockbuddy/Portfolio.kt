@@ -88,7 +88,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -119,7 +119,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -150,7 +150,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -181,7 +181,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(180.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -215,7 +215,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(48.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .clip(RoundedCornerShape(8.dp))
                             .align(Alignment.Center),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -259,7 +259,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center

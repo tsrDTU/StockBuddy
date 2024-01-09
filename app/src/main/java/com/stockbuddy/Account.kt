@@ -87,7 +87,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(125.dp)
                             .height(240.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -139,7 +139,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -173,7 +173,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
@@ -208,7 +208,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)

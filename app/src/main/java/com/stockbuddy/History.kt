@@ -62,7 +62,7 @@ fun HistoryPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -93,7 +93,7 @@ fun HistoryPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -124,7 +124,7 @@ fun HistoryPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -155,7 +155,7 @@ fun HistoryPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -186,7 +186,7 @@ fun HistoryPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart

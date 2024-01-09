@@ -60,7 +60,7 @@ fun NotificationsPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(4.dp),
                         contentAlignment = Alignment.TopStart
@@ -112,7 +112,7 @@ fun NotificationsPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(4.dp),
                         contentAlignment = Alignment.TopStart
@@ -164,7 +164,7 @@ fun NotificationsPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(4.dp),
                         contentAlignment = Alignment.TopStart
@@ -216,7 +216,7 @@ fun NotificationsPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(4.dp),
                         contentAlignment = Alignment.TopStart

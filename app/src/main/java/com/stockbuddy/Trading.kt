@@ -90,7 +90,7 @@ fun TradingPage(navController : NavHostController) {
                             .width(320.dp)
                             .height(80.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -123,7 +123,7 @@ fun TradingPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,
@@ -230,7 +230,7 @@ fun TradingPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(360.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,

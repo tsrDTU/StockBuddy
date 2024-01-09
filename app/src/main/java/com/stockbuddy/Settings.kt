@@ -79,7 +79,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -138,7 +138,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -200,7 +200,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -262,7 +262,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -324,7 +324,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -386,7 +386,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -448,7 +448,7 @@ fun SettingsPage(navController: NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(90.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart

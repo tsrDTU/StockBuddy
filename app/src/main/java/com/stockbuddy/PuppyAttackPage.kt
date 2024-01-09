@@ -79,7 +79,7 @@ fun PuppyAttackPage(navController : NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -109,7 +109,7 @@ fun PuppyAttackPage(navController : NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -139,7 +139,7 @@ fun PuppyAttackPage(navController : NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -169,7 +169,7 @@ fun PuppyAttackPage(navController : NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -199,7 +199,7 @@ fun PuppyAttackPage(navController : NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(370.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
