@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
-import com.stockbuddy.R
 import com.stockbuddy.ui.theme.StockBuddyTheme
+import com.stockbuddy.util.searchBar
 
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("homePage") { HomePage(navController) } //1
                         composable("stockPage") { StockPage(navController) } //2
-                        composable("searchPage") { SearchPage(navController) } //3
+                        composable("Search") { SearchPage(navController) } //3
                         composable("settingsPage") { SettingsPage(navController) } //4
                         composable("historyPage") { HistoryPage(navController) } //5
                         composable("portfolioPage") { PortfolioPage(navController) } //6
