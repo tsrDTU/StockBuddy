@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -55,7 +56,7 @@ import com.stockbuddy.R
 //@Preview(name = "Stock") // NavController param needs to be commented to see preview
 @Composable
 fun TradingPage(navController : NavHostController) {
-   
+
 //        Scaffold(
 //            topBar = {
 //                StockBuddyTabRow(
@@ -68,6 +69,9 @@ fun TradingPage(navController : NavHostController) {
 //                )
 //            }
 //        ) {
+    Column {
+        TopBar(navController = navController, title = "Trading")
+
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
@@ -86,7 +90,7 @@ fun TradingPage(navController : NavHostController) {
                             .width(320.dp)
                             .height(80.dp)
                             .background(
-                                color = Color(R.color.purple_200),
+                                color = Color(R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -119,7 +123,7 @@ fun TradingPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,
@@ -192,25 +196,27 @@ fun TradingPage(navController : NavHostController) {
                     }
                 }
             }
-item {
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .height(60.dp)
-        .padding(top = 0.dp, bottom = 0.dp)) {
-        Button(
-            onClick = { /* Handle Buy button click */ },
-            colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
-            modifier = Modifier
-                .height(48.dp)
-                .width(320.dp)
-                .align(Alignment.Center)
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .padding(top = 0.dp, bottom = 0.dp)
+                ) {
+                    Button(
+                        onClick = { /* Handle Buy button click */ },
+                        colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
+                        modifier = Modifier
+                            .height(48.dp)
+                            .width(320.dp)
+                            .align(Alignment.Center)
 
-        ) {
-            Text(text = "Approve", color = Color.White, fontWeight = FontWeight.Bold)
-        }
-    }
+                    ) {
+                        Text(text = "Approve", color = Color.White, fontWeight = FontWeight.Bold)
+                    }
+                }
 
-}
+            }
             item {
                 Box(
                     modifier = Modifier
@@ -224,7 +230,7 @@ item {
                         modifier = Modifier
                             .width(370.dp)
                             .height(360.dp)
-                            .background(Color(R.color.purple_200))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,
@@ -246,6 +252,7 @@ item {
                 }
             }
         }
+    }
 }
 
 

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -34,7 +35,7 @@ import com.stockbuddy.R
 //@Preview(name = "History")
 @Composable
 fun HistoryPage(navController : NavHostController) {
-    
+
 //            topBar = {
 //                StockBuddyTabRow(
 //                    allScreens = stockBuddyTabRowScreens,
@@ -46,163 +47,163 @@ fun HistoryPage(navController : NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
-            LazyColumn {
-                item {
+    Column {
+        TopBar(navController = navController, title = "History")
+        LazyColumn {
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(110.dp)
+                        .padding(top = 20.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(110.dp)
-                            .padding(top = 20.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Welcome to the app",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .fillMaxWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Welcome to the app",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .fillMaxWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Welcome to the app",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .fillMaxWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Welcome to the app",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .fillMaxWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
-                item {
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(94.dp)
+                        .padding(top = 4.dp, bottom = 4.dp)
+                ) {
+                    // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(94.dp)
-                            .padding(top = 4.dp, bottom = 4.dp)
+                            .width(370.dp)
+                            .height(120.dp)
+                            .background(Color(R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
                     ) {
-                        // Content of the first Box
-                        Box(
+                        // Third Text (Fills the rest of the space)
+                        Text(
+                            text = "Welcome to the app",
+                            color = Color.White, // Set the text color
                             modifier = Modifier
-                                .width(370.dp)
-                                .height(120.dp)
-                                .background(Color(R.color.purple_200))
-                                .align(Alignment.TopCenter)
-                                .padding(8.dp),
-                            contentAlignment = Alignment.CenterStart
-                        ) {
-                            // Third Text (Fills the rest of the space)
-                            Text(
-                                text = "Welcome to the app",
-                                color = Color.White, // Set the text color
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 0.dp)
-                                    .align(Alignment.TopStart),
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
+                                .fillMaxWidth()
+                                .padding(top = 0.dp)
+                                .align(Alignment.TopStart),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
-
-
+                }
 
 
 //            Row(
@@ -282,10 +283,10 @@ fun HistoryPage(navController : NavHostController) {
 //                        )
 //                    }
 
-                }
             }
         }
-
+    }
+}
 
 
 
