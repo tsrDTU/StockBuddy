@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("homePage") { HomePage(navController) } //1
                         composable("stockPage") { StockPage(navController) } //2
-                        composable("Search") { SearchPage(navController) } //3
+                        composable("searchBar") { searchBar(navController) } //3
                         composable("settingsPage") { SettingsPage(navController) } //4
                         composable("historyPage") { HistoryPage(navController) } //5
                         composable("portfolioPage") { PortfolioPage(navController) } //6

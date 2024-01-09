@@ -199,7 +199,7 @@ fun HomePage(navController: NavHostController) {
                         .height(100.dp)
                         .padding(8.dp)
                         .clickable {
-                            navController.navigate("stockPage")
+                            navController.navigate("searchBar")
                         }
                 ) {
                     // Content of the first Box
@@ -213,7 +213,7 @@ fun HomePage(navController: NavHostController) {
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Stock Example",
+                            text = "Search Example",
                             color = Color.White // Set the text color
 
                         )
@@ -358,14 +358,14 @@ fun HomePage(navController: NavHostController) {
                     }
                 }
             }
-            item {
+            /*item {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(100.dp)
                         .padding(8.dp)
                         .clickable {
-                            navController.navigate("stockPage")
+                            navController.navigate("searchPage")
                         }
                 ) {
                     // Content of the first Box
@@ -379,13 +379,13 @@ fun HomePage(navController: NavHostController) {
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Stock Example",
+                            text = "Search Example",
                             color = Color.White // Set the text color
 
                         )
                     }
                 }
-            }
+            }*/
             item {
                 Box(
                     modifier = Modifier

@@ -127,6 +127,34 @@ fun searchBar(navController: NavHostController){
 @Composable
 //@Preview
 fun SearchPage(navController : NavHostController) {
+
+    var input by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf(false) }
+    Scaffold{
+        SearchBar(
+            modifier = Modifier.fillMaxWidth(),
+            query = input,
+            onQueryChange = {
+                input = it
+            },
+            onSearch ={
+                status = false
+            },
+            active = status,
+            onActiveChange ={
+                status = it
+            },
+            placeholder ={
+                Text(text = "Search")
+            },
+            leadingIcon ={
+                Icon(imageVector = Icons.Default.Search, contentDescription = "Search Icon")
+            }
+        )
+        {
+
+        }
+    }
 //        Scaffold(
 //            topBar = {
 //                StockBuddyTabRow(
@@ -139,7 +167,7 @@ fun SearchPage(navController : NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
-            LazyColumn {
+/*            LazyColumn {
                 item {
                     Row(
                         modifier = Modifier
@@ -639,7 +667,7 @@ fun SearchPage(navController : NavHostController) {
 //                                    )
 //                                )
 //                        )
-//                    }
+//                    }*/
 
         }
 
