@@ -36,7 +36,7 @@ import androidx.navigation.NavHostController
         var status by remember { mutableStateOf(false) }
         var items = remember {
             mutableListOf(
-                "stock1",
+                "StockPage",
                 "stock2"
             //Tilføj stocks her gennem API
             )
@@ -50,6 +50,9 @@ import androidx.navigation.NavHostController
                 },
                 onSearch ={
                     status = false
+                    items.add(input)
+                    //linjen nedenunder skal sende en string til APIen
+                    navController.navigate(input)
                 },
                 active = status,
                 onActiveChange ={
@@ -79,17 +82,19 @@ import androidx.navigation.NavHostController
             )
             {
                 items.forEach{
-                    Row(modifier = Modifier.padding(14.dp)){
+                    Row(modifier = Modifier
+                        .padding(20.dp)
+                        .clickable { navController.navigate(it) }
+                    ) {
                         Icon(
-                            modifier = Modifier.padding(end = 10.dp),
-                           // modifier = Modifier.clickable {  },
+                            modifier = Modifier
+                                .padding(end = 14.dp),
                             imageVector = Icons.Default.History,
                             contentDescription = "history"
                         )
                         Text(text = it)
                     }
                 }
-            //Logik til at sende videre til en stock indsættes her
             }
         }
     }
