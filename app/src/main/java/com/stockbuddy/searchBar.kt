@@ -3,11 +3,13 @@ package com.stockbuddy.util
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -32,6 +34,13 @@ import androidx.navigation.NavHostController
     fun searchBar(navController: NavHostController){
         var input by remember { mutableStateOf("") }
         var status by remember { mutableStateOf(false) }
+        var items = remember {
+            mutableListOf(
+                "stock1",
+                "stock2"
+            //Tilføj stocks her gennem API
+            )
+        }
         Scaffold{
             SearchBar(
                 modifier = Modifier.fillMaxWidth(),
@@ -69,6 +78,17 @@ import androidx.navigation.NavHostController
                 
             )
             {
+                items.forEach{
+                    Row(modifier = Modifier.padding(14.dp)){
+                        Icon(
+                            modifier = Modifier.padding(end = 10.dp),
+                           // modifier = Modifier.clickable {  },
+                            imageVector = Icons.Default.History,
+                            contentDescription = "history"
+                        )
+                        Text(text = it)
+                    }
+                }
             //Logik til at sende videre til en stock indsættes her
             }
         }
