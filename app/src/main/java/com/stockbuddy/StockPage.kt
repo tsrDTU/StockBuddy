@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.stockbuddy.UniversalDef.StockBox
+import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
 @Composable
@@ -46,41 +48,7 @@ fun StockPage(navController: NavHostController) {
         TopBar(navController = navController, title = "Stock")
         LazyColumn {
         item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(90.dp)
-                    .padding(top = 20.dp, bottom = 4.dp)
-            ) {
-                // Content of the first Box
-                Box(
-                    modifier = Modifier
-                        .width(370.dp)
-                        .height(120.dp)
-                        .background(colorResource(id = R.color.regularBox))
-                        .align(Alignment.Center)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("back")
-                        }
-                        ,
-                    contentAlignment = Alignment.Center,
-
-                    ) {
-                    // Third Text (Fills the rest of the space)
-                    Text(
-                        text = "Stock Name",
-                        color = Color.White, // Set the text color
-                        modifier = Modifier
-                            .wrapContentWidth()
-                            .padding(top = 0.dp)
-                            .align(Alignment.Center),
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-
-                        )
-                }
-            }
+                StockBoxSecond(navController, "StockExample")
         }
         item {
             Box(
@@ -97,9 +65,7 @@ fun StockPage(navController: NavHostController) {
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp)
-                        .clickable {
-                            navController.navigate("home")
-                        },
+                        ,
                     contentAlignment = Alignment.Center
                 ) {
                     // Third Text (Fills the rest of the space)

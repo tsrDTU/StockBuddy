@@ -44,7 +44,7 @@ fun StockBox (navController : NavHostController, title: String) {
         Box(
             
             modifier = Modifier
-                .width(329.dp)
+                .width(329.dp)//.width(329.dp)
                 .height(146.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)
@@ -67,9 +67,105 @@ fun StockBox (navController : NavHostController, title: String) {
 
                 // Stock Name
                     Text(
-                        text = "title",
+                        text = title,
                         color = Color.White // Set the text color
                         ,style = TextStyle(fontSize = 24.sp),
+
+                    )
+
+                // price
+                Box (modifier = Modifier
+                    .width(220.dp),
+                    contentAlignment = Alignment.CenterEnd
+                ){
+                    Text(
+                        text = "X", // price
+                        color = Color.White // Set the text color
+                        ,style = TextStyle(fontSize = 24.sp),
+                    )
+                }
+
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+
+                // positive negative or neutral
+                Box(
+                    modifier = Modifier
+                        .height(40.dp)
+                        .width(40.dp)
+                        .background(colorResource(id = R.color.regularBox))
+//                        .clickable { navController.navigate("accountPage") } // Navigate on click
+                    ,contentAlignment = Alignment.CenterEnd
+
+                ) {
+//                    if (priceChange > 0) {
+//                        Image(
+//                            painter = painterResource(id = R.drawable.img_color),
+//                            contentDescription = null
+//                        )
+//                    }
+//                    else if (priceChange < 0){
+//                        Image(
+//                            painter = painterResource(id = R.drawable.img_color_red_600),
+//                            contentDescription = null
+//                        )
+//                    }
+//                    else {
+//                        Image(
+//                            painter = painterResource(id = R.drawable.img_color_yellow_600),
+//                            contentDescription = null
+//                        )
+//                    }
+
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun StockBoxSecond (navController : NavHostController, title: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .padding(8.dp)
+            .clickable {
+                navController.navigate("stockPage")
+            }
+    ) {
+        // Content of the first Box
+
+        Box(
+
+            modifier = Modifier
+                .width(370.dp)//.width(329.dp)
+                .height(146.dp)
+                .background(colorResource(id = R.color.regularBox))
+                .align(Alignment.TopCenter)
+                .padding(8.dp),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Text(
+                text = "Title",
+                color = Color.White // Set the text color
+            )
+            Row(
+                modifier = Modifier
+                    .matchParentSize()
+                    .matchParentSize()
+                    .background(colorResource(id = R.color.regularBox))
+                    .align(Alignment.Center),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                // Stock Name
+                Text(
+                    text = title,
+                    color = Color.White // Set the text color
+                    ,style = TextStyle(fontSize = 24.sp),
 
                     )
 

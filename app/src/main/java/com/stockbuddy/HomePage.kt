@@ -22,6 +22,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.stockbuddy.UniversalDef.StockBox
+import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
 //@Preview
@@ -199,32 +201,7 @@ fun HomePage(navController: NavHostController) {
 
 
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("searchPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Search Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
+                StockBox(navController, "Stock Example")
             }
             item {
                 Box(
@@ -232,7 +209,7 @@ fun HomePage(navController: NavHostController) {
                         .fillMaxWidth()
                         .height(100.dp)
                         .padding(8.dp)
-                        .clickable { navController.navigate("accountPage") } // Navigate on click
+                        .clickable { navController.navigate("stockPage") } // Navigate on click
                 ) {
                     // Content of the first Box
                     Box(
@@ -245,7 +222,7 @@ fun HomePage(navController: NavHostController) {
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Account Example",
+                            text = "Stock Example",
                             color = Color.White // Set the text color
 
                         )
