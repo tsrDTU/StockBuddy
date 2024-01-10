@@ -47,9 +47,7 @@ fun StockPage(navController: NavHostController) {
     Column {
         TopBar(navController = navController, title = "Stock")
         LazyColumn {
-        item {
-                StockBoxSecond(navController, "StockExample")
-        }
+        item { StockBoxSecond(navController, "StockExample") }
         item {
             Box(
                 modifier = Modifier

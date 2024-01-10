@@ -198,9 +198,7 @@ fun HomePage(navController: NavHostController) {
             }
 
 
-            item {
-                StockBox(navController, "Stock Example")
-            }
+            item { StockBox(navController, "Stock Example", "$10") }
             item {
                 Box(
                     modifier = Modifier

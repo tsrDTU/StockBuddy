@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -55,6 +56,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.stockbuddy.R
+import com.stockbuddy.UniversalDef.StockBox
+import com.stockbuddy.UniversalDef.TopBar
 
 //class Search : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -199,7 +202,7 @@ fun SearchPage(navController : NavHostController) {
                                 bottomEnd = 0.dp
                             )
                         )
-                        .background(Color.Transparent)
+                        .background(colorResource(id = R.color.regularBox))
                         .padding(top = 16.dp)
                         .alpha(1f),
                     horizontalArrangement = Arrangement.SpaceBetween // Aligns items at the start and end of the row
@@ -309,56 +312,8 @@ fun SearchPage(navController : NavHostController) {
             }
 
 
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(Color(R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(Color(R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
+            item { StockBox(navController = navController, title = "Stock Example", "$10")}
+            item {StockBox(navController = navController, title = "Stock Exampler", "$10")}
             item {
                 Box(
                     modifier = Modifier

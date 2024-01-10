@@ -29,7 +29,7 @@ import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 @Composable
 //@Preview(name="StockBox")
 /// title -> the imported name of a stock
-fun StockBox (navController : NavHostController, title: String) {
+fun StockBox (navController : NavHostController, title: String, price: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -79,7 +79,7 @@ fun StockBox (navController : NavHostController, title: String) {
                     contentAlignment = Alignment.CenterEnd
                 ){
                     Text(
-                        text = "X", // price
+                        text = price, // price
                         color = Color.White // Set the text color
                         ,style = TextStyle(fontSize = 24.sp),
                     )
