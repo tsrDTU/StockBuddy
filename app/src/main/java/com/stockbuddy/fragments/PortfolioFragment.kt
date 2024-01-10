@@ -38,6 +38,11 @@ class PortfolioFragment : Fragment() {
         binding.btnBuysell.setOnClickListener {
             findNavController().navigate(R.id.action_portfolioFragment_to_settingsFragment)
         }
+
+        //stocknav
+        binding.StockBackground1.setOnClickListener {
+            findNavController().navigate(R.id.action_portfolioFragment_to_stockFragment)
+        }
     }
 
     override fun onDestroyView() {
