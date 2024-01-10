@@ -175,6 +175,13 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    // OkHttp for network requests
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
 }
 
 kapt {
