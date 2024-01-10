@@ -21,7 +21,7 @@ var userIdFirestore = ""
 
 fun addUser (userId : String, first : String, last : String, email : String) {
 /*
-    val user = UserData (
+    val user = UserData(
         userId = userId,
         firstName = first,
         lastName = last,
@@ -69,7 +69,7 @@ class UserViewModel : ViewModel() {
       val db = Firebase.firestore
 
 
-      val usr: UserData = UserData (
+      val usr: UserData = UserData(
           emailaddress = "",
           firstName = "",
           lastName = "",
@@ -83,7 +83,7 @@ class UserViewModel : ViewModel() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
-                        Log.d(TAG, document.id + " => " + document.data)
+                        Log.d("StateFlow", document.id + " => " + document.data)
 
                         usr.userId = document.getString("UserId").toString()
                         usr.firstName = document.getString("FirstName").toString()
@@ -99,7 +99,7 @@ class UserViewModel : ViewModel() {
 
                     }
                 } else {
-                    Log.d(TAG, "Error getting documents: ", task.exception)
+                    Log.d("StateFlow", "Error getting documents: ", task.exception)
                 }
             }
 
