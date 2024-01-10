@@ -69,7 +69,7 @@ class UserViewModel : ViewModel() {
       val db = Firebase.firestore
 
 
-      val usr: UserData = UserData(
+      val usr:UserData = UserData(
           emailaddress = "",
           firstName = "",
           lastName = "",
