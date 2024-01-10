@@ -13,6 +13,7 @@ import com.stockbuddy.domain.users.StockViewModel
 import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.addStock
 import com.stockbuddy.domain.users.addUser
+import com.stockbuddy.domain.users.selectStockInFirestore
 import com.stockbuddy.domain.users.selectUserInFirestore
 
 
@@ -37,6 +38,7 @@ class Test: ComponentActivity() {
           //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
           //          addStock("bd", "HP", 2475,733.0,15.0, "2024-01-08" )
                     selectUserInFirestore("bd")
+                    selectStockInFirestore("IBM")
            //         ShowUserInformation(viewModel = UserViewModel())
                     ShowStockInformation(viewModel = StockViewModel())
 

@@ -2,6 +2,7 @@ package com.stockbuddy.domain.users
 
 
 import android.content.ContentValues.TAG
+import android.os.Environment
 import android.util.Log
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,11 +14,22 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.stockbuddy.data.StockData
 import androidx.lifecycle.ViewModel
+import com.stockbuddy.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+//import kotlinx.coroutines.flow.internal.NoOpContinuation.context
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.io.InputStream
+//import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 //private var userIdFirestore = ""
 
+public var stockNameFirestore = ""
+
+//val inputStream: InputStream = context.resources.openRawResource(R.raw.my_file)
 
 fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Double, purCost: Double, purDate: String) {
    val stock = hashMapOf(
@@ -58,12 +70,12 @@ fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Do
             Log.d(TAG, "Error adding document", e)
         }
 }
-/*
-fun selectUserInFirestore(userId: String){
-    userIdFirestore = userId
+
+fun selectStockInFirestore(stockName: String){
+    stockNameFirestore = stockName
 }
 
- */
+
 
 
 
@@ -79,27 +91,28 @@ class StockViewModel : ViewModel() {
 
         val db = Firebase.firestore
         var fieldValue : String = ""
-        val usr = StockData (
-            UserId = userId,
-            StockName = "",
-            NumberOfStocks = 0,
-            PurPriceEuro = 0.0,
-            PurCostEuro = 0.0,
-            PurDate = "",
-            Sold = false,
-            SellPriceEuro = 0.0,
-            SellCostEuro = 0.0,
-            SellDate = ""
-        )
-
 
         db.collection("stockTradingHistory")
             .whereEqualTo("UserId", userId)
+ //           .whereEqualTo("StockName", stockNameFirestore)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
                         Log.d(TAG, document.id + " => " + document.data)
+
+                        val usr = StockData (
+                            UserId = userId,
+                            StockName = "",
+                            NumberOfStocks = 0,
+                            PurPriceEuro = 0.0,
+                            PurCostEuro = 0.0,
+                            PurDate = "",
+                            Sold = false,
+                            SellPriceEuro = 0.0,
+                            SellCostEuro = 0.0,
+                            SellDate = ""
+                        )
 
                         usr.UserId = document.getString("UserId").toString()
                         usr.StockName = document.getString("StockName").toString()
@@ -115,8 +128,10 @@ class StockViewModel : ViewModel() {
 
                         val updatedList = _actStock.value.toMutableList().apply {
                             add(usr)
+                            Log.d("StateFlow", "List after adding: $this")
                         }
                         _actStock.value = updatedList
+                        Log.d("StateFlow", "Final _actStock value: ${_actStock.value}")
 
                     }
                 } else {
@@ -131,7 +146,6 @@ class StockViewModel : ViewModel() {
 
 
 
-
 @Composable
 fun ShowStockInformation(viewModel: StockViewModel) {
 
@@ -141,8 +155,8 @@ fun ShowStockInformation(viewModel: StockViewModel) {
     LazyColumn {
         items(dataList) { dataList ->
             // ListItemComposable
-            //             Text(text = dataList.toString())
-            Text(text = dataList.StockName.toString())
+                         Text(text = dataList.toString())
+      //      Text(text = dataList.StockName.toString())
 
 
         }

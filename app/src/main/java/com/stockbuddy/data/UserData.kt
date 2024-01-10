@@ -20,3 +20,5 @@ data class StockData(
     var SellDate: String?
 
 )
+
+//var Stockhistory List<StockData>
