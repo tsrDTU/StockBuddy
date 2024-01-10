@@ -8,9 +8,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.stockbuddy.domain.users.ShowStockInformation
+import com.stockbuddy.domain.users.ShowTotalStockValue
 import com.stockbuddy.domain.users.UserViewModel
 import com.stockbuddy.domain.users.StockViewModel
 import com.stockbuddy.domain.users.ShowUserInformation
+import com.stockbuddy.domain.users.StockTotalVavueViewModel
 import com.stockbuddy.domain.users.addStock
 import com.stockbuddy.domain.users.addUser
 import com.stockbuddy.domain.users.selectStockInFirestore
@@ -38,9 +40,10 @@ class Test: ComponentActivity() {
           //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
           //          addStock("bd", "HP", 2475,733.0,15.0, "2024-01-08" )
                     selectUserInFirestore("bd")
-                    selectStockInFirestore("IBM")
+          //          selectStockInFirestore("IBM")
            //         ShowUserInformation(viewModel = UserViewModel())
-                    ShowStockInformation(viewModel = StockViewModel())
+           //         ShowStockInformation(viewModel = StockViewModel())
+                    ShowTotalStockValue(viewModel = StockTotalVavueViewModel())
 
                 }
             }
