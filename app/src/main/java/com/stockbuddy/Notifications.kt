@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.stockbuddy.UniversalDef.NotificationsBox
 import com.stockbuddy.UniversalDef.TopBar
 
 
@@ -45,241 +46,28 @@ fun NotificationsPage(navController : NavHostController) {
 
         LazyColumn {
             item {
-
-
+                NotificationsBox(navController,
+                    "Purchase Confirmed",
+                    "Today - 12:07",
+                    "You bought X amount of X stock for X price")
             }
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(104.dp)
-                        .padding(top = 4.dp, bottom = 4.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(370.dp)
-                            .height(160.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(4.dp),
-                        contentAlignment = Alignment.TopStart
-                    ) {
-                        // Use a Row for the first and second Text fields
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.Top,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            // First Text (Top Left)
-                            Text(
-                                text = "Purchase Confirmed",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-
-                            // Second Text (Top Right)
-                            Text(
-                                text = "Today - 12:07",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-                        }
-
-                        // Third Text (Fills the rest of the space)
-                        Text(
-                            text = "You bought X amount of X stock for X price",
-                            color = Color.White, // Set the text color
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 21.dp)
-                                .align(Alignment.TopStart),
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-
+                NotificationsBox(navController,
+                    "Purchase Confirmed",
+                    "Today - 12:07",
+                    "You bought X amount of X stock for X price")
             }
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(104.dp)
-                        .padding(top = 4.dp, bottom = 4.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(370.dp)
-                            .height(160.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(4.dp),
-                        contentAlignment = Alignment.TopStart
-                    ) {
-                        // Use a Row for the first and second Text fields
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.Top,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            // First Text (Top Left)
-                            Text(
-                                text = "Purchase Confirmed",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-
-                            // Second Text (Top Right)
-                            Text(
-                                text = "Today - 12:07",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-                        }
-
-                        // Third Text (Fills the rest of the space)
-                        Text(
-                            text = "You bought X amount of X stock for X price",
-                            color = Color.White, // Set the text color
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 21.dp)
-                                .align(Alignment.TopStart),
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-
+                NotificationsBox(navController,
+                    "Purchase Confirmed",
+                    "Today - 12:07",
+                    "You bought X amount of X stock for X price")
             }
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(104.dp)
-                        .padding(top = 4.dp, bottom = 4.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(370.dp)
-                            .height(160.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(4.dp),
-                        contentAlignment = Alignment.TopStart
-                    ) {
-                        // Use a Row for the first and second Text fields
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.Top,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            // First Text (Top Left)
-                            Text(
-                                text = "Purchase Confirmed",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-
-                            // Second Text (Top Right)
-                            Text(
-                                text = "Today - 12:07",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-                        }
-
-                        // Third Text (Fills the rest of the space)
-                        Text(
-                            text = "You bought X amount of X stock for X price",
-                            color = Color.White, // Set the text color
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 21.dp)
-                                .align(Alignment.TopStart),
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-
-
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(100.dp)
-//                    .background(Color.Gray)
-//                    .padding(16.dp)
-//            ) {
-//                // First item
-//                Text(
-//                    text = "Item 1",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//
-//                // Spacer to create space between items
-//                Spacer(modifier = Modifier.width(8.dp))
-//
-//                // Second item
-//                Text(
-//                    text = "Item 2",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//            }
-
-//                item {
-//                    Box(
-//                        modifier = Modifier
-//                            .width(360.dp)
-//                            .height(800.dp)
-//                            .clip(
-//                                RoundedCornerShape(
-//                                    topStart = 0.dp,
-//                                    topEnd = 0.dp,
-//                                    bottomStart = 0.dp,
-//                                    bottomEnd = 0.dp
-//                                )
-//                            )
-//                            .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
-//                            .padding(start = 0.dp, top = 0.dp, end = 0.dp, bottom = 0.dp)
-//                            .alpha(1f)
-//                    ) {
-//
-//                        Box(
-//                            modifier = Modifier
-//                                .width(329.dp)
-//                                .height(146.dp)
-//                                .padding(8.dp)
-//                                .clip(
-//                                    RoundedCornerShape(
-//                                        topStart = 0.dp,
-//                                        topEnd = 0.dp,
-//                                        bottomStart = 0.dp,
-//                                        bottomEnd = 0.dp
-//                                    )
-//                                )
-//                                .align(Alignment.TopCenter)
-//
-//                                .background(
-//                                    Color(
-//                                        red = 0.8509804010391235f,
-//                                        green = 0.8509804010391235f,
-//                                        blue = 0.8509804010391235f,
-//                                        alpha = 1f
-//                                    )
-//                                )
-//                        )
-//                    }
+                NotificationsBox(navController,
+                    "Purchase Confirmed",
+                    "Today - 12:07",
+                    "You bought X amount of X stock for X price")
             }
         }
     }

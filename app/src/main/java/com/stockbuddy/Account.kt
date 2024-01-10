@@ -145,7 +145,7 @@ fun AccountPage(navController: NavHostController) {
                             .align(Alignment.Center)
                             .padding(0.dp)
                             .clickable {
-                                navController.navigate("tradingPage")
+                                navController.navigate("historyPage")
                             }
                     ) {
                         // Third Text (Fills the rest of the space)

@@ -1,9 +1,7 @@
 package com.stockbuddy.UniversalDef
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,53 +19,33 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.R
 
 @Composable
-fun NotificationsBox(navController: NavHostController, title : String, time : String, description : String) {
+fun HistoryBox(navController: NavHostController, message: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(104.dp)
+            .height(94.dp)
             .padding(top = 4.dp, bottom = 4.dp)
     ) {
         // Content of the first Box
         Box(
             modifier = Modifier
                 .width(370.dp)
-                .height(160.dp)
+                .height(120.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)
-                .padding(4.dp),
-            contentAlignment = Alignment.TopStart
+                .padding(8.dp),
+            contentAlignment = Alignment.CenterStart
         ) {
-            // Use a Row for the first and second Text fields
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                // First Text (Top Left)
-                Text(
-                    text = title,
-                    color = Color.White, // Set the text color
-                    fontWeight = FontWeight.Bold // Set the text to bold
-                )
-
-                // Second Text (Top Right)
-                Text(
-                    text = time,
-                    color = Color.White, // Set the text color
-                    fontWeight = FontWeight.Bold // Set the text to bold
-                )
-            }
-
             // Third Text (Fills the rest of the space)
             Text(
-                text = description,
+                text = message,
                 color = Color.White, // Set the text color
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 21.dp)
+                    .padding(top = 0.dp)
                     .align(Alignment.TopStart),
-                fontSize = 14.sp
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
             )
         }
     }
