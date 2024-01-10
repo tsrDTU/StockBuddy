@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
 
-//@Preview
+//@Preview(name = "Home")
 @Composable
 fun HomePage(navController: NavHostController) {
 //        Scaffold(
@@ -38,10 +38,7 @@ fun HomePage(navController: NavHostController) {
 //                )
 //            }
 //        ) { innerPadding ->
-
     Column {
-        TopBar(navController = navController, title = "Home")
-
         LazyColumn {
             item {
                 Row() {
@@ -58,14 +55,12 @@ fun HomePage(navController: NavHostController) {
                             modifier = Modifier
                                 .width(329.dp)
                                 .height(146.dp)
-                                .background(Color(R.color.regularBox))
+                                .background(Color(R.color.purple_200))
                                 .align(Alignment.TopCenter)
                                 .clickable {
                                     navController.navigate("portfolioPage")
                                 },
                             contentAlignment = Alignment.Center
-
-
 
                         ) {
                             Text(
@@ -204,7 +199,7 @@ fun HomePage(navController: NavHostController) {
                         .height(100.dp)
                         .padding(8.dp)
                         .clickable {
-                            navController.navigate("searchPage")
+                            navController.navigate("stockPage")
                         }
                 ) {
                     // Content of the first Box
@@ -212,13 +207,13 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Search Example",
+                            text = "Stock Example",
                             color = Color.White // Set the text color
 
                         )
@@ -238,7 +233,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -266,7 +261,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -294,7 +289,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -322,7 +317,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -350,7 +345,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -370,7 +365,7 @@ fun HomePage(navController: NavHostController) {
                         .height(100.dp)
                         .padding(8.dp)
                         .clickable {
-                            navController.navigate("searchPage")
+                            navController.navigate("stockPage")
                         }
                 ) {
                     // Content of the first Box
@@ -378,13 +373,13 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Search Example",
+                            text = "Stock Example",
                             color = Color.White // Set the text color
 
                         )
@@ -405,7 +400,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -433,7 +428,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -461,7 +456,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -489,7 +484,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -517,7 +512,7 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(Color(R.color.purple_200))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
