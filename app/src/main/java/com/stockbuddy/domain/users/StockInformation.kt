@@ -168,7 +168,7 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 }
 
 
-/*
+
 class StockTotalVavueViewModel : ViewModel() {
     private var _actStock = MutableStateFlow<List<StockData>>(emptyList())
     var actStock: StateFlow<List<StockData>> = _actStock
@@ -195,7 +195,7 @@ class StockTotalVavueViewModel : ViewModel() {
                     for (document in task.result) {
                         Log.d(TAG, document.id + " => " + document.data)
 
-                        val usr = StockData (
+                        val usr = StockData(
                             UserId = userId,
                             StockName = "",
                             NumberOfStocks = 0,
@@ -218,47 +218,24 @@ class StockTotalVavueViewModel : ViewModel() {
                         usr.SellPriceEuro = document.getDouble("SellPriceEuro")
                         usr.SellCostEuro = document.getDouble("SellCostEuro")
                         usr.SellDate = document.getString("SellDate").toString()
-                        var stocks = null
-                        _totalStockValue.value = stocks.sumOf {
-                            usr.NumberOfStocks!! * usr.PurPriceEuro!! - usr.PurCostEuro!!
 
-/*                        viewModelScope.launch {
-                            _actStock.collect { stocks ->
-                                // Opdaterer den samlede værdi når listen af aktier ændres
-                                _totalStockValue.value = stocks.sumOf { stock ->
-                                    (stock.NumberOfStocks?.times(stock.PurPriceEuro!!) ?: stocks) - stock.PurCostEuro!!
-                                }
-                            }
-                        }
 
- */
-/*
-                        var stocks = null
-                        _totalStockValue.value = stocks.sumOf { stocks ->
-                            usr.NumberOfStocks * usr.PurPriceEuro - usr.PurCostEuro
-                        }
+                        val nbs = usr.NumberOfStocks
 
- */
-                            /*
-                        val updatedList = _actStock.value.toMutableList().apply {
-                            add(usr)
-                            Log.d("StateFlow", "List after adding: $this")
-                        }
-                        _actStock.value = updatedList
-                        Log.d("StateFlow", "Final _actStock value: ${_actStock.value}")
+                        val purp = usr.PurPriceEuro
 
-                             */
+                        val purc = usr.PurCostEuro
+
+                        _totalStockValue.value =
+                            nbs!! * purp!! - purc!!
 
                     }
-                } else {
-                    Log.d(TAG, "Error getting documents: ", task.exception)
                 }
             }
-
     }
-
-
 }
+
+
 
 @Composable
 fun ShowTotalStockValue(viewModel: StockTotalVavueViewModel) {
@@ -271,5 +248,5 @@ fun ShowTotalStockValue(viewModel: StockTotalVavueViewModel) {
 
 
 
- */
+
 

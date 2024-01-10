@@ -26,7 +26,7 @@ import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
-//@Preview
+//@Preview(name = "Home")
 @Composable
 fun HomePage(navController: NavHostController) {
 //        Scaffold(
@@ -67,8 +67,6 @@ fun HomePage(navController: NavHostController) {
                                     navController.navigate("portfolioPage")
                                 },
                             contentAlignment = Alignment.Center
-
-
 
                         ) {
                             Text(

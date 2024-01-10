@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
 import com.stockbuddy.ui.theme.StockBuddyTheme
+import com.stockbuddy.util.searchBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,37 +1,60 @@
 package com.stockbuddy
 
 import android.annotation.SuppressLint
+import android.graphics.Matrix
+import android.graphics.RectF
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.stockbuddy.UniversalDef.TopBar
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.stockbuddy.R
 
 //class Search : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,8 +89,8 @@ import com.stockbuddy.UniversalDef.TopBar
 //    }
 //}
 
-@OptIn(ExperimentalFoundationApi::class)
-@SuppressLint("RestrictedApi")
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@SuppressLint("RestrictedApi", "UnusedMaterial3ScaffoldPaddingParameter")
 //@Preview
 @Composable
 fun SearchPage(navController : NavHostController) {
@@ -90,6 +113,80 @@ fun SearchPage(navController : NavHostController) {
 
         LazyColumn {
             item {
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .height(80.dp)) {
+                    var input by remember { mutableStateOf("") }
+                    var status by remember { mutableStateOf(false) }
+                    var items = remember {
+                        mutableListOf(
+                            "StockPage",
+                            "stock2"
+                            //Tilføj stocks her gennem API
+                        )
+                    }
+                    Scaffold {
+                        SearchBar(
+                            modifier = Modifier.fillMaxWidth(),
+                            query = input,
+                            onQueryChange = {
+                                input = it
+                            },
+                            onSearch = {
+                                status = false
+                                items.add(input)
+                                //linjen nedenunder skal sende en string til APIen
+                                navController.navigate(input)
+                            },
+                            active = status,
+                            onActiveChange = {
+                                status = it
+                            },
+                            placeholder = {
+                                Text(text = "Search")
+                            },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Default.Search,
+                                    contentDescription = "Search Icon"
+                                )
+                            },
+                            trailingIcon = {
+                                if (status) {
+                                    Icon(
+                                        modifier = Modifier.clickable {
+                                            if (input.isNotEmpty()) {
+                                                input = ""
+                                            } else {
+                                                status = false
+                                            }
+                                        },
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "Close Icon"
+                                    )
+                                }
+                            },
+
+                            )
+                        {
+                            items.forEach {
+                                Row(modifier = Modifier
+                                    .padding(20.dp)
+                                    .clickable { navController.navigate(it) }
+                                )
+                                {
+                                    Icon(
+                                        modifier = Modifier
+                                            .padding(end = 14.dp),
+                                        imageVector = Icons.Default.History,
+                                        contentDescription = "history"
+                                    )
+                                    Text(text = it)
+                                }
+                            }
+                        }
+                    }
+                }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -108,7 +205,7 @@ fun SearchPage(navController : NavHostController) {
                     horizontalArrangement = Arrangement.SpaceBetween // Aligns items at the start and end of the row
                 ) {
                     // Left side (Search)
-                    Box(
+                    /*Box(
                         modifier = Modifier
                             .height(30.dp)
                             .clip(
@@ -161,10 +258,10 @@ fun SearchPage(navController : NavHostController) {
                             fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Normal,
                         )
-                    }
+                    }*/
 
                     // Spacer to create space between "Search" and "Filter"
-                    Spacer(modifier = Modifier.width(24.dp))
+                    /*Spacer(modifier = Modifier.width(24.dp))
 
                     // Right side (Filter)
 
@@ -207,7 +304,7 @@ fun SearchPage(navController : NavHostController) {
                             fontWeight = FontWeight.Medium,
                             fontStyle = FontStyle.Normal,
                         )
-                    }
+                    }*/
                 }
             }
 
@@ -224,7 +321,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -249,7 +346,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -274,238 +371,13 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(Color(R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
+                            text = "Stock Example 1 123$",
                             color = Color.White // Set the text color
 
                         )
