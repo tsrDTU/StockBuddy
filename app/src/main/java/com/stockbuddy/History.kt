@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.stockbuddy.R
+import com.stockbuddy.UniversalDef.TopBar
 
 //class History : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
