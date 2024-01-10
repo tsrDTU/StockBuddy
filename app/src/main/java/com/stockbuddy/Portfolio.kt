@@ -44,6 +44,7 @@ import  androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.res.colorResource
 import com.stockbuddy.R
 
 
@@ -88,7 +89,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -119,7 +120,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -150,7 +151,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -181,7 +182,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(180.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -215,7 +216,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(48.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .clip(RoundedCornerShape(8.dp))
                             .align(Alignment.Center),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -259,7 +260,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center

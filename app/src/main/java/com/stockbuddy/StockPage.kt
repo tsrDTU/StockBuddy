@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,7 +58,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(120.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp)
                         .clickable {
@@ -94,7 +95,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(120.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp)
                         .clickable {
@@ -128,7 +129,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(160.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp),
                     contentAlignment = Alignment.Center
@@ -159,7 +160,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(180.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp),
                     contentAlignment = Alignment.Center
@@ -193,7 +194,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(48.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .clip(RoundedCornerShape(8.dp))
                         .align(Alignment.Center),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -237,7 +238,7 @@ fun StockPage(navController: NavHostController) {
                     modifier = Modifier
                         .width(370.dp)
                         .height(160.dp)
-                        .background(Color(R.color.regularBox))
+                        .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
                         .padding(8.dp),
                     contentAlignment = Alignment.Center

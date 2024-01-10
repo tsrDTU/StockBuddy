@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -236,7 +237,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -261,7 +262,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -286,7 +287,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -311,7 +312,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -336,7 +337,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -361,7 +362,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -386,7 +387,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -411,7 +412,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -436,7 +437,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -461,7 +462,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -486,7 +487,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
@@ -511,7 +512,7 @@ fun SearchPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart

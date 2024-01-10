@@ -33,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -90,7 +91,7 @@ fun TradingPage(navController : NavHostController) {
                             .width(320.dp)
                             .height(80.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -123,7 +124,7 @@ fun TradingPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,
@@ -230,7 +231,7 @@ fun TradingPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(360.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center,

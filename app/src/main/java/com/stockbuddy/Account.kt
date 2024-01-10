@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -88,7 +89,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(125.dp)
                             .height(240.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -140,7 +141,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -177,7 +178,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
@@ -216,7 +217,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
