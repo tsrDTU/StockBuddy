@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "91647901445",
+    "project_id": "stockbuddy-3c871",
+    "storage_bucket": "stockbuddy-3c871.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91647901445:android:806264d050b3bef397816c",
+        "android_client_info": {
+          "package_name": "com.stockbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91647901445-m1jmlcifiebbjurdj4jh3l65hlc3vjv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stockbuddy",
+            "certificate_hash": "74e7f38d548c62621d3cc93b8aceadb7e93c37fd"
+          }
+        },
+        {
+          "client_id": "91647901445-apo8ff1uvm6hhtel9o6a1norsfq77akb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEiTiQxbjbwdCeuB2t0zYSaYSi88JRGB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91647901445-apo8ff1uvm6hhtel9o6a1norsfq77akb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
