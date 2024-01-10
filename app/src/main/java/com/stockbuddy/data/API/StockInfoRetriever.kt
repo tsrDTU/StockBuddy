@@ -17,7 +17,7 @@ class StockInfoRetriever {
 
     /*
     //My API key, dont get me banned pls ;)
-    val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
+    val apiKey = "API_KEY_HERE"
 
     //Asynchronic threading so we dont have to halter the entire program while we wait
     val stockData = remember { mutableStateListOf<String>() }
