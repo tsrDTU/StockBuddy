@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                         composable("notificationsPage") { NotificationsPage(navController) } //8
                         composable("tradingPage") { TradingPage(navController) } //9
                         composable("puppyattackPage") { PuppyAttackPage(navController) } //10
-                        composable( "back") { navController.navigateUp() } // back button
+                        composable("back") { navController.navigateUp() } // back button
                         composable("backToStart") {navController.popBackStack(navController.graph.startDestinationId, inclusive = false) }
                     }
                 }

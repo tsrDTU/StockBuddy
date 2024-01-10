@@ -4,6 +4,7 @@ package com.stockbuddy
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -20,69 +21,75 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.stockbuddy.R
 
 
 @Composable
-fun StockBuddyTabRow(
+fun StockBuddyTabRow(navController : NavHostController
 //    allScreens : List<StockBuddyDestination>,
 //    onTabSelected: (StockBuddyDestination) -> Unit,
 //    currentScreen: StockBuddyDestination
 ) {
-    Surface(
-        Modifier
-            .height(TabHeight)
-            .fillMaxWidth()
-    ){
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Transparent)
+    Column {
+        TopBar(navController = navController, title = "Account")
 
-        ){
-            Row(
+
+        Surface(
+            Modifier
+                .height(TabHeight)
+                .fillMaxWidth()
+        ) {
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight()
-                    .background(Color(R.color.purple_200))
-                    .clip(RoundedCornerShape(8.dp))
-                    .align(Alignment.Center),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                    .fillMaxSize()
+                    .background(Color.Transparent)
+
             ) {
-
-                Box(
+                Row(
                     modifier = Modifier
-                        .height(10.dp)
-                        .width(36.dp)
-                        .padding(start = 16.dp)
-                        .background(Color.Blue)
+                        .fillMaxWidth()
+                        .fillMaxHeight()
+                        .background(Color(R.color.purple_200))
+                        .clip(RoundedCornerShape(8.dp))
+                        .align(Alignment.Center),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
 
-                )
-                Spacer(modifier = Modifier.width(200.dp))
+                    Box(
+                        modifier = Modifier
+                            .height(10.dp)
+                            .width(36.dp)
+                            .padding(start = 16.dp)
+                            .background(Color.Blue)
 
-                Box(
-                    modifier = Modifier
-                        .height(10.dp)
-                        .width(20.dp)
-                        .background(Color.Blue)
+                    )
+                    Spacer(modifier = Modifier.width(200.dp))
 
-                )
-                Box(
-                    modifier = Modifier
-                        .height(10.dp)
-                        .width(20.dp)
-                        .background(Color.Blue)
+                    Box(
+                        modifier = Modifier
+                            .height(10.dp)
+                            .width(20.dp)
+                            .background(Color.Blue)
 
-                )
-                Box(
-                    modifier = Modifier
-                        .height(10.dp)
-                        .width(20.dp)
-                        .background(Color.Blue)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
+                    )
+                    Box(
+                        modifier = Modifier
+                            .height(10.dp)
+                            .width(20.dp)
+                            .background(Color.Blue)
 
+                    )
+                    Box(
+                        modifier = Modifier
+                            .height(10.dp)
+                            .width(20.dp)
+                            .background(Color.Blue)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                }
             }
         }
     }
