@@ -1,11 +1,13 @@
 package com.stockbuddy.util
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -49,10 +51,25 @@ import androidx.navigation.NavHostController
                 },
                 leadingIcon ={
                     Icon(imageVector = Icons.Default.Search, contentDescription = "Search Icon")
-                }
+                },
+                trailingIcon = {
+                    if(status) {
+                        Icon(
+                            modifier = Modifier.clickable {
+                                if(input.isNotEmpty()){
+                                        input = ""
+                                    }
+                                else{status = false}
+                            },
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Close Icon"
+                        )
+                    }
+                },
+                
             )
             {
-
+            //Logik til at sende videre til en stock indsættes her
             }
         }
     }
