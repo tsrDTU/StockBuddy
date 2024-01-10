@@ -85,7 +85,8 @@ import androidx.navigation.NavHostController
                     Row(modifier = Modifier
                         .padding(20.dp)
                         .clickable { navController.navigate(it) }
-                    ) {
+                    )
+                    {
                         Icon(
                             modifier = Modifier
                                 .padding(end = 14.dp),
