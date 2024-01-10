@@ -7,9 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
-import com.stockbuddy.R
 import com.stockbuddy.ui.theme.StockBuddyTheme
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
