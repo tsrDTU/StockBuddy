@@ -45,55 +45,7 @@ fun NotificationsPage(navController : NavHostController) {
 
         LazyColumn {
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(120.dp)
-                        .padding(top = 20.dp, bottom = 4.dp)
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(370.dp)
-                            .height(160.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(4.dp),
-                        contentAlignment = Alignment.TopStart
-                    ) {
-                        // Use a Row for the first and second Text fields
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.Top,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            // First Text (Top Left)
-                            Text(
-                                text = "Purchase Confirmed",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
 
-                            // Second Text (Top Right)
-                            Text(
-                                text = "Today - 12:07",
-                                color = Color.White, // Set the text color
-                                fontWeight = FontWeight.Bold // Set the text to bold
-                            )
-                        }
-
-                        // Third Text (Fills the rest of the space)
-                        Text(
-                            text = "You bought X amount of X stock for X price",
-                            color = Color.White, // Set the text color
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 21.dp)
-                                .align(Alignment.TopStart),
-                            fontSize = 14.sp
-                        )
-                    }
-                }
 
             }
             item {
