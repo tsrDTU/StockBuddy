@@ -1,11 +1,16 @@
 package com.stockbuddy
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,6 +32,8 @@ import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
 //@Preview(name = "Home")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavHostController) {
 //        Scaffold(
@@ -94,90 +101,96 @@ fun HomePage(navController: NavHostController) {
                         .alpha(1f),
                     horizontalArrangement = Arrangement.SpaceBetween // Aligns items at the start and end of the row
                 ) {
-                    // Search bar
                     Box(
                         modifier = Modifier
-                            .height(30.dp)
-                            .clip(
-                                RoundedCornerShape(
-                                    topStart = 4.dp,
-                                    topEnd = 4.dp,
-                                    bottomStart = 4.dp,
-                                    bottomEnd = 4.dp
-                                )
-                            )
-                            .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
-                            .padding(start = 32.dp)
-                            .border(
-                                1.dp,
-                                Color(
-                                    red = 0.007843137718737125f,
-                                    green = 0.007843137718737125f,
-                                    blue = 0.007843137718737125f,
-                                    alpha = 1f
-                                ),
-                                RoundedCornerShape(
-                                    topStart = 4.dp,
-                                    topEnd = 4.dp,
-                                    bottomStart = 4.dp,
-                                    bottomEnd = 4.dp
-                                )
-                            )
-                            //.align(Alignment.Center)
-                            .alpha(1f)
+                            .fillMaxWidth()
+                            .height(800.dp)
                     ) {
-                        Text(
-                            text = "Search",
-                            textAlign = TextAlign.Start,
-                            fontSize = 16.sp,
-                            textDecoration = TextDecoration.None,
-                            letterSpacing = 0.15.sp,
-                            lineHeight = 24.sp,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier
-                                .align(Alignment.CenterStart)
-                                .width(200.dp)
-                                .padding(start = 4.dp)
-                                .alpha(1f),
-                            color = Color(
-                                red = 0.4588235318660736f,
-                                green = 0.4588235318660736f,
-                                blue = 0.4588235318660736f,
-                                alpha = 1f
-                            ),
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Normal,
-                        )
+                        var input by remember { mutableStateOf("") }
+                        var status by remember { mutableStateOf(false) }
+                        var items = remember {
+                            mutableListOf(
+                                "StockPage",
+                                "stock2"
+                                //Tilføj stocks her gennem API
+                            )
+                        }
+                        Scaffold {
+
+                            SearchBar(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(600.dp),
+                                query = input,
+                                onQueryChange = {
+                                    input = it
+                                },
+                                onSearch = {
+                                    status = false
+                                    items.add(input)
+                                    //linjen nedenunder skal sende en string til APIen
+                                    navController.navigate(input)
+                                },
+                                active = status,
+                                onActiveChange = {
+                                    status = it
+                                },
+                                placeholder = {
+                                    Text(text = "Search")
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        imageVector = Icons.Default.Search,
+                                        contentDescription = "Search Icon"
+                                    )
+                                },
+                                trailingIcon = {
+                                    if (status) {
+                                        Icon(
+                                            modifier = Modifier.clickable {
+                                                if (input.isNotEmpty()) {
+                                                    input = ""
+                                                } else {
+                                                    status = false
+                                                }
+                                            },
+                                            imageVector = Icons.Default.Close,
+                                            contentDescription = "Close Icon"
+                                        )
+                                    }
+                                },
+
+                                )
+                            {
+                                items.forEach {
+                                    Row(modifier = Modifier
+                                        .padding(20.dp)
+                                        .clickable { navController.navigate(it) }
+                                    )
+                                    {
+                                        Icon(
+                                            modifier = Modifier
+                                                .padding(end = 14.dp),
+                                            imageVector = Icons.Default.History,
+                                            contentDescription = "history"
+                                        )
+                                        Text(text = it)
+                                    }
+                                }}}}
+
+
+
+
+
+
+
                     }
 
                     // Spacer to create space between "Search" and "Filter"
-                    Spacer(modifier = Modifier.width(24.dp))
+
 
                     // Right side (Filter)
-                    Box(
-                        modifier = Modifier
-                            .width(200.dp)
-                            .height(30.dp)
-                            .padding(end = 32.dp)
-                            .clip(
-                                RoundedCornerShape(
-                                    topStart = 4.dp,
-                                    topEnd = 4.dp,
-                                    bottomStart = 4.dp,
-                                    bottomEnd = 4.dp
-                                )
-                            )
-                            .background(
-                                Color(
-                                    red = 0.12941177189350128f,
-                                    green = 0.12941177189350128f,
-                                    blue = 0.12941177189350128f,
-                                    alpha = 1f
-                                )
-                            )
-                            .padding(start = 2.dp, top = 2.dp, end = 2.dp, bottom = 2.dp)
-                            .alpha(1f)
-                    ) {
+
                         Text(
                             text = "Filter",
                             textAlign = TextAlign.Center,
@@ -194,8 +207,8 @@ fun HomePage(navController: NavHostController) {
                             fontStyle = FontStyle.Normal,
                         )
                     }
-                }
-            }
+
+
 
 
             item { StockBox(navController, "Stock Example", "$10") }
