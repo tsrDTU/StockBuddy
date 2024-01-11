@@ -7,7 +7,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,13 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.stockbuddy.R
+import com.stockbuddy.UniversalDef.TopBar
 
 //class Account : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,7 +87,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(125.dp)
                             .height(240.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
@@ -140,13 +139,13 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp)
                             )
                             .align(Alignment.Center)
                             .padding(0.dp)
                             .clickable {
-                                navController.navigate("tradingPage")
+                                navController.navigate("historyPage")
                             }
                     ) {
                         // Third Text (Fills the rest of the space)
@@ -177,7 +176,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
@@ -216,7 +215,7 @@ fun AccountPage(navController: NavHostController) {
                             .width(370.dp)
                             .height(120.dp)
                             .background(
-                                color = Color(R.color.regularBox),
+                                color = colorResource(id = R.color.regularBox),
                                 shape = RoundedCornerShape(64.dp) // Adjust the corner radius as needed
                             )
                             .align(Alignment.Center)
