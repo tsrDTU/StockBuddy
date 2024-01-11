@@ -1,9 +1,6 @@
 package com.stockbuddy
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -38,13 +35,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import  androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
-import androidx.compose.material3.Scaffold
-import com.stockbuddy.R
+import androidx.compose.ui.res.colorResource
+import com.stockbuddy.UniversalDef.TopBar
 
 
 //class Portfolio : ComponentActivity() {
@@ -88,7 +84,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -119,7 +115,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -150,7 +146,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -181,7 +177,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(180.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -215,7 +211,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(48.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .clip(RoundedCornerShape(8.dp))
                             .align(Alignment.Center),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -259,7 +255,7 @@ fun PortfolioPage(navController : NavHostController) {
                         modifier = Modifier
                             .width(370.dp)
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center

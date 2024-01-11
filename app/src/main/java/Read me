@@ -3,3 +3,5 @@ To run main program select in Manifests/AndroidManest.xml/application/activity/a
 
  To run Firestore test program select in Manifests/AndroidManest.xml/application/activity/android:name:
   android:name=".Test"
+  or
+  android:name=".MainActivity"
