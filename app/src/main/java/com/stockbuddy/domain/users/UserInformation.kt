@@ -20,15 +20,7 @@ var userIdFirestore = ""
 
 
 fun addUser (userId : String, first : String, last : String, email : String) {
-/*
-    val user = UserData(
-        userId = userId,
-        firstName = first,
-        lastName = last,
-        emailaddress = email
-    )
 
- */
    val user = hashMapOf(
         "UserId" to userId,
         "FirstName" to first,

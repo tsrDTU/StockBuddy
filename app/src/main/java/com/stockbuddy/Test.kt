@@ -7,9 +7,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.stockbuddy.domain.users.NotificationViewModel
 import com.stockbuddy.domain.users.ShowTotalStockValue
+import com.stockbuddy.domain.users.ShowUserNotifications
 import com.stockbuddy.domain.users.StockTotalValueViewModel
+import com.stockbuddy.domain.users.purchaseStock
 import com.stockbuddy.domain.users.selectUserInFirestore
+import com.stockbuddy.domain.users.sellStock
+import com.stockbuddy.domain.users.userNotification
 
 
 class Test: ComponentActivity() {
@@ -32,13 +37,16 @@ class Test: ComponentActivity() {
           //          purchaseStock("bd", "HP", 2475,733.0,15.0, "2024-01-08" )
           //          purchaseStock("bd", "MicroSoft", 987,876.0,18.0, "2024-01-10" )
           //          purchaseStock("bd", "Google", 667,1340.0,18.0, "2024-01-11" )
+          //          purchaseStock("bd", "Amazon", 897,587.0,18.0, "2024-01-11" )
           //          sellStock ("bd", "IBM", 547.0, 18.0, "2024-01-10")
-         //           sellStock ("bd", "HP", 2814.0, 18.0, "2024-01-11")
+         //           sellStock ("bd", "HP", 917.0, 18.0, "2024-01-11")
                     selectUserInFirestore("bd")
           //          selectStockInFirestore("IBM")
            //         ShowUserInformation(viewModel = UserViewModel())
             //        ShowStockInformation(viewModel = StockViewModel())
-                    ShowTotalStockValue(viewModel = StockTotalValueViewModel())
+           //         userNotification("bd","this is a test notification to test it work with the size notifications typically have")
+           //         ShowTotalStockValue(viewModel = StockTotalValueViewModel())
+                    ShowUserNotifications(NotificationViewModel())
 
                 }
             }
