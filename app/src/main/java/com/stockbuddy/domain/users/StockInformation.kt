@@ -49,21 +49,7 @@ fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Do
        "SellDate" to ""
     )
 
-   /*
-    val stock = StockData (
-        UserId = userId,
-        StockName = stockName,
-        NumberOfStocks = numOfStocks,
-     PurPriceEuro = purPrice,
-     PurCostEuro = purCost,
-     PurDate = purDate,
-     Sold = false,
-     SellPriceEuro = 0.0,
-     SellCostEuro = 0.0,
-     SellDate = ""
-    )
 
-   */
     val db = Firebase.firestore
     db.collection("stockTradingHistory")
         .add(stock)
@@ -75,10 +61,46 @@ fun addStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Do
         }
 }
 
+
+
+
+
 fun selectStockInFirestore(stockName: String){
     stockNameFirestore = stockName
 }
 
+
+/* created by ChatGPT modified by Torben */
+fun sellStock (userId: String, stockName: String,sellPriceEuro: Double, sellCostEuro: Double, sellDate: String) {
+
+
+    val db = Firebase.firestore
+    val collectionRef = db.collection("stockTradingHistory")
+    val query = collectionRef.whereEqualTo("UserId", userId).whereEqualTo("StockName", stockName)
+
+    query.get()
+        .addOnSuccessListener { documents ->
+            for (document in documents) {
+                val docRef = collectionRef.document(document.id)
+                val updatedData = hashMapOf(
+                    "Sold" to true,
+                    "SellPriceEuro" to sellPriceEuro,
+                    "SellCostEuro" to sellCostEuro,
+                    "SellDate" to sellDate
+                )
+                docRef.update(updatedData as Map<String, Any>)
+                    .addOnSuccessListener {
+                        Log.d("StateFlow", "Document updated successfully!")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("StateFlow", "Error in updating document", e)
+                    }
+            }
+        }
+        .addOnFailureListener { exception ->
+            Log.w("StateFlow", "Error in searching for document", exception)
+        }
+}
 
 
 
@@ -176,6 +198,10 @@ class StockTotalVavueViewModel : ViewModel() {
     private val _totalStockValue = MutableStateFlow<Double>(0.0)
     val totalStockValue: StateFlow<Double> = _totalStockValue.asStateFlow()
 
+    private val _totalProfit = MutableStateFlow<Double>(0.0)
+    val totalProfit: StateFlow<Double> = _totalProfit.asStateFlow()
+
+
 
     init {
         ReadStock(userIdFirestore)
@@ -193,7 +219,7 @@ class StockTotalVavueViewModel : ViewModel() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     for (document in task.result) {
-                        Log.d(TAG, document.id + " => " + document.data)
+                        Log.d("StateFlow", document.id + " => " + document.data)
 
                         val usr = StockData(
                             UserId = userId,
@@ -220,14 +246,26 @@ class StockTotalVavueViewModel : ViewModel() {
                         usr.SellDate = document.getString("SellDate").toString()
 
 
-                        val nbs = usr.NumberOfStocks
+                        val sld = usr.Sold
+                        if (sld == false) {
+                            val nbs = usr.NumberOfStocks
+                            val purp = usr.PurPriceEuro
+                            val purc = usr.PurCostEuro
 
-                        val purp = usr.PurPriceEuro
+                            _totalStockValue.value +=
+                                nbs!! * purp!! - purc!!
+                        }
+                        else
+                        {
+                            val nbs = usr.NumberOfStocks
+                            val purp = usr.PurPriceEuro
+                            val purc = usr.PurCostEuro
+                            val selp = usr.SellPriceEuro
+                            val selc = usr.SellCostEuro
 
-                        val purc = usr.PurCostEuro
-
-                        _totalStockValue.value =
-                            nbs!! * purp!! - purc!!
+                            _totalProfit.value += nbs!! * (selp!! - purp!!) - (purc!! + selc!!)
+                                Log.d("StateFlow", "$_totalProfit")
+                        }
 
                     }
                 }
@@ -235,14 +273,19 @@ class StockTotalVavueViewModel : ViewModel() {
     }
 }
 
+private operator fun <T> MutableStateFlow<T>.plusAssign(t: T) {
+
+}
 
 
 @Composable
 fun ShowTotalStockValue(viewModel: StockTotalVavueViewModel) {
     val totalStockValue by viewModel.totalStockValue.collectAsState()
+    val totalProfit by viewModel.totalProfit.collectAsState()
 
     Column {
-        Text(text = "Total Stock Value: $totalStockValue")
+        Text(text = "Total Value of Stocks: $totalStockValue Euro")
+        Text(text = "Total profit: $totalProfit Euro")
     }
 }
 

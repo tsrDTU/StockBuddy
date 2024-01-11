@@ -17,8 +17,7 @@ import com.stockbuddy.domain.users.addStock
 import com.stockbuddy.domain.users.addUser
 import com.stockbuddy.domain.users.selectStockInFirestore
 import com.stockbuddy.domain.users.selectUserInFirestore
-
-
+import com.stockbuddy.domain.users.sellStock
 
 
 class Test: ComponentActivity() {
@@ -39,6 +38,8 @@ class Test: ComponentActivity() {
                //     addUser("ll", "Lucky", "Luke", "lucky.luke@mail.detvildevesten")
           //          addStock("bd", "IBM", 3447,315.0,12.0, "2024-01-06" )
           //          addStock("bd", "HP", 2475,733.0,15.0, "2024-01-08" )
+          //          addStock("bd", "MicroSoft", 987,876.0,18.0, "2024-01-10" )
+          //          sellStock ("bd", "IBM", 547.0, 18.0, "2024-01-10")
                     selectUserInFirestore("bd")
           //          selectStockInFirestore("IBM")
            //         ShowUserInformation(viewModel = UserViewModel())
