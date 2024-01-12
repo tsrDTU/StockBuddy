@@ -25,6 +25,8 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowUserInformation
+import com.stockbuddy.domain.users.UserViewModel
 
 //@Preview(name = "Home")
 @Composable
@@ -57,6 +59,8 @@ fun HomePage(navController: NavHostController) {
 
                     ) {
 
+                        ShowUserInformation(UserViewModel(), navController)
+                        /*
                         Box(
                             modifier = Modifier
                                 .width(329.dp)
@@ -69,11 +73,17 @@ fun HomePage(navController: NavHostController) {
                             contentAlignment = Alignment.Center
 
                         ) {
+
+
                             Text(
                                 text = "Portfolio\nPreview",
                                 color = Color.White // Set the text color
                             )
+
+
                         }
+
+                         */
                     }
                 }
             }

@@ -9,8 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.stockbuddy.domain.users.NotificationViewModel
 import com.stockbuddy.domain.users.ShowTotalStockValue
+import com.stockbuddy.domain.users.ShowUserExsistInformation
 import com.stockbuddy.domain.users.ShowUserNotifications
 import com.stockbuddy.domain.users.StockTotalValueViewModel
+import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.purchaseStock
 import com.stockbuddy.domain.users.selectUserInFirestore
 import com.stockbuddy.domain.users.sellStock
@@ -47,6 +49,7 @@ class Test: ComponentActivity() {
            //         userNotification("bd","this is a test notification to test it work with the size notifications typically have")
            //         ShowTotalStockValue(viewModel = StockTotalValueViewModel())
                //     ShowUserNotifications(NotificationViewModel())
+                    ShowUserExsistInformation( UserExistViewModel())
 
                 }
             }
