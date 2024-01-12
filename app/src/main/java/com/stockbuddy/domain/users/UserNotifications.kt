@@ -9,8 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavHostController
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import com.stockbuddy.UniversalDef.NotificationsBox
 import com.stockbuddy.data.NotificationData
 import com.stockbuddy.data.UserData
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -91,11 +93,15 @@ fun ShowUserNotifications(viewModel: NotificationViewModel) {
     val dataList by viewModel.actNotification.collectAsState()
 
     LazyColumn {
+
+
         items(dataList) { dataList ->
             // ListItemComposable
                          Text(text = dataList.toString())
      //       Text(text = dataList.firstName.toString())
      //      Text(text = dataList.lastName.toString())
         }
+
+
     }
 }

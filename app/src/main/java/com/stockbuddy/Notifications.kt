@@ -24,6 +24,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.NotificationsBox
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.NotificationViewModel
+import com.stockbuddy.domain.users.ShowUserNotifications
+import com.stockbuddy.domain.users.selectUserInFirestore
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -43,7 +46,9 @@ fun NotificationsPage(navController : NavHostController) {
 //            }
     Column {
         TopBar(navController = navController, title = "Notifications")
-
+        selectUserInFirestore("bd")
+        ShowUserNotifications(NotificationViewModel())
+        /*
         LazyColumn {
             item {
                 NotificationsBox(navController,
@@ -70,6 +75,7 @@ fun NotificationsPage(navController : NavHostController) {
                     "You bought X amount of X stock for X price")
             }
         }
+        */
     }
 }
 

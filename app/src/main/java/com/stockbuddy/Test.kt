@@ -46,7 +46,7 @@ class Test: ComponentActivity() {
             //        ShowStockInformation(viewModel = StockViewModel())
            //         userNotification("bd","this is a test notification to test it work with the size notifications typically have")
            //         ShowTotalStockValue(viewModel = StockTotalValueViewModel())
-                    ShowUserNotifications(NotificationViewModel())
+               //     ShowUserNotifications(NotificationViewModel())
 
                 }
             }
