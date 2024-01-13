@@ -203,12 +203,17 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 
     LazyColumn {
         items(dataList) { dataList ->
+            val stName : String = dataList.StockName.toString()
+            val stPrice : Double = dataList.PurPriceEuro!!.toDouble()
+            val  nrStocks : Int = dataList.NumberOfStocks!!.toInt()
+            val sold : String = dataList.Sold!!.toString()
+            val totVal = stPrice * nrStocks
 
-
+            if (sold.equals("false")) {
             Box(
                 modifier = Modifier
-                    .width(329.dp)
-                    .height(100.dp)
+                    .width(410.dp)
+                    .height(170.dp)
                     .background(colorResource(id = R.color.regularBox))
                     /*
                     .align(
@@ -229,14 +234,9 @@ fun ShowStockInformation(viewModel: StockViewModel) {
                 //                 contentAlignment  LineHeightStyle.Alignment.Center
 
             ) {
-                val stName : String = dataList.StockName.toString()
-                val stPrice : Double = dataList.PurPriceEuro!!.toDouble()
-                val  nrStocks : Int = dataList.NumberOfStocks!!.toInt()
-                val sold : String = dataList.Sold!!.toString()
-                val totVal = stPrice * nrStocks
-                if (sold.equals("false")) {
+
                     Text(
-                        text = " Name: $stName Number: $nrStocks Total Value: $totVal Euro",
+                        text = "Stock Name: $stName\nAmount Owned: $nrStocks\nPurchase price pr. stock: ${dataList.PurPriceEuro} Euro\nDate for purchase: ${dataList.PurDate}\nPuschase trading cost: ${dataList.PurCostEuro} Euro\n Total Value: $totVal Euro",
                         color = Color.White // Set the text color
                     )
                 }

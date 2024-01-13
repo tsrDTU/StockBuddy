@@ -80,8 +80,16 @@ fun addUser (userId : String, first : String, last : String, email : String) {
         }
 }
 
-fun selectUserInFirestore(userId: String){
-    userIdFirestore = userId
+/*
+@Composable
+fun selectUserInFirestore(userId: String, modifier: Modifier){
+
+ */
+    fun selectUserInFirestore(userId: String) {
+
+ //   if (ShowUserExsistInformation(UserExistViewModel())) {
+        userIdFirestore = userId
+  //  }
 }
 
 

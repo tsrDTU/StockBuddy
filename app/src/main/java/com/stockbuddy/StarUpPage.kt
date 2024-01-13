@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -75,6 +76,7 @@ fun StartUpPage(navController : NavHostController) {
                             onSearch = {
                                 status = false
 
+                           //     selectUserInFirestore(input, modifier = Modifier)
                                 selectUserInFirestore(input)
 
           //                      if (ShowUserExsistInformation( UserExistViewModel())) {
