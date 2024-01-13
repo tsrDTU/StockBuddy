@@ -8,10 +8,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.stockbuddy.domain.users.NotificationViewModel
-import com.stockbuddy.domain.users.ShowTotalStockValue
+//import com.stockbuddy.domain.users.ShowTotalStockValue
 import com.stockbuddy.domain.users.ShowUserExsistInformation
 import com.stockbuddy.domain.users.ShowUserNotifications
-import com.stockbuddy.domain.users.StockTotalValueViewModel
+//import com.stockbuddy.domain.users.StockTotalValueViewModel
 import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.purchaseStock
 import com.stockbuddy.domain.users.selectUserInFirestore

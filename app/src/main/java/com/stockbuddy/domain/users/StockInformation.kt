@@ -210,6 +210,7 @@ fun ShowStockInformation(viewModel: StockViewModel) {
             val totVal = stPrice * nrStocks
 
             if (sold.equals("false")) {
+
             Box(
                 modifier = Modifier
                     .width(410.dp)
@@ -250,7 +251,7 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 }
 
 
-
+/*
 class StockTotalValueViewModel : ViewModel() {
     private var _actStock = MutableStateFlow<List<StockData>>(emptyList())
     var actStock: StateFlow<List<StockData>> = _actStock
@@ -361,6 +362,8 @@ fun ShowTotalStockValue(viewModel: StockTotalValueViewModel) {
         Text(text = String.format("Total profit: $totalProfit Euro, %.2f pct.", totalProfitInPct))
     }
 }
+
+ */
 
 
 

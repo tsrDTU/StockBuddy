@@ -95,19 +95,21 @@ fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostContr
 
 
     LazyColumn {
-        items(dataList) { dataList ->
-            val sPrice : Double = dataList.PurPriceEuro!!.toDouble()
-            val  nrStock : Int = dataList.NumberOfStocks!!.toInt()
-            val cost : Double = dataList.PurCostEuro!!.toDouble()
+
+        val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
+
+        items(sortedList) {item ->
+            val sPrice : Double = item.PurPriceEuro!!.toDouble()
+            val  nrStock : Int = item.NumberOfStocks!!.toInt()
+            val cost : Double = item.PurCostEuro!!.toDouble()
             val total : Double = sPrice * nrStock + cost;
             NotificationsBox(
                 navController,
                 "Purchase Confirmed",
-                "Date: ${dataList.PurDate}",
-                "You bought ${dataList.NumberOfStocks} amount of ${dataList.StockName} stock for ${dataList.PurPriceEuro} pr stock price: $total Euro"
+                "Date: ${item.PurDate}",
+                "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $total Euro"
             )
         }
     }
-
 
 }
