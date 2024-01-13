@@ -1,4 +1,4 @@
-package com.stockbuddy.util
+package com.stockbuddy
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -28,17 +27,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.stockbuddy.R
-import com.stockbuddy.UniversalDef.StockBox
-import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowUserExsistInformation
+import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.selectUserInFirestore
 
 
@@ -78,10 +74,12 @@ fun StartUpPage(navController : NavHostController) {
                             },
                             onSearch = {
                                 status = false
-                         //       items.add(input)
-                                //linjen nedenunder skal sende en string til APIen
+
                                 selectUserInFirestore(input)
-                                navController.navigate("Homepage")
+
+          //                      if (ShowUserExsistInformation( UserExistViewModel())) {
+                                    navController.navigate("Homepage")
+          //                      }
                             },
                             active = status,
                             onActiveChange = {
@@ -89,44 +87,13 @@ fun StartUpPage(navController : NavHostController) {
                             },
                             placeholder = {
                                 Text(text = "Enter user ID")
-                            },
-                          leadingIcon = {
-                                Icon(
-                                    imageVector = Icons.Default.Search,
-                                    contentDescription = "Search Icon"
-                                )
-                            },
-
-                            trailingIcon = {
-                                if (status) {
-
-                                    Icon(
-                                        modifier = Modifier.clickable {
-                                            if (input.isNotEmpty()) {
-                                                input = ""
-                            //                    navController.navigate("Homepage")
-                                            } else {
-                                                status = false
-                                            }
-
-                                        },
-                                        imageVector = Icons.Default.Close,
-                                        contentDescription = "Close Icon"
-                                    )
-                                }
-                            },
-
-                            )
-                    // From chatGPT
-                        {
-                          /*
-                           onSearch = {
-                                status = false
-                                items.add(input)
-                                navController.navigate(input)
                             }
 
-                           */
+
+                            )
+
+                        {
+
 
                             items.forEach {
                                 Row(modifier = Modifier

@@ -3,17 +3,27 @@ package com.stockbuddy.domain.users
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.dp
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.stockbuddy.data.StockData
 import androidx.lifecycle.ViewModel
+import com.stockbuddy.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -191,16 +201,52 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 
     val dataList by viewModel.actStock.collectAsState()
 
-
     LazyColumn {
         items(dataList) { dataList ->
-            // ListItemComposable
-                         Text(text = dataList.toString())
-      //      Text(text = dataList.StockName.toString())
 
+
+            Box(
+                modifier = Modifier
+                    .width(329.dp)
+                    .height(100.dp)
+                    .background(colorResource(id = R.color.regularBox))
+                    /*
+                    .align(
+                        LineHeightStyle
+                            .Alignment
+                            .Top
+                    )
+
+                     */
+/*
+                    .clickable {
+                        navController.navigate("portfolioPage")
+                    }
+
+ */
+
+
+                //                 contentAlignment  LineHeightStyle.Alignment.Center
+
+            ) {
+                val stName : String = dataList.StockName.toString()
+                val stPrice : Double = dataList.PurPriceEuro!!.toDouble()
+                val  nrStocks : Int = dataList.NumberOfStocks!!.toInt()
+                val sold : String = dataList.Sold!!.toString()
+                val totVal = stPrice * nrStocks
+                if (sold.equals("false")) {
+                    Text(
+                        text = " Name: $stName Number: $nrStocks Total Value: $totVal Euro",
+                        color = Color.White // Set the text color
+                    )
+                }
+
+
+            }
 
         }
     }
+
 }
 
 

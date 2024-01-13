@@ -1,5 +1,6 @@
 package com.stockbuddy.domain.users
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.background
@@ -95,6 +96,7 @@ class UserViewModel : ViewModel() {
         ReadUser(userIdFirestore)
     }
 
+  @SuppressLint("SuspiciousIndentation")
   private fun ReadUser(userId: String){
 
       val db = Firebase.firestore
@@ -181,24 +183,12 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
 
 
             }
-            // ListItemComposable
-            //             Text(text = dataList.toString())
 
         }
     }
 }
-/*
-private fun Any.align(center: LineHeightStyle.Alignment): Any {
 
-}
 
- */
-/*
-private fun Modifier.align(topCenter: Any): Any {
-
-}
-
- */
 
 
 class UserExistViewModel : ViewModel() {
@@ -265,7 +255,7 @@ class UserExistViewModel : ViewModel() {
 
 
 @Composable
-fun ShowUserExsistInformation(viewModel: UserExistViewModel) {
+fun ShowUserExsistInformation(viewModel: UserExistViewModel): Boolean {
 
     val dataList by viewModel.actUser.collectAsState()
     val userEks by  viewModel.userExist.collectAsState()
@@ -275,5 +265,7 @@ fun ShowUserExsistInformation(viewModel: UserExistViewModel) {
               Text(text = userEks.toString())
 
     }
+
+    return userEks
 }
 
