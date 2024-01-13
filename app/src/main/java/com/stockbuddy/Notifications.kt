@@ -26,6 +26,7 @@ import com.stockbuddy.UniversalDef.NotificationsBox
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.NotificationViewModel
 import com.stockbuddy.domain.users.ShowUserNotifications
+import com.stockbuddy.domain.users.StockViewModel
 import com.stockbuddy.domain.users.selectUserInFirestore
 
 
@@ -47,7 +48,7 @@ fun NotificationsPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "Notifications")
         selectUserInFirestore("bd")
-        ShowUserNotifications(NotificationViewModel())
+        ShowUserNotifications(StockViewModel(), navController)
         /*
         LazyColumn {
             item {

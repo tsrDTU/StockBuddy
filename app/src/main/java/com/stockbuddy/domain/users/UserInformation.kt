@@ -185,7 +185,7 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
                val  lnvn : String = dataList.lastName.toString()
 
                 Text(
-                    text = "$fnvn $lnvn\nPortfolio\nPreview",
+                    text = "\n   User name: $fnvn $lnvn\n   Portfolio Preview",
                     color = Color.White // Set the text color
                 )
 
