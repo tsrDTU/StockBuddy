@@ -264,7 +264,7 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
 
     LazyColumn {
 
-        /*
+
         val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
 
         var histPrifitPurTotal : Double = 0.0
@@ -324,10 +324,12 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
 
         }
 
- */
+
 
 
     }
+
+
 
 }
 

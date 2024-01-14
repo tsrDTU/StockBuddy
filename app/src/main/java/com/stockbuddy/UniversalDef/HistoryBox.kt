@@ -22,7 +22,9 @@ import com.stockbuddy.domain.users.StockViewModel
 
 @Composable
 fun HistoryBox(navController: NavHostController, message: String) {
-    ShowStockHistory( StockViewModel(),navController )
+ //   TopBar(navController = navController, title = "History")
+
+ //   ShowStockHistory( StockViewModel(),navController )
 
     Box(
         modifier = Modifier
@@ -53,6 +55,8 @@ fun HistoryBox(navController: NavHostController, message: String) {
             )
         }
     }
+
+
 
 
 }
