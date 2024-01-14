@@ -23,7 +23,9 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.stockbuddy.data.StockData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavHostController
 import com.stockbuddy.R
+import com.stockbuddy.UniversalDef.NotificationsBox
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -139,6 +141,8 @@ class StockViewModel : ViewModel() {
 
     private fun ReadStock(userId: String) {
 
+//        Log.d("StateFlow", "StockViewModel $userId: ")
+
         val db = Firebase.firestore
         var fieldValue : String = ""
 
@@ -251,119 +255,82 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 }
 
 
-/*
-class StockTotalValueViewModel : ViewModel() {
-    private var _actStock = MutableStateFlow<List<StockData>>(emptyList())
-    var actStock: StateFlow<List<StockData>> = _actStock
-
-    private val _totalStockValue = MutableStateFlow<Double>(0.0)
-    val totalStockValue: StateFlow<Double> = _totalStockValue.asStateFlow()
-
-    private val _totalProfit = MutableStateFlow<Double>(0.0)
-    val totalProfit: StateFlow<Double> = _totalProfit.asStateFlow()
-
-    private val _totalProfitInPct = MutableStateFlow<Double>(0.0)
-    val totalProfitInPct: StateFlow<Double> = _totalProfitInPct.asStateFlow()
-
-
-
-
-    init {
-        ReadStock(userIdFirestore)
-    }
-
-    private fun ReadStock(userId: String) {
-
-        val db = Firebase.firestore
-        var fieldValue : String = ""
-        var totalProf : Double = 0.0
-        var totalValue : Double = 0.0
-
-        db.collection("stockTradingHistory")
-            .whereEqualTo("UserId", userId)
-            //           .whereEqualTo("StockName", stockNameFirestore)
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result) {
-                        Log.d("StateFlow", document.id + " => " + document.data)
-
-                        val usr = StockData(
-                            UserId = userId,
-                            StockName = "",
-                            NumberOfStocks = 0,
-                            PurPriceEuro = 0.0,
-                            PurCostEuro = 0.0,
-                            PurDate = "",
-                            Sold = false,
-                            SellPriceEuro = 0.0,
-                            SellCostEuro = 0.0,
-                            SellDate = ""
-                        )
-
-                        usr.UserId = document.getString("UserId").toString()
-                        usr.StockName = document.getString("StockName").toString()
-                        usr.NumberOfStocks = document.getLong("NumberOfStocks")?.toInt()
-                        usr.PurPriceEuro = document.getDouble("PurPriceEuro")
-                        usr.PurCostEuro = document.getDouble("PurCostEuro")
-                        usr.PurDate = document.getString("PurDate").toString()
-                        usr.Sold = document.getBoolean("Sold")
-                        usr.SellPriceEuro = document.getDouble("SellPriceEuro")
-                        usr.SellCostEuro = document.getDouble("SellCostEuro")
-                        usr.SellDate = document.getString("SellDate").toString()
-
-
-                        val sld = usr.Sold
-                        if (sld == false) {
-                            val nbs = usr.NumberOfStocks
-                            val purp = usr.PurPriceEuro
-                            val purc = usr.PurCostEuro
-
-                            totalValue += nbs!! * purp!! - purc!!
-                            Log.d("StateFlow", " Total Value $totalValue")
-                        }
-                        else
-                        {
-                            val nbs = usr.NumberOfStocks
-                            val purp = usr.PurPriceEuro
-                            val purc = usr.PurCostEuro
-                            val selp = usr.SellPriceEuro
-                            val selc = usr.SellCostEuro
-
-                          //  _totalProfit.value
-                            totalProf += nbs!! * (selp!! - purp!!) - (purc!! + selc!!)
-                            Log.d("StateFlow", " Total Profit $totalProf")
-                        }
-
-                    }
-
-                    _totalStockValue.value += totalValue
-                    _totalProfit.value += totalProf
-                    _totalProfitInPct.value += 100.0 * totalProf/totalValue
-
-                }
-            }
-    }
-}
-
-private operator fun <T> MutableStateFlow<T>.plusAssign(t: T) {
-
-}
-
-
 @Composable
-fun ShowTotalStockValue(viewModel: StockTotalValueViewModel) {
-    val totalStockValue by viewModel.totalStockValue.collectAsState()
-    val totalProfit by viewModel.totalProfit.collectAsState()
-    val totalProfitInPct by viewModel.totalProfitInPct.collectAsState()
+fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController) {
 
-    Column {
-        Text(text = "Total Value of Stocks: $totalStockValue Euro")
-        Text(text = String.format("Total profit: $totalProfit Euro, %.2f pct.", totalProfitInPct))
-    }
-}
+//    val dataList by viewModel.actNotification.collectAsState()
+    val dataList by viewModel.actStock.collectAsState()
+
+
+    LazyColumn {
+
+        /*
+        val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
+
+        var histPrifitPurTotal : Double = 0.0
+        var histProfitSellTotal : Double = 0.0
+        var histActivePurAmount : Double = 0.0
+
+        items(sortedList) {item ->
+
+            val sold : String = item.Sold.toString()
+
+            val  nrStock : Int = item.NumberOfStocks!!.toInt()
+
+            val pPrice : Double = item.PurPriceEuro!!.toDouble()
+            val pcost : Double = item.PurCostEuro!!.toDouble()
+            val ptotal : Double = pPrice * nrStock + pcost;
+            if (sold.equals("true")) {
+                histPrifitPurTotal += ptotal
+            }
+            else {
+                histActivePurAmount += ptotal
+            }
+
+            val sPrice : Double = item.SellPriceEuro!!.toDouble()
+            val scost : Double = item.SellCostEuro!!.toDouble()
+
+            val stotal : Double = sPrice * nrStock + scost;
+            if (sold.equals("true")) {
+                histProfitSellTotal += stotal
+            }
+
+            NotificationsBox(
+                navController,
+                "Purchase",
+                "Date: ${item.PurDate}",
+                "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $ptotal Euro"
+            )
+
+            if (sold.equals("true")) {
+                val prof : Double = nrStock * (sPrice - pPrice)+ scost + pcost
+                val profPct : Double = 100.0 * prof/pPrice
+                NotificationsBox(
+                    navController,
+                    "Purchase",
+                    "Date: ${item.SellDate}",
+                    "You sold ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.SellPriceEuro} pr stock price: $stotal Euro, Profit: $prof Euro $profPct pct"
+                )
+            }
+            val totaProfit : Double = histProfitSellTotal - histActivePurAmount
+            val totaProfitPct : Double = 100.0 * totaProfit/histActivePurAmount
+            NotificationsBox(
+                navController,
+                "Imvestment result",
+                "Date:  ",
+                "You total profit $totaProfit Euro $totaProfitPct pct"
+            )
+
+
+        }
 
  */
+
+
+    }
+
+}
+
 
 
 

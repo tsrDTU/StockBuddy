@@ -47,7 +47,7 @@ fun NotificationsPage(navController : NavHostController) {
 //            }
     Column {
         TopBar(navController = navController, title = "Notifications")
-        selectUserInFirestore("bd")
+
         ShowUserNotifications(StockViewModel(), navController)
         /*
         LazyColumn {

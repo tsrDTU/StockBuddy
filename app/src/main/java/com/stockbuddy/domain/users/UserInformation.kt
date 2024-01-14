@@ -54,9 +54,11 @@ import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.UserViewModel
+import javax.inject.Singleton
 
 
-var userIdFirestore = ""
+@Singleton
+var userIdFirestore : String = ""
 
 
 fun addUser (userId : String, first : String, last : String, email : String) {

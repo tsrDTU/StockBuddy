@@ -17,9 +17,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
+import com.stockbuddy.domain.users.ShowStockHistory
+import com.stockbuddy.domain.users.StockViewModel
 
 @Composable
 fun HistoryBox(navController: NavHostController, message: String) {
+    ShowStockHistory( StockViewModel(),navController )
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -49,4 +53,6 @@ fun HistoryBox(navController: NavHostController, message: String) {
             )
         }
     }
+
+
 }
