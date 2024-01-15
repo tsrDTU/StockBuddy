@@ -10,9 +10,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 
 
-
-class StockInfoRetriever {
-
     //Example of how to use the functions
 
     /*
@@ -63,7 +60,7 @@ class StockInfoRetriever {
                     withContext(Dispatchers.Main) {
                         //here we parse and return the ticker with the stock price
                         val stockPrice = parseStockPrice(responseData)
-                        onResult("$stockSymbol is worth ${stockPrice.toDouble()}$")
+                        onResult("${stockPrice.toDouble()}$")
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
@@ -86,4 +83,3 @@ class StockInfoRetriever {
         return "null"
 
     }
-}
