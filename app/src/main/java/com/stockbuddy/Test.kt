@@ -40,7 +40,7 @@ class Test: ComponentActivity() {
           //          purchaseStock("bd", "MicroSoft", 987,876.0,18.0, "2024-01-10" )
           //          purchaseStock("bd", "Google", 667,1340.0,18.0, "2024-01-11" )
           //          purchaseStock("bd", "Amazon", 897,587.0,18.0, "2024-01-11" )
-          //          sellStock ("bd", "IBM", 547.0, 18.0, "2024-01-10")
+                    sellStock ("bd", "IBM", 547.0, 18.0, "2024-01-10")
          //           sellStock ("bd", "HP", 917.0, 18.0, "2024-01-11")
                     selectUserInFirestore("bd")
           //          selectStockInFirestore("IBM")
@@ -49,7 +49,7 @@ class Test: ComponentActivity() {
            //         userNotification("bd","this is a test notification to test it work with the size notifications typically have")
            //         ShowTotalStockValue(viewModel = StockTotalValueViewModel())
                //     ShowUserNotifications(NotificationViewModel())
-                    ShowUserExsistInformation( UserExistViewModel())
+              //      ShowUserExsistInformation( UserExistViewModel())
 
                 }
             }

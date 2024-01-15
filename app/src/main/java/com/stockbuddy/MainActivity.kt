@@ -5,13 +5,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
+import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.ui.theme.StockBuddyTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             StockBuddyTheme {
                 // A surface container using the 'background' color from the theme
@@ -25,9 +29,9 @@ class MainActivity : ComponentActivity() {
                     // Set up the navigation host
                     NavHost(
                         navController = navController,
-                        startDestination = "startUpPage"
+                        startDestination = "BeginApp"
                     ) {
-                        composable("startUpPage") { StartUpPage(navController) } //0
+                        composable("beginApp") { BeginApp(navController) } //0
                         composable("homePage") { HomePage(navController) } //1
                         composable("stockPage") { StockPage(navController) } //2
                         composable("searchPage") { SearchPage(navController) } //3

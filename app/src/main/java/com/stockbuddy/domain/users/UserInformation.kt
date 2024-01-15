@@ -265,17 +265,19 @@ class UserExistViewModel : ViewModel() {
 
 
 @Composable
-fun ShowUserExsistInformation(viewModel: UserExistViewModel): Boolean {
+fun ShowUserExsistInformation(viewModel: UserExistViewModel): String {
 
     val dataList by viewModel.actUser.collectAsState()
     val userEks by  viewModel.userExist.collectAsState()
-
+/*
     Column {
 
               Text(text = userEks.toString())
 
     }
 
-    return userEks
+ */
+
+    return userEks.toString()
 }
 
