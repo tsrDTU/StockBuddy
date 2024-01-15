@@ -1,6 +1,7 @@
 package com.stockbuddy
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -33,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.stockbuddy.domain.users.ShowUserExsistInformation
 import com.stockbuddy.domain.users.UserExistViewModel
+import com.stockbuddy.domain.users.addUser
 import com.stockbuddy.domain.users.selectUserInFirestore
 import com.stockbuddy.domain.users.verificateUserId
 
@@ -79,6 +81,7 @@ Column {
                         },
                         onSearch = {
 
+                            userId= input
 
                         },
                         active = status,
@@ -143,7 +146,7 @@ Column {
                 var status by remember { mutableStateOf(false) }
                 var items = remember {
                     mutableListOf(
-                        "userId"
+                        "firstName"
 
                         //Tilføj stocks her gennem API
                     )
@@ -159,6 +162,7 @@ Column {
                         },
                         onSearch = {
 
+                            firstName = input
 
                         },
                         active = status,
@@ -223,7 +227,7 @@ Column {
                 var status by remember { mutableStateOf(false) }
                 var items = remember {
                     mutableListOf(
-                        "userId"
+                        "lastName"
 
                         //Tilføj stocks her gennem API
                     )
@@ -239,6 +243,7 @@ Column {
                         },
                         onSearch = {
 
+                            lastName = input
 
                         },
                         active = status,
@@ -303,7 +308,7 @@ Column {
                 var status by remember { mutableStateOf(false) }
                 var items = remember {
                     mutableListOf(
-                        "userId"
+                        "emailAddress"
 
                         //Tilføj stocks her gennem API
                     )
@@ -319,6 +324,18 @@ Column {
                         },
                         onSearch = {
 
+                        //    userId= input
+                        //    firstName = input
+                       //            emailAddress = input
+                      //      lastName = input
+                            emailAddress = input
+
+                            Log.w("StateFlow", "4 :New user: $userId $firstName $lastName $emailAddress")
+                            if (userId != "" && firstName != "" && lastName != "" && emailAddress != "")
+                            {
+                                addUser(userId, firstName, lastName, emailAddress)
+                                navController.navigate("HomePage")
+                            }
 
                         },
                         active = status,
@@ -376,7 +393,9 @@ Column {
 
 
     }
+
   }
+
 
 }
 
