@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -64,7 +65,8 @@ fun HomePage(navController: NavHostController) {
                         /*
                         Box(
                             modifier = Modifier
-                                .width(329.dp)
+                                                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                                 .height(146.dp)
                                 .background(colorResource(id = R.color.regularBox))
                                 .align(Alignment.TopCenter)
@@ -233,7 +235,7 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -261,7 +263,7 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -289,7 +291,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -317,7 +320,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -345,7 +349,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -373,7 +378,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -400,7 +406,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -428,7 +435,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -456,7 +464,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -484,7 +493,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
@@ -512,7 +522,8 @@ fun HomePage(navController: NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(329.dp)
+                                                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)

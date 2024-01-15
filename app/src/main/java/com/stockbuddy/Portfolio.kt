@@ -362,7 +362,7 @@ fun PortfolioPage(navController : NavHostController) {
 //
 //                        Box(
 //                            modifier = Modifier
-//                                .width(329.dp)
+//                                .width(dimensionResource(id = R.dimen.DefaultWidth))
 //                                .height(146.dp)
 //                                .padding(8.dp)
 //                                .clip(
