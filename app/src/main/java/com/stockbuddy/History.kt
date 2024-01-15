@@ -23,7 +23,9 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.HistoryBox
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.NotificationViewModel
+import com.stockbuddy.domain.users.ShowStockHistory
 import com.stockbuddy.domain.users.ShowUserNotifications
+import com.stockbuddy.domain.users.StockViewModel
 
 //class History : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +56,7 @@ fun HistoryPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "History")
      //   ShowUserNotifications(NotificationViewModel())
+        ShowStockHistory(StockViewModel(),navController )
 
         LazyColumn {
             item { HistoryBox(navController, "Are you welcome to the app?") }
