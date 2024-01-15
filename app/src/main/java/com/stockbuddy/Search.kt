@@ -139,7 +139,9 @@ fun SearchPage(navController : NavHostController) {
                                 status = false
                                 items.add(input)
                                 //linjen nedenunder skal sende en string til APIen
-                                navController.navigate(input)
+                                navController.navigate("StockPage")
+                                var string = input
+
                             },
                             active = status,
                             onActiveChange = {

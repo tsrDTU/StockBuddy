@@ -25,6 +25,9 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.data.API.*
+import com.stockbuddy.domain.users.ShowUserInformation
+import com.stockbuddy.domain.users.UserViewModel
 
 //@Preview(name = "Home")
 @Composable
@@ -57,6 +60,8 @@ fun HomePage(navController: NavHostController) {
 
                     ) {
 
+                        ShowUserInformation(UserViewModel(), navController)
+                        /*
                         Box(
                             modifier = Modifier
                                 .width(329.dp)
@@ -69,11 +74,17 @@ fun HomePage(navController: NavHostController) {
                             contentAlignment = Alignment.Center
 
                         ) {
+
+
                             Text(
                                 text = "Portfolio\nPreview",
                                 color = Color.White // Set the text color
                             )
+
+
                         }
+
+                         */
                     }
                 }
             }
@@ -198,7 +209,19 @@ fun HomePage(navController: NavHostController) {
             }
 
 
-            item { StockBox(navController, "Stock Example", "$10") }
+            item {
+                val stockData = remember { mutableStateListOf<String>() }
+                stockData.add("Calling")
+                LaunchedEffect(Unit) {
+                    //Gives the list to fetchStockData so it returns the result linearly
+                    fetchStockData(listOf("MSFT"), "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a") { result ->
+                        //appends to our dataList
+                        //returns the string: "(name of stock) is worth (price of stock)"
+                        //incase of error it returns "Error fetching data for (name of stock): (error)
+                        stockData[0] = result
+                    }
+                }
+                StockBox(navController, "MSFT", stockData[0]) }
             item {
                 Box(
                     modifier = Modifier

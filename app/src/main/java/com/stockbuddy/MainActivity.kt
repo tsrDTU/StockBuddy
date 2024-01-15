@@ -8,7 +8,6 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
 import com.stockbuddy.ui.theme.StockBuddyTheme
-import com.stockbuddy.util.searchBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +25,9 @@ class MainActivity : ComponentActivity() {
                     // Set up the navigation host
                     NavHost(
                         navController = navController,
-                        startDestination = "homePage"
+                        startDestination = "startUpPage"
                     ) {
+                        composable("startUpPage") { StartUpPage(navController) } //0
                         composable("homePage") { HomePage(navController) } //1
                         composable("stockPage") { StockPage(navController) } //2
                         composable("searchPage") { SearchPage(navController) } //3

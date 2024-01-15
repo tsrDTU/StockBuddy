@@ -41,6 +41,8 @@ import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.ui.res.colorResource
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowStockInformation
+import com.stockbuddy.domain.users.StockViewModel
 
 
 //class Portfolio : ComponentActivity() {
@@ -71,6 +73,7 @@ fun PortfolioPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "Portfolio")
 
+        ShowStockInformation( StockViewModel())
         LazyColumn {
             item {
                 Box(
