@@ -24,6 +24,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,17 +34,28 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.stockbuddy.domain.users.ShowUserExsistInformation
 import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.selectUserInFirestore
 
+@Composable
+fun BeginApp(navController : NavHostController){
+
+    StartUpPage(navController)
+
+}
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @SuppressLint("RestrictedApi", "UnusedMaterial3ScaffoldPaddingParameter")
 //@Preview
 @Composable
 fun StartUpPage(navController : NavHostController) {
+
+
+
     Column {
       //  TopBar(navController = navController, title = "Search")
 
@@ -74,14 +86,19 @@ fun StartUpPage(navController : NavHostController) {
                                 input = it
                             },
                             onSearch = {
-                                status = false
+                              var  userEks = true
 
                            //     selectUserInFirestore(input, modifier = Modifier)
                                 selectUserInFirestore(input)
 
-          //                      if (ShowUserExsistInformation( UserExistViewModel())) {
-                                    navController.navigate("Homepage")
-          //                      }
+
+                        //        ShowUserExsistInformation(UserExistViewModel())
+
+
+                                    if (userEks) {
+                                        navController.navigate("HomePage")
+                                    }
+
                             },
                             active = status,
                             onActiveChange = {
@@ -141,3 +158,4 @@ fun StartUpPage(navController : NavHostController) {
     }
 
 }
+
