@@ -12,19 +12,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,25 +30,17 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.stockbuddy.domain.users.ShowUserExsistInformation
 import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.selectUserInFirestore
-
-@Composable
-fun BeginApp(navController : NavHostController){
-
-    StartUpPage(navController)
-
-}
+import com.stockbuddy.domain.users.verificateUserId
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
-@SuppressLint("RestrictedApi", "UnusedMaterial3ScaffoldPaddingParameter")
+@SuppressLint("RestrictedApi", "UnusedMaterial3ScaffoldPaddingParameter", "SuspiciousIndentation")
 //@Preview
 @Composable
-fun StartUpPage(navController : NavHostController) {
+fun StartUpPage( navController : NavHostController) {
 
 
 
@@ -86,18 +74,16 @@ fun StartUpPage(navController : NavHostController) {
                                 input = it
                             },
                             onSearch = {
-                              var  userEks = true
+                                var userEks = true
 
-                           //     selectUserInFirestore(input, modifier = Modifier)
+                                //     selectUserInFirestore(input, modifier = Modifier)
                                 selectUserInFirestore(input)
 
 
-                        //        ShowUserExsistInformation(UserExistViewModel())
+                                   verificateUserId(navController)
 
+                                //        navController.navigate("HomePage")
 
-                                    if (userEks) {
-                                        navController.navigate("HomePage")
-                                    }
 
                             },
                             active = status,
