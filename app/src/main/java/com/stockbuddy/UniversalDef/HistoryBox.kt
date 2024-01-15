@@ -43,7 +43,8 @@ fun HistoryBox(navController: NavHostController, message: String) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 0.dp)
-                    .align(Alignment.TopStart),
+                    .align(Alignment.TopStart)
+                    ,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )

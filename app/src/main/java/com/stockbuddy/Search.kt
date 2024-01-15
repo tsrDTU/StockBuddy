@@ -312,8 +312,8 @@ fun SearchPage(navController : NavHostController) {
             }
 
 
-            item { StockBox(navController = navController, title = "Stock Example", "$10")}
-            item {StockBox(navController = navController, title = "Stock Exampler", "$10")}
+            item { StockBox(navController,"Stock Example", "$10")}
+            item {StockBox(navController,"Stock Exampler", "$10")}
             item {
                 Box(
                     modifier = Modifier
