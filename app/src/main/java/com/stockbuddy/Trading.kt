@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -121,7 +122,7 @@ fun TradingPage(navController : NavHostController) {
                         // Content of the first Box
                         Box(
                             modifier = Modifier
-                                .width(370.dp)
+                                .width(dimensionResource(id = R.dimen.DefaultWidth))
                                 .height(120.dp)
                                 .background(colorResource(id = R.color.regularBox))
                                 .align(Alignment.Center)
@@ -156,7 +157,7 @@ fun TradingPage(navController : NavHostController) {
 
                         Box(
                             modifier = Modifier
-                                .width(370.dp)
+                                .width(dimensionResource(id = R.dimen.DefaultWidth))
                                 .height(80.dp)
                                 .background(Color.Gray)
                                 .padding(8.dp)
@@ -232,7 +233,7 @@ fun TradingPage(navController : NavHostController) {
                         // Content of the first Box
                         Box(
                             modifier = Modifier
-                                .width(370.dp)
+                                .width(dimensionResource(id = R.dimen.DefaultWidth))
                                 .height(360.dp)
                                 .background(colorResource(id = R.color.regularBox))
                                 .align(Alignment.Center)

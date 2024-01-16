@@ -40,6 +40,7 @@ import  androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.ShowStockInformation
 import com.stockbuddy.domain.users.StockViewModel
@@ -85,7 +86,7 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
                             .height(120.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
@@ -116,7 +117,8 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(120.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
@@ -147,7 +149,8 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(160.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
@@ -178,7 +181,8 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(180.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
@@ -212,7 +216,8 @@ fun PortfolioPage(navController : NavHostController) {
                 ) {
                     Row(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(48.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .clip(RoundedCornerShape(8.dp))
@@ -256,7 +261,8 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(160.dp)
                             .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
@@ -362,7 +368,7 @@ fun PortfolioPage(navController : NavHostController) {
 //
 //                        Box(
 //                            modifier = Modifier
-//                                .width(329.dp)
+//                                .width(dimensionResource(id = R.dimen.DefaultWidth))
 //                                .height(146.dp)
 //                                .padding(8.dp)
 //                                .clip(

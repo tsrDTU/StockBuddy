@@ -41,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -163,7 +164,8 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
 
             Box(
                 modifier = Modifier
-                    .width(329.dp)
+                    .width(dimensionResource(id = R.dimen.DefaultWidth))
+                    .padding(top = 8.dp, bottom = 8.dp)
                     .height(146.dp)
                     .background(colorResource(id = R.color.regularBox))
                     /*
@@ -178,9 +180,12 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
                     .clickable {
                         navController.navigate("portfolioPage")
                     }
-                    
-                     
-       //                 contentAlignment  LineHeightStyle.Alignment.Center
+
+
+
+
+
+                //                 contentAlignment  LineHeightStyle.Alignment.Center
 
             ) {
                val fnvn : String = dataList.firstName.toString()

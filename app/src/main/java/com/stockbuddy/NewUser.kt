@@ -43,10 +43,15 @@ import com.stockbuddy.domain.users.verificateUserId
 //@Preview
 @Composable
 fun NewUser( navController : NavHostController) {
-    var userId : String = ""
-    var firstName : String = ""
-    var lastName : String = ""
-    var emailAddress : String = ""
+//    var userId : String = ""
+//    var firstName : String = ""
+//    var lastName : String = ""
+//    var emailAddress : String = ""
+
+    var userId by remember { mutableStateOf("") }
+    var firstName by remember { mutableStateOf("") }
+    var lastName by remember { mutableStateOf("") }
+    var emailAddress by remember { mutableStateOf("") }
 
 
 
@@ -61,6 +66,9 @@ Column {
                     .fillMaxWidth()
                     .height(70.dp)
             ) {
+                //NEW
+
+                //NEW
                 var input by remember { mutableStateOf("") }
                 var status by remember { mutableStateOf(false) }
                 var items = remember {
@@ -80,9 +88,7 @@ Column {
                             input = it
                         },
                         onSearch = {
-
                             userId= input
-
                         },
                         active = status,
                         onActiveChange = {
@@ -397,6 +403,15 @@ Column {
   }
 
 
+}
+
+fun executeSearch(navController : NavHostController,userId: String, firstName: String, lastName: String, emailAddress: String) {
+    // Implement your logic here, e.g., print the values or navigate to another screen
+    Log.w("StateFlow", "New user: $userId $firstName $lastName $emailAddress")
+    if (userId.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty() && emailAddress.isNotEmpty()) {
+        addUser(userId, firstName, lastName, emailAddress)
+        navController.navigate("HomePage")
+    }
 }
 
 

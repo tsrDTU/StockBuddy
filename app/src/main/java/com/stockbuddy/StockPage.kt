@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -73,7 +74,7 @@ fun StockPage(navController: NavHostController) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
                         .height(120.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -105,7 +106,7 @@ fun StockPage(navController: NavHostController) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
                         .height(160.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -141,7 +142,7 @@ fun StockPage(navController: NavHostController) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
                         .height(180.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -175,7 +176,7 @@ fun StockPage(navController: NavHostController) {
             ) {
                 Row(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
                         .height(48.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .clip(RoundedCornerShape(8.dp))
@@ -219,7 +220,8 @@ fun StockPage(navController: NavHostController) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                         .height(160.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -248,7 +250,7 @@ fun StockPage(navController: NavHostController) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Button(
-                    onClick = { /* Handle Buy button click */ },
+                    onClick = { navController.navigate("tradingPage") },
                     colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
                     modifier = Modifier
                         .weight(1f)
@@ -261,11 +263,13 @@ fun StockPage(navController: NavHostController) {
                 Spacer(modifier = Modifier.width(16.dp)) // Add some space between buttons
 
                 Button(
-                    onClick = { /* Handle Sell button click */ },
+                    onClick = { navController.navigate("tradingPage") },
                     colors = ButtonDefaults.buttonColors(Color.Red.copy(alpha = 0.6f)),
                     modifier = Modifier
                         .weight(1f)
                         .height(48.dp)
+//                        .clickable {navController.navigate("tradingPage")}
+
                 ) {
                     Text(text = "Sell", color = Color.White, fontWeight = FontWeight.Bold)
                 }

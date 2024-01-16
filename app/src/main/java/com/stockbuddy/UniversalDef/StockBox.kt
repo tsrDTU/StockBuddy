@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -60,7 +61,9 @@ fun StockBox (navController : NavHostController, title: String) {
         Box(
             
             modifier = Modifier
-                .width(329.dp)//.width(329.dp)
+                .width(dimensionResource(id = R.dimen.DefaultWidth))
+//.width(dimensionResource(id = R.dimen.DefaultWidth))
+
                 .height(146.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)
@@ -156,7 +159,8 @@ fun StockBoxSecond (navController : NavHostController, title: String) {
         Box(
 
             modifier = Modifier
-                .width(370.dp)//.width(329.dp)
+                .width(dimensionResource(id = R.dimen.DefaultWidth))//.width(dimensionResource(id = R.dimen.DefaultWidth))
+
                 .height(146.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)

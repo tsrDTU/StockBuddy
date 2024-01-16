@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,12 +36,13 @@ fun HistoryBox(navController: NavHostController, message: String) {
         // Content of the first Box
         Box(
             modifier = Modifier
-                .width(370.dp)
+                .width(dimensionResource(id = R.dimen.DefaultWidth))
                 .height(120.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)
-                .padding(8.dp),
-            contentAlignment = Alignment.CenterStart
+                .padding(8.dp)
+            ,
+            contentAlignment = Alignment.Center
         ) {
             // Third Text (Fills the rest of the space)
             Text(
@@ -49,7 +51,8 @@ fun HistoryBox(navController: NavHostController, message: String) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 0.dp)
-                    .align(Alignment.TopStart),
+                    .align(Alignment.TopStart)
+                    ,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
