@@ -46,6 +46,7 @@ class MainActivity : ComponentActivity() {
                         composable("newUser") { NewUser(navController) } //11
                         composable("back") { navController.navigateUp() } // back button
                         composable("backToStart") {navController.popBackStack(navController.graph.startDestinationId, inclusive = false) }
+                        composable("StockRecom"){ StockRecommendation(navController)}
                     }
                 }
             }

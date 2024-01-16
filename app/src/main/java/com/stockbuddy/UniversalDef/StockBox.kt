@@ -1,6 +1,5 @@
 package com.stockbuddy.UniversalDef
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,21 +20,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
 import com.stockbuddy.data.API.fetchStockData
 import com.stockbuddy.nameOfTicker
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 //@Preview(name="StockBox")
 /// title -> the imported name of a stock
-fun StockBox (navController : NavHostController, title: String) {
+fun StockBox (navController: NavController, title: String) {
     val price = remember { mutableStateOf("Calling") }
     LaunchedEffect(Unit) {
         //Gives the list to fetchStockData so it returns the result linearly

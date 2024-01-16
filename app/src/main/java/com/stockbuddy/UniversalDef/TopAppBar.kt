@@ -19,13 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import com.stockbuddy.R
 
 
 //@Preview(name ="apbar")
 @Composable
-fun TopBar(navController : NavHostController, title: String) {
+fun TopBar(navController: NavController, title: String) {
 //    TopAppBar(
 //        modifier = Modifier
 //            .fillMaxWidth()
