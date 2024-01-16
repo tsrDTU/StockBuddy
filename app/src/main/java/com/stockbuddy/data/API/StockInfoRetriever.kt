@@ -38,7 +38,8 @@ import okhttp3.Request
     */
 
     //Given a stock ticker, it returns the ticker with the added text of what its worth
-    fun fetchStockData(stockSymbol: String, apiKey: String, onResult: (String) -> Unit) {
+    fun fetchStockData(stockSymbol: String, onResult: (String) -> Unit) {
+        val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
         //starts the asynchronic threading.
         CoroutineScope(Dispatchers.IO).launch {
                 //try catch incase of errors.
@@ -56,7 +57,6 @@ import okhttp3.Request
                     val response = client.newCall(request).execute()
 
                     val responseData = response.body?.string()
-
                     withContext(Dispatchers.Main) {
                         //here we parse and return the tickers stock price
                         val stockPrice = parseStockPrice(responseData).toDouble()
@@ -65,7 +65,7 @@ import okhttp3.Request
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         //Error detection simply states what went wrong.
-                        onResult("error: $e")
+                        onResult("Error with $stockSymbol")
                     }
 
             }
