@@ -1,9 +1,6 @@
 package com.stockbuddy
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -38,13 +35,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import  androidx.compose.material.icons.*
 import androidx.compose.material.icons.filled.ToggleOff
 import androidx.compose.material.icons.filled.ToggleOn
-import androidx.compose.material3.Scaffold
-import com.stockbuddy.R
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
+import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowStockInformation
+import com.stockbuddy.domain.users.StockViewModel
 
 
 //class Portfolio : ComponentActivity() {
@@ -75,6 +74,7 @@ fun PortfolioPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "Portfolio")
 
+        ShowStockInformation( StockViewModel())
         LazyColumn {
             item {
                 Box(
@@ -86,9 +86,9 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -117,9 +117,10 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(120.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -148,9 +149,10 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -179,9 +181,10 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(180.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -213,9 +216,10 @@ fun PortfolioPage(navController : NavHostController) {
                 ) {
                     Row(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(48.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .clip(RoundedCornerShape(8.dp))
                             .align(Alignment.Center),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -257,9 +261,10 @@ fun PortfolioPage(navController : NavHostController) {
                     // Content of the first Box
                     Box(
                         modifier = Modifier
-                            .width(370.dp)
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                             .height(160.dp)
-                            .background(Color(R.color.regularBox))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.Center)
                             .padding(8.dp),
                         contentAlignment = Alignment.Center
@@ -363,7 +368,7 @@ fun PortfolioPage(navController : NavHostController) {
 //
 //                        Box(
 //                            modifier = Modifier
-//                                .width(329.dp)
+//                                .width(dimensionResource(id = R.dimen.DefaultWidth))
 //                                .height(146.dp)
 //                                .padding(8.dp)
 //                                .clip(

@@ -202,4 +202,5 @@
     <dimen name="_16pxh">16dp</dimen>
     <dimen name="_14pxh">14dp</dimen>
     <dimen name="_12pxh">12dp</dimen>
+    <dimen name="DefaultWidth">370dp</dimen>
 </resources>
