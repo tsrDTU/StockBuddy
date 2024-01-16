@@ -96,7 +96,7 @@ import okhttp3.Request
 
     }
     fun fetchAndParseStockInfo(stockSymbol: String, onResult: (List<String>) -> Unit){
-        val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
+        val apiKey = "d1c59870e3mshc6b4afee52e2841p113d3cjsn8952d4fd2407"
         //starts the asynchronic threading.
         CoroutineScope(Dispatchers.IO).launch {
             //try catch incase of errors.
@@ -151,7 +151,7 @@ import okhttp3.Request
 
 //TODO: comment my code
     fun searchForStocks(searchInput: String, onResult: (List<String>) -> Unit){
-    val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
+    val apiKey = "d1c59870e3mshc6b4afee52e2841p113d3cjsn8952d4fd2407"
 
     CoroutineScope(Dispatchers.IO).launch {
             try {

@@ -216,16 +216,6 @@ fun HomePage(navController: NavHostController) {
 
 
             item {
-                val stockData = remember { mutableStateOf("Calling") }
-                LaunchedEffect(Unit) {
-                    //Gives the list to fetchStockData so it returns the result linearly
-                    fetchStockData("MSFT") { result ->
-                        //appends to our dataList
-                        //returns the string: "(name of stock) is worth (price of stock)"
-                        //incase of error it returns "Error fetching data for (name of stock): (error)
-                        stockData.value = result
-                    }
-                }
                 StockBox(navController, "MSFT") }
             item {
                 StockBox(navController, "AAPL")
@@ -280,7 +270,7 @@ fun HomePage(navController: NavHostController) {
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "StockRecom Example",
+                            text = "DOW Jones top movers",
                             color = Color.White // Set the text color
 
                         )
