@@ -195,43 +195,19 @@ fun HomePage(navController: NavHostController) {
 
 
             item {
-                val stockData = remember { mutableStateListOf<String>() }
-                stockData.add("Calling")
+                val stockData = remember { mutableStateOf("Calling") }
                 LaunchedEffect(Unit) {
                     //Gives the list to fetchStockData so it returns the result linearly
-                    fetchStockData(listOf("MSFT"), "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a") { result ->
+                    fetchStockData("MSFT") { result ->
                         //appends to our dataList
                         //returns the string: "(name of stock) is worth (price of stock)"
                         //incase of error it returns "Error fetching data for (name of stock): (error)
-                        stockData[0] = result
+                        stockData.value = result
                     }
                 }
-                StockBox(navController, "MSFT", stockData[0]) }
+                StockBox(navController, "MSFT") }
             item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable { navController.navigate("stockPage") } // Navigate on click
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
+                StockBox(navController, "AAPL")
             }
             item {
                 Box(
