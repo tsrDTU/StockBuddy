@@ -89,11 +89,10 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-// GSON
+    // Parsing Json files
+    implementation("com.google.code.gson:gson:2.8.6")
 
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
-// coroutine
+    // coroutine
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 

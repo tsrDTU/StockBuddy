@@ -2,6 +2,8 @@ package com.stockbuddy.data.API
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,7 +49,7 @@ import okhttp3.Request
                     val client = OkHttpClient()
                     //datatype can be either JSON or csv, where csv is simple to find price of stock
                     val request = Request.Builder()
-                        .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=$stockSymbol&datatype=csv")
+                        .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=$stockSymbol&datatype=json")
                         .get()
                         .addHeader("X-RapidAPI-Key", apiKey) //our key
                         .addHeader("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
@@ -58,14 +60,14 @@ import okhttp3.Request
                     val responseData = response.body?.string()
 
                     withContext(Dispatchers.Main) {
-                        //here we parse and return the ticker with the stock price
-                        val stockPrice = parseStockPrice(responseData)
-                        onResult("${stockPrice.toDouble()}$")
+                        //here we parse and return the tickers stock price
+                        val stockPrice = parseStockPrice(responseData).toDouble()
+                        onResult(stockPrice.toString())
                     }
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
                         //Error detection simply states what went wrong.
-                        onResult("Error fetching data for $stockSymbol: $e")
+                        onResult("error: $e")
                     }
                 }
             }
@@ -75,11 +77,24 @@ import okhttp3.Request
 
     //Assuming the data given is csv format
     fun parseStockPrice(responseData: String?): String {
-        //Split data by , since its csv and the price is the 13th value (0indented)
-        if (responseData != null) {
-            return responseData.split(",")[13]
-        }
-        //if we didnt get any data return null (should never happen?)
-        return "null"
+        //Our JSON deserializer
+        val gson = Gson()
+        val jsonObject = gson.fromJson(responseData, JsonObject::class.java)
+
+        //All of the different data we get when searching for a ticker.
+        //Currently we only use price.
+        val globalQuote = jsonObject.getAsJsonObject("Global Quote")
+        val symbol = globalQuote.get("01. symbol").asString
+        val open = globalQuote.get("02. open").asString
+        val high = globalQuote.get("03. high").asString
+        val low = globalQuote.get("04. low").asString
+        val price = globalQuote.get("05. price").asString
+        val volume = globalQuote.get("06. volume").asString
+        val latestTradingDay = globalQuote.get("07. latest trading day").asString
+        val previousClose = globalQuote.get("08. previous close").asString
+        val change = globalQuote.get("09. change").asString
+        val changePercent = globalQuote.get("10. change percent").asString
+
+        return price
 
     }
