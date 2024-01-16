@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import androidx.navigation.NavHostController
 import androidx.compose.foundation.lazy.items
+import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.StockViewModel
 
 
@@ -95,6 +96,8 @@ fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostContr
 
 
     LazyColumn {
+
+       // TopBar(navController = navController, title = "ShowUserNotifications")
 
         val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
 
