@@ -127,6 +127,7 @@ fun HomePage(navController: NavHostController) {
                             )
                             .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
                             .padding(start = 32.dp)
+                            .clickable {navController.navigate("searchBar")}
                             .border(
                                 1.dp,
                                 Color(
@@ -196,6 +197,8 @@ fun HomePage(navController: NavHostController) {
                             )
                             .padding(start = 2.dp, top = 2.dp, end = 2.dp, bottom = 2.dp)
                             .alpha(1f)
+                            .clickable { navController.navigate("searchBar") } // Navigate on click
+
                     ) {
                         Text(
                             text = "Filter",

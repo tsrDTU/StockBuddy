@@ -250,7 +250,7 @@ fun StockPage(navController: NavHostController) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Button(
-                    onClick = { /* Handle Buy button click */ },
+                    onClick = { navController.navigate("tradingPage") },
                     colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
                     modifier = Modifier
                         .weight(1f)
@@ -263,11 +263,13 @@ fun StockPage(navController: NavHostController) {
                 Spacer(modifier = Modifier.width(16.dp)) // Add some space between buttons
 
                 Button(
-                    onClick = { /* Handle Sell button click */ },
+                    onClick = { navController.navigate("tradingPage") },
                     colors = ButtonDefaults.buttonColors(Color.Red.copy(alpha = 0.6f)),
                     modifier = Modifier
                         .weight(1f)
                         .height(48.dp)
+//                        .clickable {navController.navigate("tradingPage")}
+
                 ) {
                     Text(text = "Sell", color = Color.White, fontWeight = FontWeight.Bold)
                 }
