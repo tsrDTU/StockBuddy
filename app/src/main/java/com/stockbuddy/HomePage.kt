@@ -55,7 +55,8 @@ fun HomePage(navController: NavHostController) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(150.dp)
-                            .padding(8.dp)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.Center
 
 
                     ) {
@@ -232,7 +233,7 @@ fun HomePage(navController: NavHostController) {
                         .padding(8.dp)
                         .clickable {
                             navController.navigate("tradingPage")
-                        }
+                        }.align(Alignment.CenterHorizontally)
                 ) {
                     // Content of the first Box
                     Box(
@@ -240,263 +241,12 @@ fun HomePage(navController: NavHostController) {
                             .width(329.dp)
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
+                            .align(Alignment.Center)
                             .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
+                        contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "Trading Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("notificationsPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Notifications Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("settingsPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Settings Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("puppyattackPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Puppy Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("searchPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Search Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp).clickable {
-                            navController.navigate("stockPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("stockPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("stockPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("stockPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
-            }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("stockPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Stock Example",
                             color = Color.White // Set the text color
 
                         )
