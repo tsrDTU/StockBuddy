@@ -21,4 +21,10 @@ data class StockData(
 
 )
 
+
+data class NotificationData(
+    var UserId: String?,
+    var Notification: String?
+)
+
 //var Stockhistory List<StockData>

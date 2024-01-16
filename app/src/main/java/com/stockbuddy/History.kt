@@ -22,6 +22,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.HistoryBox
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.NotificationViewModel
+import com.stockbuddy.domain.users.ShowStockHistory
+import com.stockbuddy.domain.users.ShowUserNotifications
+import com.stockbuddy.domain.users.StockViewModel
 
 //class History : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +55,9 @@ fun HistoryPage(navController : NavHostController) {
 //        ) { innerPadding ->
     Column {
         TopBar(navController = navController, title = "History")
+     //   ShowUserNotifications(NotificationViewModel())
+        ShowStockHistory(StockViewModel(),navController )
+
         LazyColumn {
             item { HistoryBox(navController, "Are you welcome to the app?") }
             item { HistoryBox(navController, "Welcome to the app!") }
@@ -58,6 +65,8 @@ fun HistoryPage(navController : NavHostController) {
             item { HistoryBox(navController, "Welcome app! to the are") }
             item { HistoryBox(navController, "Are app welcome to the?") }
         }
+
+
     }
 }
 
