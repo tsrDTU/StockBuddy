@@ -24,7 +24,7 @@ import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
 @Composable
-fun StockPage(navController: NavHostController) {
+fun StockPage(navController: NavHostController, stock:String?) {
     // StockBuddyTheme {
     //val navController = rememberNavController()
     //val currentBackStack by navController.currentBackStackEntryAsState()
@@ -45,7 +45,7 @@ fun StockPage(navController: NavHostController) {
 //            }
 //        ) { innerPadding ->
     Column {
-        TopBar(navController = navController, title = "Stock")
+        TopBar(navController = navController, title = stock?.toString() ?: "Stock Page")
         LazyColumn {
         item { StockBoxSecond(navController, "StockExample") }
         item {

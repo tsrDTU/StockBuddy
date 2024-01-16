@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("beginApp") { BeginApp(navController) } //0
                         composable("homePage") { HomePage(navController) } //1
-                        composable("stockPage") { StockPage(navController) } //2
+                        composable("stockPage") { StockPage(navController, null) } //2
                         composable("searchPage") { SearchPage(navController) } //3
                         composable("settingsPage") { SettingsPage(navController) } //4
                         composable("historyPage") { HistoryPage(navController) } //5

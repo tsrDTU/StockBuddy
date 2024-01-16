@@ -230,7 +230,7 @@ fun HomePage(navController: NavHostController) {
                         .fillMaxWidth()
                         .height(100.dp)
                         .padding(8.dp)
-                        .clickable { navController.navigate("stockPage") } // Navigate on click
+                        .clickable { navController.navigate("stockPage/MSFT") } // Navigate on click
                 ) {
                     // Content of the first Box
                     Box(
