@@ -1,11 +1,16 @@
 package com.stockbuddy
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -30,6 +35,8 @@ import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.UserViewModel
 
 //@Preview(name = "Home")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavHostController) {
 //        Scaffold(
@@ -233,7 +240,7 @@ fun HomePage(navController: NavHostController) {
                         .padding(8.dp)
                         .clickable {
                             navController.navigate("tradingPage")
-                        }.align(Alignment.CenterHorizontally)
+                        }
                 ) {
                     // Content of the first Box
                     Box(
@@ -241,9 +248,9 @@ fun HomePage(navController: NavHostController) {
                             .width(329.dp)
                             .height(146.dp)
                             .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.Center)
+                            .align(Alignment.TopCenter)
                             .padding(8.dp),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
                             text = "Trading Example",

@@ -43,7 +43,7 @@ fun StockBox (navController : NavHostController, title: String) {
             //appends to our dataList
             //returns the string: "(name of stock) is worth (price of stock)"
             //incase of error it returns "Error fetching data for (name of stock): (error)
-            price.value = result
+            price.value = "$result$"
         }
     }
     Box(
