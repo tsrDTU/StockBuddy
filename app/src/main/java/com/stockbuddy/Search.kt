@@ -315,8 +315,9 @@ fun SearchPage(navController : NavHostController) {
             }
 
 
-            item { StockBox(navController,"Stock Example", "$10")}
-            item {StockBox(navController,"Stock Exampler", "$10")}
+
+            item { StockBox(navController = navController, title = "Stock Example", "2")}
+            item {StockBox(navController = navController, title = "Stock Exampler", "2")}
             item {
                 Box(
                     modifier = Modifier
@@ -396,8 +397,7 @@ fun SearchPage(navController : NavHostController) {
 //
 //                        Box(
 //                            modifier = Modifier
-//                                .width(dimensionResource(id = R.dimen.DefaultWidth))
-
+//                                .width(329.dp)
 //                                .height(146.dp)
 //                                .padding(8.dp)
 //                                .clip(

@@ -13,6 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,18 +28,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
+import com.stockbuddy.data.API.fetchStockData
+import com.stockbuddy.nameOfTicker
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 //@Preview(name="StockBox")
 /// title -> the imported name of a stock
-fun StockBox (navController : NavHostController, title: String, price: String) {
+fun StockBox (navController : NavHostController, title: String) {
+    val price = remember { mutableStateOf("Calling") }
+    LaunchedEffect(Unit) {
+        //Gives the list to fetchStockData so it returns the result linearly
+        fetchStockData(title) { result ->
+            //appends to our dataList
+            //returns the string: "(name of stock) is worth (price of stock)"
+            //incase of error it returns "Error fetching data for (name of stock): (error)
+            price.value = result
+        }
+    }
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
             .padding(8.dp)
             .clickable {
+                nameOfTicker = title
                 navController.navigate("stockPage")
             }
     ) {
@@ -82,7 +98,7 @@ fun StockBox (navController : NavHostController, title: String, price: String) {
                     contentAlignment = Alignment.CenterEnd
                 ){
                     Text(
-                        text = price, // price
+                        text = price.value, // price
                         color = Color.White // Set the text color
                         ,style = TextStyle(fontSize = 24.sp),
                     )

@@ -24,6 +24,8 @@ import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 
+
+var nameOfTicker = "StockExample"
 @Composable
 fun StockPage(navController: NavHostController, stock:String?) {
     // StockBuddyTheme {
@@ -48,7 +50,7 @@ fun StockPage(navController: NavHostController, stock:String?) {
     Column {
         TopBar(navController = navController, title = stock?.toString() ?: "Stock Page")
         LazyColumn {
-        item { StockBoxSecond(navController, "StockExample") }
+        item { StockBoxSecond(navController, nameOfTicker) }
         item {
             Box(
                 modifier = Modifier
@@ -101,7 +103,7 @@ fun StockPage(navController: NavHostController, stock:String?) {
                 ) {
                     // Third Text (Fills the rest of the space)
                     Text(
-                        text = "Details",
+                        text = "Details\nprice\nwild\nzedd",
                         color = Color.White, // Set the text color
                         modifier = Modifier
                             .wrapContentWidth()

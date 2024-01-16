@@ -286,3 +286,44 @@ fun ShowUserExsistInformation(viewModel: UserExistViewModel): String {
     return userEks.toString()
 }
 
+/* Created by ChatGPT */
+/*
+fun verificateUserId(userId: String, navController: NavHostController) {
+    val db = Firebase.firestore
+
+    db.collection("users")
+        .whereEqualTo("UserId", userId)
+        .get()
+        .addOnSuccessListener { documents ->
+            for (document in documents) {
+                // UserId found, navigate to next screen
+                navController.navigate("HomePage")
+                return@addOnSuccessListener
+            }
+            // UserId not found, handle as needed
+        }
+        .addOnFailureListener { e ->
+            // Handle failure
+        }
+}
+
+ */
+
+fun verificateUserId(navController: NavHostController) {
+    val db = Firebase.firestore
+
+    db.collection("users")
+        .whereEqualTo("UserId", userIdFirestore)
+        .get()
+        .addOnSuccessListener { documents ->
+            for (document in documents) {
+                // UserId found, navigate to next screen
+                navController.navigate("HomePage")
+                return@addOnSuccessListener
+            }
+            navController.navigate("NewUser")
+        }
+        .addOnFailureListener { e ->
+            // Handle failure
+        }
+}

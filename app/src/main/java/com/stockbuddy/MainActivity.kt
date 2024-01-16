@@ -29,9 +29,9 @@ class MainActivity : ComponentActivity() {
                     // Set up the navigation host
                     NavHost(
                         navController = navController,
-                        startDestination = "BeginApp"
+                        startDestination = "StartUpPage"
                     ) {
-                        composable("beginApp") { BeginApp(navController) } //0
+                        composable("startUpPage") { StartUpPage(navController) } //0
                         composable("homePage") { HomePage(navController) } //1
                         composable("stockPage") { StockPage(navController, null) } //2
                         composable("searchPage") { SearchPage(navController) } //3
@@ -42,6 +42,7 @@ class MainActivity : ComponentActivity() {
                         composable("notificationsPage") { NotificationsPage(navController) } //8
                         composable("tradingPage") { TradingPage(navController) } //9
                         composable("puppyattackPage") { PuppyAttackPage(navController) } //10
+                        composable("newUser") { NewUser(navController) } //11
                         composable("back") { navController.navigateUp() } // back button
                         composable("backToStart") {navController.popBackStack(navController.graph.startDestinationId, inclusive = false) }
                     }
