@@ -54,8 +54,8 @@ import com.stockbuddy.data.API.fetchStockData
                 onSearch ={
                     status = false
                     items.add(input)
-                    //linjen nedenunder skal sende en string til APIen
-                    navController.navigate(input)
+                    //Global variable, burde ændres til it
+                    navController.navigate("StockPage")
                 },
                 active = status,
                 onActiveChange ={

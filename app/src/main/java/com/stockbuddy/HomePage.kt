@@ -99,7 +99,7 @@ fun HomePage(navController: NavHostController) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(30.dp)
+                        .height(80.dp)
                         .clip(
                             RoundedCornerShape(
                                 topStart = 0.dp,
@@ -140,7 +140,7 @@ fun HomePage(navController: NavHostController) {
                                     status = false
                                     items.add(input)
                                     //linjen nedenunder skal sende en string til APIen
-                                    navController.navigate(input)
+                                    navController.navigate("StockPage")
                                 },
                                 active = status,
                                 onActiveChange = {
@@ -173,21 +173,7 @@ fun HomePage(navController: NavHostController) {
 
                                 )
                             {
-                                items.forEach {
-                                    Row(modifier = Modifier
-                                        .padding(20.dp)
-                                        .clickable { navController.navigate(it) }
-                                    )
-                                    {
-                                        Icon(
-                                            modifier = Modifier
-                                                .padding(end = 14.dp),
-                                            imageVector = Icons.Default.History,
-                                            contentDescription = "history"
-                                        )
-                                        Text(text = it)
-                                    }
-                                }}}}
+}}}
 
 
 
@@ -202,21 +188,7 @@ fun HomePage(navController: NavHostController) {
 
                     // Right side (Filter)
 
-                        Text(
-                            text = "Filter",
-                            textAlign = TextAlign.Center,
-                            fontSize = 16.sp,
-                            textDecoration = TextDecoration.None,
-                            letterSpacing = 1.25.sp,
-                            lineHeight = 16.sp,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier
-                                .alpha(1f)
-                                .padding(start = 4.dp),
-                            color = Color(red = 1f, green = 1f, blue = 1f, alpha = 1f),
-                            fontWeight = FontWeight.Medium,
-                            fontStyle = FontStyle.Normal,
-                        )
+
                     }
 
 

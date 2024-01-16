@@ -98,7 +98,7 @@ fun TopBar(navController : NavHostController, title: String) {
                             .height(20.dp)
                             .width(20.dp)
                             .background(Color.Blue)
-                            .clickable { navController.navigate("searchPage") } // Navigate on click
+                            .clickable { navController.navigate("searchBar") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center
 
