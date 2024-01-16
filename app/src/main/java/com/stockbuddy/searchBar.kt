@@ -27,7 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.stockbuddy.UniversalDef.StockBox
+import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.data.API.fetchStockData
+import com.stockbuddy.data.API.searchForStocks
+import com.stockbuddy.nameOfTicker
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -44,6 +48,8 @@ import com.stockbuddy.data.API.fetchStockData
             //Tilføj stocks her gennem API
             )
         }
+    Column {
+        TopBar(navController = navController, title = "Home")
         Scaffold{
             SearchBar(
                 modifier = Modifier.fillMaxWidth(),
@@ -55,7 +61,16 @@ import com.stockbuddy.data.API.fetchStockData
                     status = false
                     items.add(input)
                     //Global variable, burde ændres til it
-                    navController.navigate("StockPage")
+                    //nameOfTicker = it
+                    //navController.navigate("StockPage")
+                    items.clear()
+
+                        searchForStocks(it) {result ->
+                            for(lines in result) {
+                                items.add(lines)
+                            }
+                        }
+
                 },
                 active = status,
                 onActiveChange ={
@@ -87,7 +102,10 @@ import com.stockbuddy.data.API.fetchStockData
                 items.forEach{
                     Row(modifier = Modifier
                         .padding(20.dp)
-                        .clickable { navController.navigate("StockPage") }
+                        .clickable {
+                            nameOfTicker = it
+                            navController.navigate("StockPage")
+                        }
                     )
                     {
                         Icon(
@@ -97,20 +115,11 @@ import com.stockbuddy.data.API.fetchStockData
                             contentDescription = "history"
                         )
                         Text(text = it)
-                        val stockData = remember { mutableStateOf("Calling") }
-                        LaunchedEffect(Unit) {
-                            //Gives the list to fetchStockData so it returns the result linearly
-                            fetchStockData(it) { result ->
-                                //appends to our dataList
-                                //returns the string: "(name of stock) is worth (price of stock)"
-                                //incase of error it returns "Error fetching data for (name of stock): (error)
-                                stockData.value = result
                             }
                         }
-                        var stockInfo = stockData.value
                     }
                 }
             }
-        }
-    }
+}
+
 

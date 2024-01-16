@@ -97,7 +97,9 @@ import okhttp3.Request
 
     }
     //TODO: comment my code
-    fun searchForStocks(searchInput: String, apiKey: String, onResult: (List<String>) -> Unit){
+    fun searchForStocks(searchInput: String, onResult: (List<String>) -> Unit){
+
+        val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
         CoroutineScope(Dispatchers.IO).launch {
 
             try {
@@ -149,7 +151,7 @@ import okhttp3.Request
             val timezone = result.get("7. timezone").asString
             val currency = result.get("8. currency").asString
             val matchScore = result.get("9. matchScore").asString
-            parsedResult.add("$name has ticker $symbol")
+            parsedResult.add(symbol)
             //("Symbol: $symbol, Name: $name, Type: $type, Region: $region, Market Open: $marketOpen, Market Close: $marketClose, Timezone: $timezone, Currency: $currency, Match Score: $matchScore")
 
         }
