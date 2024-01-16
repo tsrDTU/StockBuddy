@@ -37,12 +37,10 @@ import okhttp3.Request
     }
     */
 
-    //Given a list of stock tickers, it returns the ticker with the added text of what its worth
-    fun fetchStockData(stockSymbols: List<String>, apiKey: String, onResult: (String) -> Unit) {
+    //Given a stock ticker, it returns the ticker with the added text of what its worth
+    fun fetchStockData(stockSymbol: String, apiKey: String, onResult: (String) -> Unit) {
         //starts the asynchronic threading.
         CoroutineScope(Dispatchers.IO).launch {
-            //simple forloop for each of the given ticker
-            stockSymbols.forEach { stockSymbol ->
                 //try catch incase of errors.
                 try {
                     //The code template is given by RapidApi
@@ -69,7 +67,7 @@ import okhttp3.Request
                         //Error detection simply states what went wrong.
                         onResult("error: $e")
                     }
-                }
+
             }
         }
     }
@@ -98,3 +96,5 @@ import okhttp3.Request
         return price
 
     }
+
+

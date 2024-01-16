@@ -101,7 +101,7 @@ import com.stockbuddy.data.API.fetchStockData
                         stockData.add("Calling")
                         LaunchedEffect(Unit) {
                             //Gives the list to fetchStockData so it returns the result linearly
-                            fetchStockData(listOf(it), "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a") { result ->
+                            fetchStockData(it, "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a") { result ->
                                 //appends to our dataList
                                 //returns the string: "(name of stock) is worth (price of stock)"
                                 //incase of error it returns "Error fetching data for (name of stock): (error)
