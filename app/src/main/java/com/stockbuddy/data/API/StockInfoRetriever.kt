@@ -96,5 +96,62 @@ import okhttp3.Request
         return price
 
     }
+    //TODO: comment my code
+    fun searchForStocks(searchInput: String, apiKey: String, onResult: (List<String>) -> Unit){
+        CoroutineScope(Dispatchers.IO).launch {
 
+            try {
+                val client = OkHttpClient()
 
+                val request = Request.Builder()
+                    .url("https://alpha-vantage.p.rapidapi.com/query?keywords=$searchInput&function=SYMBOL_SEARCH&datatype=json")
+                    .get()
+                    .addHeader("X-RapidAPI-Key", apiKey)
+                    .addHeader("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
+                    .build()
+
+                val response = client.newCall(request).execute()
+                val responseData = response.body?.string()
+
+                withContext(Dispatchers.Main) {
+                    // Parse the response and extract the stock price
+                    if (responseData != null) {
+                        onResult(parseSearch(responseData))
+                    }
+
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    val result = mutableStateListOf<String>()
+                    result.add("$searchInput has an error")
+                    result.add("$e")
+                    onResult(result)
+                }
+            }
+        }
+    }
+ fun parseSearch(jsonString: String): List<String> {
+        val gson = Gson()
+        val jsonObject = gson.fromJson(jsonString, JsonObject::class.java)
+
+        val bestMatches = jsonObject.getAsJsonArray("bestMatches")
+
+        val parsedResult = mutableStateListOf<String>()
+
+        bestMatches.forEach { item ->
+            val result = item.asJsonObject
+            val symbol = result.get("1. symbol").asString
+            val name = result.get("2. name").asString
+            val type = result.get("3. type").asString
+            val region = result.get("4. region").asString
+            val marketOpen = result.get("5. marketOpen").asString
+            val marketClose = result.get("6. marketClose").asString
+            val timezone = result.get("7. timezone").asString
+            val currency = result.get("8. currency").asString
+            val matchScore = result.get("9. matchScore").asString
+            parsedResult.add("$name has ticker $symbol")
+            //("Symbol: $symbol, Name: $name, Type: $type, Region: $region, Market Open: $marketOpen, Market Close: $marketClose, Timezone: $timezone, Currency: $currency, Match Score: $matchScore")
+
+        }
+        return parsedResult
+    }
