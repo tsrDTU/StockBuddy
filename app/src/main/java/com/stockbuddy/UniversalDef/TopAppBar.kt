@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -44,7 +45,7 @@ fun TopBar(navController : NavHostController, title: String) {
                 modifier = Modifier
                     .height(56.dp)
                     .fillMaxWidth()
-                    .background(Color.Blue)
+                    .background(colorResource(id = R.color.regularBox))
                     .align(Alignment.Top)
 
             ) {
@@ -52,7 +53,7 @@ fun TopBar(navController : NavHostController, title: String) {
                     modifier = Modifier
                         .matchParentSize()
                         .matchParentSize()
-                        .background(Color(R.color.purple_200))
+                        //.background(Color(R.color.purple_200))
                         .align(Alignment.Center),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
@@ -63,7 +64,7 @@ fun TopBar(navController : NavHostController, title: String) {
                             .height(20.dp)
                             .width(36.dp)
                             .padding(start = 16.dp)
-                            .background(Color.Blue)
+                            .background(colorResource(id = R.color.regularBox))
                             .clickable { navController.navigate("back") }, // Navigate on click
                         contentAlignment = Alignment.Center
 
@@ -83,7 +84,7 @@ fun TopBar(navController : NavHostController, title: String) {
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
-                            .background(Color.Blue)
+                            .background(colorResource(id = R.color.regularBox))
                             .clickable { navController.navigate("accountPage") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center
@@ -97,7 +98,7 @@ fun TopBar(navController : NavHostController, title: String) {
                         modifier = Modifier
                             .height(20.dp)
                             .width(20.dp)
-                            .background(Color.Blue)
+                            .background(colorResource(id = R.color.regularBox))
                             .clickable { navController.navigate("searchPage") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center
@@ -113,7 +114,7 @@ fun TopBar(navController : NavHostController, title: String) {
                         modifier = Modifier
                             .height(24.dp)
                             .width(24.dp)
-                            .background(Color.Blue)
+                            .background(colorResource(id = R.color.regularBox))
                             .clickable { navController.navigate("notificationsPage") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center

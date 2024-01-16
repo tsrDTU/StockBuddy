@@ -143,7 +143,7 @@ fun StockBoxSecond (navController : NavHostController, title: String) {
         Box(
 
             modifier = Modifier
-                .width(370.dp)//.width(dimensionResource(id = R.dimen.DefaultWidth))
+                .width(dimensionResource(id = R.dimen.DefaultWidth))//.width(dimensionResource(id = R.dimen.DefaultWidth))
 
                 .height(146.dp)
                 .background(colorResource(id = R.color.regularBox))

@@ -51,44 +51,19 @@ fun HomePage(navController: NavHostController) {
 
         LazyColumn {
             item {
-                Row() {
+
                     Box(
                         modifier = Modifier
+                            //.width(370.dp)
                             .fillMaxWidth()
                             .height(150.dp)
-                            .padding(8.dp)
-
-
+                            .padding(bottom = 8.dp)
+                            .align(Alignment.CenterHorizontally)
+                        ,contentAlignment = Alignment.TopCenter
                     ) {
 
                         ShowUserInformation(UserViewModel(), navController)
-                        /*
-                        Box(
-                            modifier = Modifier
-                                                            .width(dimensionResource(id = R.dimen.DefaultWidth))
-
-                                .height(146.dp)
-                                .background(colorResource(id = R.color.regularBox))
-                                .align(Alignment.TopCenter)
-                                .clickable {
-                                    navController.navigate("portfolioPage")
-                                },
-                            contentAlignment = Alignment.Center
-
-                        ) {
-
-
-                            Text(
-                                text = "Portfolio\nPreview",
-                                color = Color.White // Set the text color
-                            )
-
-
-                        }
-
-                         */
                     }
-                }
             }
             item {
                 Row(

@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -58,7 +59,7 @@ fun StockPage(navController: NavHostController, stock:String?) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
                         .height(120.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -90,7 +91,8 @@ fun StockPage(navController: NavHostController, stock:String?) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                         .height(160.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -121,7 +123,8 @@ fun StockPage(navController: NavHostController, stock:String?) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                         .height(180.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)
@@ -155,7 +158,8 @@ fun StockPage(navController: NavHostController, stock:String?) {
             ) {
                 Row(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                         .height(48.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .clip(RoundedCornerShape(8.dp))
@@ -199,7 +203,8 @@ fun StockPage(navController: NavHostController, stock:String?) {
                 // Content of the first Box
                 Box(
                     modifier = Modifier
-                        .width(370.dp)
+                        .width(dimensionResource(id = R.dimen.DefaultWidth))
+
                         .height(160.dp)
                         .background(colorResource(id = R.color.regularBox))
                         .align(Alignment.Center)

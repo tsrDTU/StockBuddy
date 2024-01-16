@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,7 +32,7 @@ fun NotificationsBox(navController: NavHostController, title : String, time : St
         // Content of the first Box
         Box(
             modifier = Modifier
-                .width(370.dp)
+                .width(dimensionResource(id = R.dimen.DefaultWidth))
                 .height(160.dp)
                 .background(colorResource(id = R.color.regularBox))
                 .align(Alignment.TopCenter)
