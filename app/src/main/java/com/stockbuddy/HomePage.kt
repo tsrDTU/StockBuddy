@@ -79,6 +79,7 @@ fun HomePage(navController: NavHostController) {
                         .padding(8.dp)
                         .clickable {
                             navController.navigate("tradingPage")
+
                         }
                 ) {
                     // Content of the first Box

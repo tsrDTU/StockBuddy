@@ -22,11 +22,24 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.data.API.fetchAndParseStockInfo
+import com.stockbuddy.data.API.fetchStockData
 
 
 var nameOfTicker = "StockExample"
 @Composable
 fun StockPage(navController: NavHostController) {
+
+    var stockInfo = remember { mutableStateListOf("Calling","Calling","Calling","Calling","Calling") }
+    LaunchedEffect(Unit) {
+        fetchAndParseStockInfo(nameOfTicker) { result ->
+            stockInfo.clear()
+            for(info in result){
+                stockInfo.add(info)
+            }
+        }
+    }
+
     // StockBuddyTheme {
     //val navController = rememberNavController()
     //val currentBackStack by navController.currentBackStackEntryAsState()
@@ -100,8 +113,13 @@ fun StockPage(navController: NavHostController) {
                     contentAlignment = Alignment.Center
                 ) {
                     // Third Text (Fills the rest of the space)
+                    //listOf(price,volume,low,high,changePercent)
                     Text(
-                        text = "Details\nprice\nwild\nzedd",
+                        text =  "Price: ${stockInfo[0]}\n" +
+                                "Volume: ${stockInfo[1]}\n" +
+                                "Daily low: ${stockInfo[2]}\n" +
+                                "Daily high: ${stockInfo[3]}\n" +
+                                "Change: ${stockInfo[4]}",
                         color = Color.White, // Set the text color
                         modifier = Modifier
                             .wrapContentWidth()

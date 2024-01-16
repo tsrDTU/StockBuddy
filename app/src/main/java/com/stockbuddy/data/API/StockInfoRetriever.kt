@@ -72,7 +72,6 @@ import okhttp3.Request
         }
     }
 
-
     //Assuming the data given is csv format
     fun parseStockPrice(responseData: String?): String {
         //Our JSON deserializer
@@ -96,12 +95,65 @@ import okhttp3.Request
         return price
 
     }
-    //TODO: comment my code
-    fun searchForStocks(searchInput: String, onResult: (List<String>) -> Unit){
-
+    fun fetchAndParseStockInfo(stockSymbol: String, onResult: (List<String>) -> Unit){
         val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
+        //starts the asynchronic threading.
         CoroutineScope(Dispatchers.IO).launch {
+            //try catch incase of errors.
+            try {
+                //The code template is given by RapidApi
+                val client = OkHttpClient()
+                //datatype can be either JSON or csv, where csv is simple to find price of stock
+                val request = Request.Builder()
+                    .url("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=$stockSymbol&datatype=json")
+                    .get()
+                    .addHeader("X-RapidAPI-Key", apiKey) //our key
+                    .addHeader("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
+                    .build()
 
+                val response = client.newCall(request).execute()
+
+                val responseData = response.body?.string()
+                withContext(Dispatchers.Main) {
+                    //here we parse and return the tickers stock price
+                    //Our JSON deserializer
+                    val gson = Gson()
+                    val jsonObject = gson.fromJson(responseData, JsonObject::class.java)
+
+                    //All of the different data we get when searching for a ticker.
+                    //Currently we only use price.
+                    val globalQuote = jsonObject.getAsJsonObject("Global Quote")
+                    val symbol = globalQuote.get("01. symbol").asString
+                    val open = globalQuote.get("02. open").asString
+                    val high = globalQuote.get("03. high").asString
+                    val low = globalQuote.get("04. low").asString
+                    val price = globalQuote.get("05. price").asString
+                    val volume = globalQuote.get("06. volume").asString
+                    val latestTradingDay = globalQuote.get("07. latest trading day").asString
+                    val previousClose = globalQuote.get("08. previous close").asString
+                    val change = globalQuote.get("09. change").asString
+                    val changePercent = globalQuote.get("10. change percent").asString
+                    val data = listOf("${price.toDouble()}$",volume, "${low.toDouble()}$", "${high.toDouble()}$", changePercent)
+                    onResult(data)
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    //Error detection simply states what went wrong.
+
+                    onResult(listOf("Error with $stockSymbol","Ran out of API calls","$e","",""))
+                }
+
+            }
+        }
+    }
+
+
+
+//TODO: comment my code
+    fun searchForStocks(searchInput: String, onResult: (List<String>) -> Unit){
+    val apiKey = "c0fdd7bfcbmsh0b58f6101388a65p13d7a8jsnf853cc61748a"
+
+    CoroutineScope(Dispatchers.IO).launch {
             try {
                 val client = OkHttpClient()
 
@@ -132,7 +184,7 @@ import okhttp3.Request
             }
         }
     }
- fun parseSearch(jsonString: String): List<String> {
+fun parseSearch(jsonString: String): List<String> {
         val gson = Gson()
         val jsonObject = gson.fromJson(jsonString, JsonObject::class.java)
 
