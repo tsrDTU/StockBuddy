@@ -7,10 +7,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -28,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.StockBox
-import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.data.API.*
 import com.stockbuddy.domain.users.ShowUserInformation
@@ -221,20 +216,11 @@ fun HomePage(navController: NavHostController) {
 
 
             item {
-                val stockData = remember { mutableStateOf("Calling") }
-                LaunchedEffect(Unit) {
-                    //Gives the list to fetchStockData so it returns the result linearly
-                    fetchStockData("MSFT") { result ->
-                        //appends to our dataList
-                        //returns the string: "(name of stock) is worth (price of stock)"
-                        //incase of error it returns "Error fetching data for (name of stock): (error)
-                        stockData.value = result
-                    }
-                }
                 StockBox(navController, "MSFT") }
             item {
                 StockBox(navController, "AAPL")
             }
+
             item {
                 Box(
                     modifier = Modifier
@@ -257,6 +243,34 @@ fun HomePage(navController: NavHostController) {
                     ) {
                         Text(
                             text = "Trading Example",
+                            color = Color.White // Set the text color
+
+                        )
+                    }
+                }
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .padding(8.dp)
+                        .clickable {
+                            navController.navigate("StockRecom")
+                        }
+                ) {
+                    // Content of the first Box
+                    Box(
+                        modifier = Modifier
+                            .width(329.dp)
+                            .height(146.dp)
+                            .background(colorResource(id = R.color.regularBox))
+                            .align(Alignment.TopCenter)
+                            .padding(8.dp),
+                        contentAlignment = Alignment.CenterStart
+                    ) {
+                        Text(
+                            text = "DOW Jones top movers",
                             color = Color.White // Set the text color
 
                         )

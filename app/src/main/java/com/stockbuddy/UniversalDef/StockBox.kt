@@ -1,6 +1,5 @@
 package com.stockbuddy.UniversalDef
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,21 +20,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.stockbuddy.R
 import com.stockbuddy.data.API.fetchStockData
 import com.stockbuddy.nameOfTicker
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 //@Preview(name="StockBox")
 /// title -> the imported name of a stock
-fun StockBox (navController : NavHostController, title: String) {
+fun StockBox (navController: NavController, title: String) {
     val price = remember { mutableStateOf("Calling") }
     LaunchedEffect(Unit) {
         //Gives the list to fetchStockData so it returns the result linearly
@@ -235,6 +232,86 @@ fun StockBoxSecond (navController : NavHostController, title: String) {
 //                    }
 
                 }
+            }
+        }
+    }
+}
+@Composable
+fun StockBoxCustomPrice (navController: NavController, title: String,ticker: String, price: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .padding(8.dp)
+            .clickable {
+                nameOfTicker = ticker
+                navController.navigate("stockPage")
+            }
+    ) {
+        // Content of the first Box
+
+        Box(
+
+            modifier = Modifier
+                .width(dimensionResource(id = R.dimen.DefaultWidth))
+//.width(dimensionResource(id = R.dimen.DefaultWidth))
+
+                .height(146.dp)
+                .background(colorResource(id = R.color.regularBox))
+                .align(Alignment.TopCenter)
+                .padding(8.dp),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Text(
+                text = "Title",
+                color = Color.White // Set the text color
+            )
+            Row(
+                modifier = Modifier
+                    .matchParentSize()
+                    .matchParentSize()
+                    .background(colorResource(id = R.color.regularBox))
+                    .align(Alignment.Center),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                // Stock Name
+                Text(
+                    text = title+"\n"+ticker,
+                    color = Color.White // Set the text color
+                    ,style = TextStyle(fontSize = 17.sp),
+
+                    )
+
+                // price
+                Box (modifier = Modifier
+                    .width(220.dp),
+                    contentAlignment = Alignment.CenterEnd
+                ){
+                    Text(
+                        text = price, // price
+                        color = Color.White // Set the text color
+                        ,style = TextStyle(fontSize = 24.sp),
+                    )
+                }
+
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+
+                // positive negative or neutral
+                Box(
+                    modifier = Modifier
+                        .height(40.dp)
+                        .width(40.dp)
+                        .background(colorResource(id = R.color.regularBox))
+//                        .clickable { navController.navigate("accountPage") } // Navigate on click
+                    ,contentAlignment = Alignment.CenterEnd
+
+                ) {}
+
+
             }
         }
     }

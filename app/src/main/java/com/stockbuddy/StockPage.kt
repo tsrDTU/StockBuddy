@@ -20,11 +20,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.stockbuddy.UniversalDef.StockBox
 import com.stockbuddy.UniversalDef.StockBoxSecond
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.data.API.fetchAndParseStockInfo
-import com.stockbuddy.data.API.fetchStockData
 
 
 var nameOfTicker = "StockExample"
