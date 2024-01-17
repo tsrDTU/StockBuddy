@@ -26,6 +26,7 @@ import com.stockbuddy.data.API.fetchAndParseStockInfo
 
 
 var nameOfTicker = "StockExample"
+var priceOfSearchedStock = ""
 @Composable
 fun StockPage(navController: NavHostController) {
 
@@ -39,6 +40,7 @@ fun StockPage(navController: NavHostController) {
         }
     }
 
+    priceOfSearchedStock = stockInfo[0]
     // StockBuddyTheme {
     //val navController = rememberNavController()
     //val currentBackStack by navController.currentBackStackEntryAsState()

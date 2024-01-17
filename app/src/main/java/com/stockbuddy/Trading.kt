@@ -43,6 +43,7 @@ import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.TopBar
 
 
+
 //class Stock : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
@@ -132,7 +133,7 @@ fun TradingPage(navController : NavHostController) {
                             ) {
                             // Third Text (Fills the rest of the space)
                             Text(
-                                text = "Stock Name",
+                                text = "Stock Name: $nameOfTicker Price: ${priceOfSearchedStock}",
                                 color = Color.White, // Set the text color
                                 modifier = Modifier
                                     .wrapContentWidth()
@@ -153,8 +154,8 @@ fun TradingPage(navController : NavHostController) {
                             .padding(top = 4.dp, bottom = 4.dp)
 
                     ) {
-                        var price by remember { mutableStateOf(0f) }
-
+                      //  var price by remember { mutableStateOf(0f) }
+                        var numberOfStocks : Int = 0
                         Box(
                             modifier = Modifier
                                 .width(dimensionResource(id = R.dimen.DefaultWidth))
@@ -171,10 +172,10 @@ fun TradingPage(navController : NavHostController) {
                             ) {
                                 // Left side (input field)
                                 OutlinedTextField(
-                                    value = price.toString(),
+                                    value = numberOfStocks.toString(),
                                     onValueChange = {
                                         // Handle input change
-                                        price = it.toFloatOrNull() ?: 0f
+                                        numberOfStocks = it.toInt()
                                     },
                                     label = { Text("Enter Amount") },
                                     keyboardOptions = KeyboardOptions.Default.copy(
