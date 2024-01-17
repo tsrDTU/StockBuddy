@@ -1,6 +1,9 @@
 package com.stockbuddy
 
 import android.annotation.SuppressLint
+import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,6 +29,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,7 +45,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.TopBar
-
+import com.stockbuddy.domain.users.purchaseStock
+import com.stockbuddy.domain.users.userIdFirestore
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 //class Stock : ComponentActivity() {
@@ -53,24 +60,24 @@ import com.stockbuddy.UniversalDef.TopBar
 //    }
 //}
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
 //@Preview(name = "Stock") // NavController param needs to be commented to see preview
 @Composable
 fun TradingPage(navController : NavHostController) {
 
-//        Scaffold(
-//            topBar = {
-//                StockBuddyTabRow(
-//                    allScreens = stockBuddyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                        navController.navigate(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }
-//        ) {
+    var nbrOfStocksToBuy : Int = 0
+    var prsOfStock : Double = priceOfSearchedStock.dropLast(1).toDouble()
+
+
+    // From  ChatGPT next 3 lines. Modified by Torben
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+    val actTime = LocalDateTime.parse(LocalDateTime.now().toString(), formatter)
+    val tradingTime = actTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+  //  Log.w("StateFlow", "1 :Time: $tradingTime  ")
+
+
     Column {
         TopBar(navController = navController, title = "Trading")
 
@@ -153,50 +160,55 @@ fun TradingPage(navController : NavHostController) {
                             .height(90.dp)
                             .padding(top = 4.dp, bottom = 4.dp)
 
-                    ) {
-                      //  var price by remember { mutableStateOf(0f) }
-                        var numberOfStocks : Int = 0
-                        Box(
-                            modifier = Modifier
-                                .width(dimensionResource(id = R.dimen.DefaultWidth))
-                                .height(80.dp)
-                                .background(Color.Gray)
-                                .padding(8.dp)
-                                .align(Alignment.Center),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxSize(),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                // Left side (input field)
-                                OutlinedTextField(
-                                    value = numberOfStocks.toString(),
-                                    onValueChange = {
-                                        // Handle input change
-                                        numberOfStocks = it.toInt()
-                                    },
-                                    label = { Text("Enter Amount") },
-                                    keyboardOptions = KeyboardOptions.Default.copy(
-                                        keyboardType = KeyboardType.Number
-                                    ),
-                                    singleLine = true,
-                                    modifier = Modifier
-                                        .weight(1f)
-                                        .padding(end = 8.dp)
-                                )
+                    )
+                    {
+                //    var price by remember { mutableStateOf(0f) }
+                      var numOfStocks by remember { mutableStateOf(0) }
 
-                                // Right side (text)
-                                Icon(
-                                    imageVector = Icons.Default.AttachMoney,
-                                    contentDescription = null,
-                                    tint = Color.White,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
+                    Box(
+                        modifier = Modifier
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+                            .height(80.dp)
+                            .background(Color.Gray)
+                            .padding(8.dp)
+                            .align(Alignment.Center),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            // Left side (input field)
+                            OutlinedTextField(
+                             //   value = price.toString(),
+                                value = numOfStocks.toString(),
+                                onValueChange = {
+                                    // Handle input change
+                           //         price = it.toFloatOrNull() ?: 0f
+                                    numOfStocks = it.toIntOrNull() ?: 0
+                                    nbrOfStocksToBuy = numOfStocks
+                                },
+                                label = { Text("Enter the number stock you want to puchase") },
+                                keyboardOptions = KeyboardOptions.Default.copy(
+                                    keyboardType = KeyboardType.Number
+                                ),
+                                singleLine = true,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(end = 8.dp)
+                            )
+
+                            // Right side (text)
+                            Icon(
+                                imageVector = Icons.Default.AttachMoney,
+                                contentDescription = null,
+                                tint = Color.White,
+                                modifier = Modifier.size(24.dp)
+                            )
                         }
                     }
+                }
                 }
                 item {
                     Box(
@@ -205,8 +217,11 @@ fun TradingPage(navController : NavHostController) {
                             .height(60.dp)
                             .padding(top = 0.dp, bottom = 0.dp)
                     ) {
+
                         Button(
-                            onClick = { /* Handle Buy button click */ },
+                            onClick = { purchaseStock(userIdFirestore, nameOfTicker, nbrOfStocksToBuy, prsOfStock, 18.0, tradingTime)
+                                navController.navigate("notificationsPage")        },
+
                             colors = ButtonDefaults.buttonColors(Color.Green.copy(alpha = 0.6f)),
                             modifier = Modifier
                                 .height(48.dp)
