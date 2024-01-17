@@ -198,6 +198,17 @@ class StockViewModel : ViewModel() {
 
 }
 
+var histPrifitPurTotal : Double = 0.0
+var histProfitSellTotal : Double = 0.0
+var histActivePurAmount : Double = 0.0
+
+fun setHitorySummaryVarsToZero()
+{
+    histPrifitPurTotal  = 0.0
+    histProfitSellTotal  = 0.0
+    histActivePurAmount  = 0.0
+
+}
 
 
 @Composable
@@ -267,33 +278,29 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
 
         val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
 
-        var histPrifitPurTotal : Double = 0.0
-        var histProfitSellTotal : Double = 0.0
-        var histActivePurAmount : Double = 0.0
 
-        items(sortedList) {item ->
+        items(sortedList) { item ->
 
-            val sold : String = item.Sold.toString()
+            val sold: String = item.Sold.toString()
 
-            val  nrStock : Int = item.NumberOfStocks!!.toInt()
+            val nrStock: Int = item.NumberOfStocks!!.toInt()
 
-            val pPrice : Double = item.PurPriceEuro!!.toDouble()
-            val pcost : Double = item.PurCostEuro!!.toDouble()
-            val ptotal : Double = pPrice * nrStock + pcost;
+            val pPrice: Double = item.PurPriceEuro!!.toDouble()
+            val pcost: Double = item.PurCostEuro!!.toDouble()
+            val ptotal: Double = pPrice * nrStock + pcost;
             if (sold.equals("true")) {
                 histPrifitPurTotal += ptotal
-            }
-            else {
+            } else {
                 histActivePurAmount += ptotal
             }
 
-            val sPrice : Double = item.SellPriceEuro!!.toDouble()
-            val scost : Double = item.SellCostEuro!!.toDouble()
+            val sPrice: Double = item.SellPriceEuro!!.toDouble()
+            val scost: Double = item.SellCostEuro!!.toDouble()
 
-            val stotal : Double = sPrice * nrStock + scost;
+            val stotal: Double = sPrice * nrStock + scost;
             if (sold.equals("true")) {
                 histProfitSellTotal += stotal
-            }
+
 
             NotificationsBox(
                 navController,
@@ -301,33 +308,50 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
                 "Date: ${item.PurDate}",
                 "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $ptotal Euro"
             )
+                }
 
             if (sold.equals("true")) {
-                val prof : Double = nrStock * (sPrice - pPrice)+ scost + pcost
-                val profPct : Double = 100.0 * prof/pPrice
+                val prof: Double = nrStock * (sPrice - pPrice) + scost + pcost
+                val profPct: Double = 100.0 * prof / pPrice
                 NotificationsBox(
                     navController,
-                    "Purchase",
+                    "Sold",
                     "Date: ${item.SellDate}",
                     "You sold ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.SellPriceEuro} pr stock price: $stotal Euro, Profit: $prof Euro $profPct pct"
                 )
             }
-            val totaProfit : Double = histProfitSellTotal - histActivePurAmount
-            val totaProfitPct : Double = 100.0 * totaProfit/histActivePurAmount
+
+
+
+        }
+
+
+    }
+}
+
+@Composable
+fun ShowInvetmentResult (navController : NavHostController) {
+    Column {
+
+
+   //     val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
+
+
+  //      items(sortedList) { item ->
+
+            val totaProfit: Double = histProfitSellTotal - histPrifitPurTotal
+            val totaProfitPct: Double = 100.0 * totaProfit / histPrifitPurTotal
             NotificationsBox(
                 navController,
                 "Imvestment result",
                 "Date:  ",
-                "You total profit $totaProfit Euro $totaProfitPct pct"
+                "You total profit $totaProfit Euro  $totaProfitPct pct"
             )
 
 
         }
 
 
-
-
-    }
 
 
 

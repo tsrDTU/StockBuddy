@@ -146,7 +146,7 @@ fun TradingPage(navController : NavHostController) {
                                     .wrapContentWidth()
                                     .padding(top = 0.dp)
                                     .align(Alignment.CenterStart),
-                                fontSize = 24.sp,
+                                fontSize = 18.sp,
                                 fontWeight = FontWeight.Bold,
 
                                 )
@@ -189,15 +189,29 @@ fun TradingPage(navController : NavHostController) {
                                     numOfStocks = it.toIntOrNull() ?: 0
                                     nbrOfStocksToBuy = numOfStocks
                                 },
-                                label = { Text("Enter the number stock you want to puchase") },
+                                label = { Text(
+                                    text ="Enter the number stocks you want to purchase: ",
+                                    color = Color.White, // Set the text color
+                                    modifier = Modifier
+                                        .wrapContentWidth()
+                                        .padding(top = 0.dp)
+                                        ,
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Bold,
+                                ) },
                                 keyboardOptions = KeyboardOptions.Default.copy(
                                     keyboardType = KeyboardType.Number
+
                                 ),
                                 singleLine = true,
+                              //  color = Color.White, // Set the text color
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(end = 8.dp)
+
                             )
+
+
 
                             // Right side (text)
                             Icon(

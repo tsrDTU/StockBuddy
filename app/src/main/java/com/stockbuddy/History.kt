@@ -8,8 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.HistoryBox
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowInvetmentResult
 import com.stockbuddy.domain.users.ShowStockHistory
 import com.stockbuddy.domain.users.StockViewModel
+import com.stockbuddy.domain.users.setHitorySummaryVarsToZero
 
 //class History : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +42,10 @@ fun HistoryPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "History")
      //   ShowUserNotifications(NotificationViewModel())
+        setHitorySummaryVarsToZero()
         ShowStockHistory(StockViewModel(),navController )
-
+        ShowInvetmentResult(navController)
+/*
         LazyColumn {
             item { HistoryBox(navController, "Are you welcome to the app?") }
             item { HistoryBox(navController, "Welcome to the app!") }
@@ -49,6 +53,8 @@ fun HistoryPage(navController : NavHostController) {
             item { HistoryBox(navController, "Welcome app! to the are") }
             item { HistoryBox(navController, "Are app welcome to the?") }
         }
+
+ */
 
 
     }

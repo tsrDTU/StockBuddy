@@ -40,8 +40,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
-import com.stockbuddy.domain.stocks.stockPriceFound
-import com.stockbuddy.domain.stocks.stockToSearch
+//import com.stockbuddy.domain.stocks.stockPriceFound
+//import com.stockbuddy.domain.stocks.stockToSearch
 import com.stockbuddy.domain.users.purchaseStock
 import com.stockbuddy.domain.users.userIdFirestore
 import java.time.LocalDateTime
@@ -54,7 +54,7 @@ fun SaveStockInFirestore ( navController : NavHostController) {
     var stockNumber : String
     // var tradingTime = LocalDateTime.now()
     var tradinCost : Double = 18.0
-    val stockPrice = stockPriceFound.dropLast(1).toDouble()
+   // val stockPrice = stockPriceFound.dropLast(1).toDouble()
 
     // From  ChatGPT next 3 lines
     val datePattern = Regex("""\b\d{4}-\d{2}-\d{2}\b""")
@@ -88,7 +88,7 @@ fun SaveStockInFirestore ( navController : NavHostController) {
                         contentAlignment = Alignment.CenterStart
                     ) {
                         Text(
-                            text = "Stock: $stockToSearch course value: $stockPrice",
+                            text = "Stock:  course value: ",
                             color = Color.Black // Set the text color
 
                         )
@@ -123,12 +123,12 @@ fun SaveStockInFirestore ( navController : NavHostController) {
 
                                 stockNumber = input
 
-                                Log.w("StateFlow", "1 :Number of stocks: $stockNumber $stockToSearch ")
+            //                    Log.w("StateFlow", "1 :Number of stocks: $stockNumber $stockToSearch ")
                                 val stockNum = stockNumber.toInt()
 
                                 //   val tradTime = tradingTime.toString()
                                 //              Log.w("StateFlow", "2 :Number of stocks: $stockNum $stockToSearch ")
-                                purchaseStock(userIdFirestore, stockToSearch, stockNum, stockPrice, tradinCost, tradingTime)
+                    //            purchaseStock(userIdFirestore, stockToSearch, stockNum, stockPrice, tradinCost, tradingTime)
                                 navController.navigate("notificationsPage")
 
                             },

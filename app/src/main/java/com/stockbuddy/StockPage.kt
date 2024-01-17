@@ -41,25 +41,9 @@ fun StockPage(navController: NavHostController) {
     }
 
     priceOfSearchedStock = stockInfo[0]
-    // StockBuddyTheme {
-    //val navController = rememberNavController()
-    //val currentBackStack by navController.currentBackStackEntryAsState()
-    //val currentDestination = currentBackStack?.destination
-    //val currentScreen = stockBuddyTabRowScreens.find { it.route == currentDestination?.route } ?: FirstScreen
 
 
-//        Scaffold(
-//            topBar = {
-//                StockBuddyTabRow(
-//                    allScreens = stockBuddyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                        navController.navigate(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }
-//        ) { innerPadding ->
+
     Column {
         TopBar(navController = navController, title = "Stock")
         LazyColumn {
@@ -90,7 +74,7 @@ fun StockPage(navController: NavHostController) {
                             .wrapContentWidth()
                             .padding(top = 0.dp)
                             .align(Alignment.Center),
-                        fontSize = 24.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -132,6 +116,7 @@ fun StockPage(navController: NavHostController) {
                 }
             }
         }
+            /*
         item {
             Box(
                 modifier = Modifier
@@ -163,6 +148,8 @@ fun StockPage(navController: NavHostController) {
                 }
             }
         }
+
+             */
         item {
             var allSelected by remember { mutableStateOf(true) }
             var yearSelected by remember { mutableStateOf(true) }
