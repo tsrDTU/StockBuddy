@@ -102,13 +102,28 @@ fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostContr
             val sPrice : Double = item.PurPriceEuro!!.toDouble()
             val  nrStock : Int = item.NumberOfStocks!!.toInt()
             val cost : Double = item.PurCostEuro!!.toDouble()
-            val total : Double = sPrice * nrStock + cost;
+            var total : Double = sPrice * nrStock + cost;
+            val sold : String = item.Sold.toString()
+            if (sold.equals("false")) {
             NotificationsBox(
+
                 navController,
                 "Purchase Confirmed",
                 "Date: ${item.PurDate}",
                 "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $total Euro"
             )
+                }
+            else {
+                var total : Double = sPrice * nrStock + cost;
+                NotificationsBox(
+
+                    navController,
+                    "Sold Confirmed",
+                    "Date: ${item.PurDate}",
+                    "You sold ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.SellPriceEuro} pr stock price: $total Euro"
+                )
+
+            }
         }
     }
 

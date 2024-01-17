@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.domain.users.purchaseStock
+import com.stockbuddy.domain.users.sellStock
 import com.stockbuddy.domain.users.userIdFirestore
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -59,6 +60,8 @@ import java.time.format.DateTimeFormatter
 //        }
 //    }
 //}
+
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalFoundationApi::class)
@@ -289,6 +292,20 @@ fun TradingPage(navController : NavHostController) {
             }
         }
     }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun SellStockSelectedStock (navController : NavHostController) {
+
+    var prsOfStock : Double = priceOfSearchedStock.dropLast(1).toDouble()
+
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+    val actTime = LocalDateTime.parse(LocalDateTime.now().toString(), formatter)
+    val tradingTime = actTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+
+    sellStock(userIdFirestore, nameOfTicker, prsOfStock, 18.0, tradingTime)
+    navController.navigate("notificationsPage")
 }
 
 
