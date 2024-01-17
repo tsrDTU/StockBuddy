@@ -192,7 +192,7 @@ fun StockBoxSecond (navController : NavHostController, title: String) {
                     contentAlignment = Alignment.CenterEnd
                 ){
                     Text(
-                        text = "X", // price
+                        text = "", // price
                         color = Color.White // Set the text color
                         ,style = TextStyle(fontSize = 24.sp),
                     )
