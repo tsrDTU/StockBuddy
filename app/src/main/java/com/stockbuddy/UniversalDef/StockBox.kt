@@ -280,7 +280,7 @@ fun StockBoxCustomPrice (navController: NavController, title: String,ticker: Str
                 Text(
                     text = title+"\n"+ticker,
                     color = Color.White // Set the text color
-                    ,style = TextStyle(fontSize = 24.sp),
+                    ,style = TextStyle(fontSize = 17.sp),
 
                     )
 
