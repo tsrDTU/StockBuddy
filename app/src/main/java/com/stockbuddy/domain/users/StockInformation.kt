@@ -4,7 +4,6 @@ package com.stockbuddy.domain.users
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -28,7 +27,7 @@ import com.stockbuddy.R
 import com.stockbuddy.UniversalDef.NotificationsBox
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+
 //import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
@@ -300,7 +299,7 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
             val stotal: Double = sPrice * nrStock + scost;
             if (sold.equals("true")) {
                 histProfitSellTotal += stotal
-
+            }
 
             NotificationsBox(
                 navController,
@@ -308,11 +307,11 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
                 "Date: ${item.PurDate}",
                 "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $ptotal Euro"
             )
-                }
+
 
             if (sold.equals("true")) {
                 val prof: Double = nrStock * (sPrice - pPrice) + scost + pcost
-                val profPct: Double = 100.0 * prof / pPrice
+                val profPct: Double = 100.0 * prof / (pPrice * nrStock)
                 NotificationsBox(
                     navController,
                     "Sold",
@@ -330,7 +329,7 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
 }
 
 @Composable
-fun ShowInvetmentResult (navController : NavHostController) {
+fun ShowInvestmentResult (navController : NavHostController) {
     Column {
 
 

@@ -3,12 +3,10 @@ package com.stockbuddy
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import com.stockbuddy.UniversalDef.HistoryBox
 import com.stockbuddy.UniversalDef.TopBar
-import com.stockbuddy.domain.users.ShowInvetmentResult
+import com.stockbuddy.domain.users.ShowInvestmentResult
 import com.stockbuddy.domain.users.ShowStockHistory
 import com.stockbuddy.domain.users.StockViewModel
 import com.stockbuddy.domain.users.setHitorySummaryVarsToZero
@@ -44,7 +42,7 @@ fun HistoryPage(navController : NavHostController) {
      //   ShowUserNotifications(NotificationViewModel())
         setHitorySummaryVarsToZero()
         ShowStockHistory(StockViewModel(),navController )
-        ShowInvetmentResult(navController)
+        ShowInvestmentResult(navController)
 /*
         LazyColumn {
             item { HistoryBox(navController, "Are you welcome to the app?") }
