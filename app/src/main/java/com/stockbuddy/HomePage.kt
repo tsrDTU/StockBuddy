@@ -32,6 +32,7 @@ import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.UserViewModel
 import com.stockbuddy.domain.users.getUserFirstAndLastName
 
+//
 //@Preview(name = "Home")
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
