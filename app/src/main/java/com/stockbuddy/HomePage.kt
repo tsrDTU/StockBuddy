@@ -46,9 +46,9 @@ fun HomePage(navController: NavHostController) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(150.dp)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.Center
+                            .height(165.dp)
+                            .padding(start = 8.dp, end = 8.dp),
+                        contentAlignment = Alignment.TopCenter
 
 
                     ) {
@@ -111,7 +111,6 @@ fun HomePage(navController: NavHostController) {
                             color = Color.White,
                         )
                     }
-
                 }
             }
 //

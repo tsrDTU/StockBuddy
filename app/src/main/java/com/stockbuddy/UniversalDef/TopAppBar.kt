@@ -20,6 +20,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import com.stockbuddy.R
 
 
@@ -45,7 +46,7 @@ fun TopBar(navController: NavController, title: String) {
                 modifier = Modifier
                     .height(56.dp)
                     .fillMaxWidth()
-                    .background(colorResource(id = R.color.regularBox))
+                    .background(colorResource(id = R.color.stockbox_Color))
                     .align(Alignment.Top)
 
             ) {
@@ -58,76 +59,80 @@ fun TopBar(navController: NavController, title: String) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    if (navController.currentDestination?.route.toString() != "homePage") {
+                        Box(
+                            modifier = Modifier
+                                .weight(0.2f)
+                                .height(20.dp)
+                                .width(36.dp)
+                                .padding(start = 16.dp)
+                                .background(colorResource(id = R.color.white))
+                                .clickable { navController.navigate("back") }, // Navigate on click
+                            contentAlignment = Alignment.Center
 
-                    Box(
-                        modifier = Modifier
-                            .height(20.dp)
-                            .width(36.dp)
-                            .padding(start = 16.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .clickable { navController.navigate("back") }, // Navigate on click
-                        contentAlignment = Alignment.Center
-
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_backtwo),
-                            contentDescription = null
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_backtwo),
+                                contentDescription = null
+                            )
+                        }
+                        androidx.compose.material3.Text(
+                            text = title,
+                            color = Color.White // Set the text color
                         )
-                    }
-                    androidx.compose.material3.Text(
-                        text = title,
-                        color = Color.White // Set the text color
-                    )
-                    Spacer(modifier = Modifier.width(200.dp))
+                        Spacer(modifier = Modifier.weight(1f))
 
-                    Box(
-                        modifier = Modifier
-                            .height(20.dp)
-                            .width(20.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .clickable { navController.navigate("accountPage") } // Navigate on click
-                        ,
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_user),
-                            contentDescription = null
-                        )
-                    }
-                    Box(
-                        modifier = Modifier
-                            .height(20.dp)
-                            .width(20.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .clickable { navController.navigate("searchBar") } // Navigate on click
-                        ,
-                        contentAlignment = Alignment.Center
+                        Box(
+                            modifier = Modifier
+                                .weight(0.25f)
+                                .height(20.dp)
+                                .width(20.dp)
+                                .background(colorResource(id = R.color.stockbox_Color))
+                                .clickable { navController.navigate("accountPage") } // Navigate on click
+                            ,
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_user),
+                                contentDescription = null
+                            )
+                        }
+                        Box(
+                            modifier = Modifier
+                                .weight(0.25f)
+                                .height(20.dp)
+                                .width(20.dp)
+                                .background(colorResource(id = R.color.stockbox_Color))
+                                .clickable { navController.navigate("searchBar") } // Navigate on click
+                            ,
+                            contentAlignment = Alignment.Center
 
 
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_search),
-                            contentDescription = null
-                        )
-                    }
-                    Box(
-                        modifier = Modifier
-                            .height(24.dp)
-                            .width(24.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .clickable { navController.navigate("notificationsPage") } // Navigate on click
-                        ,
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_notification),
-                            contentDescription = null
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_search),
+                                contentDescription = null
+                            )
+                        }
+                        Box(
+                            modifier = Modifier
+                                .weight(0.25f)
+                                .height(24.dp)
+                                .width(24.dp)
+                                .background(colorResource(id = R.color.stockbox_Color))
+                                .clickable { navController.navigate("notificationsPage") } // Navigate on click
+                            ,
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_notification),
+                                contentDescription = null
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(8.dp))
 
+                    }
                 }
             }
         }
-
 }

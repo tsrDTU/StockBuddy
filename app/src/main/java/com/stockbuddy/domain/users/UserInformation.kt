@@ -167,7 +167,7 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
                     .width(dimensionResource(id = R.dimen.DefaultWidth))
                     .padding(top = 8.dp, bottom = 8.dp)
                     .height(146.dp)
-                    .background(colorResource(id = R.color.regularBox))
+                    .background(colorResource(id = R.color.User_bar))
                     /*
                     .align(
                         LineHeightStyle
