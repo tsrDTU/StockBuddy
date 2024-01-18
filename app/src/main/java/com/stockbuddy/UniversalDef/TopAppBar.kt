@@ -66,7 +66,7 @@ fun TopBar(navController: NavController, title: String) {
                                 .height(20.dp)
                                 .width(36.dp)
                                 .padding(start = 16.dp)
-                                .background(colorResource(id = R.color.white))
+                                .background(colorResource(id = R.color.black))
                                 .clickable { navController.navigate("back") }, // Navigate on click
                             contentAlignment = Alignment.Center
 
@@ -76,6 +76,11 @@ fun TopBar(navController: NavController, title: String) {
                                 contentDescription = null
                             )
                         }
+                    } else{
+                        Box(
+                            modifier = Modifier.padding(8.dp)){}
+                    }
+
                         androidx.compose.material3.Text(
                             text = title,
                             color = Color.White // Set the text color
@@ -135,4 +140,4 @@ fun TopBar(navController: NavController, title: String) {
                 }
             }
         }
-}
+
