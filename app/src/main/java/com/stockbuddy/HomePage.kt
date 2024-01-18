@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -98,8 +99,10 @@ fun HomePage(navController: NavHostController) {
                             )
                         )
                         .background(Color.Transparent)
-                        .alpha(1f),
-                    horizontalArrangement = Arrangement.SpaceBetween // Aligns items at the start and end of the row
+                        .alpha(1f)
+                        .padding(start = 8.dp, end = 8.dp),
+
+                    //horizontalArrangement = Arrangement.Center // Aligns items at the start and end of the row
                 ) {
                     // Search bar
                     Box(
@@ -113,79 +116,10 @@ fun HomePage(navController: NavHostController) {
                                     bottomEnd = 4.dp
                                 )
                             )
-                            .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
-                            .padding(start = 32.dp)
                             .clickable {navController.navigate("searchBar")}
-                            .border(
-                                1.dp,
-                                Color(
-                                    red = 0.007843137718737125f,
-                                    green = 0.007843137718737125f,
-                                    blue = 0.007843137718737125f,
-                                    alpha = 1f
-                                ),
-                                RoundedCornerShape(
-                                    topStart = 4.dp,
-                                    topEnd = 4.dp,
-                                    bottomStart = 4.dp,
-                                    bottomEnd = 4.dp
-                                )
-                            )
-                            //.align(Alignment.Center)
-                            .alpha(1f)
-                    ) {
-                        Text(
-                            text = "Search",
-                            textAlign = TextAlign.Start,
-                            fontSize = 16.sp,
-                            textDecoration = TextDecoration.None,
-                            letterSpacing = 0.15.sp,
-                            lineHeight = 24.sp,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier
-                                .align(Alignment.CenterStart)
-                                .width(200.dp)
-                                .padding(start = 4.dp)
-                                .alpha(1f),
-                            color = Color(
-                                red = 0.4588235318660736f,
-                                green = 0.4588235318660736f,
-                                blue = 0.4588235318660736f,
-                                alpha = 1f
-                            ),
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Normal,
-                        )
-                    }
-
-                    // Spacer to create space between "Search" and "Filter"
-                    Spacer(modifier = Modifier.width(24.dp))
-
-                    // Right side (Filter)
-                    Box(
-                        modifier = Modifier
-                            .width(200.dp)
-                            .height(30.dp)
-                            .padding(end = 32.dp)
-                            .clip(
-                                RoundedCornerShape(
-                                    topStart = 4.dp,
-                                    topEnd = 4.dp,
-                                    bottomStart = 4.dp,
-                                    bottomEnd = 4.dp
-                                )
-                            )
-                            .background(
-                                Color(
-                                    red = 0.12941177189350128f,
-                                    green = 0.12941177189350128f,
-                                    blue = 0.12941177189350128f,
-                                    alpha = 1f
-                                )
-                            )
-                            .padding(start = 2.dp, top = 2.dp, end = 2.dp, bottom = 2.dp)
-                            .alpha(1f)
-                            .clickable { navController.navigate("searchBar") } // Navigate on click
+                            .padding(start = 12.dp, end = 12.dp)
+                            .background(colorResource(id = R.color.black)),
+                        contentAlignment = Alignment.Center,
 
                     ) {
                         Text(
@@ -193,17 +127,20 @@ fun HomePage(navController: NavHostController) {
                             textAlign = TextAlign.Center,
                             fontSize = 16.sp,
                             textDecoration = TextDecoration.None,
-                            letterSpacing = 1.25.sp,
-                            lineHeight = 16.sp,
+                            letterSpacing = 0.15.sp,
+                            lineHeight = 24.sp,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier
+                                .align(Alignment.Center)
+                                .width(dimensionResource(id = R.dimen.DefaultWidth))
                                 .alpha(1f)
-                                .padding(start = 4.dp),
-                            color = Color(red = 1f, green = 1f, blue = 1f, alpha = 1f),
-                            fontWeight = FontWeight.Medium,
+                                .background(colorResource(id = R.color.black)),
+                            fontWeight = FontWeight.Normal,
                             fontStyle = FontStyle.Normal,
+                            color = Color.White,
                         )
                     }
+
                 }
             }
 
