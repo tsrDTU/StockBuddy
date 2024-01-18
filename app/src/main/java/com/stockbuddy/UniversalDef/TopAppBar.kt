@@ -70,7 +70,7 @@ fun TopBar(navController: NavController, title: String) {
 
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.img_back),
+                            painter = painterResource(id = R.drawable.img_backtwo),
                             contentDescription = null
                         )
                     }
