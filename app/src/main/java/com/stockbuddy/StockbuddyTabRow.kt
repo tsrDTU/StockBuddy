@@ -50,7 +50,7 @@ fun StockBuddyTabRow(navController : NavHostController
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight()
-                        .background(Color(R.color.purple_200))
+                        .background(Color(R.color.regularBox))
                         .clip(RoundedCornerShape(8.dp))
                         .align(Alignment.Center),
                     horizontalArrangement = Arrangement.SpaceBetween,

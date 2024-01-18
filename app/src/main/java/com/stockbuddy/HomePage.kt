@@ -196,7 +196,7 @@ fun HomePage(navController: NavHostController) {
 
                     ) {
                         Text(
-                            text = "Filter",
+                            text = "Search",
                             textAlign = TextAlign.Center,
                             fontSize = 16.sp,
                             textDecoration = TextDecoration.None,
@@ -215,11 +215,8 @@ fun HomePage(navController: NavHostController) {
             }
 
 
-            item {
-                StockBox(navController, "MSFT") }
-            item {
-                StockBox(navController, "AAPL")
-            }
+            item { StockBox(navController, "MSFT") }
+            item { StockBox(navController, "AAPL") }
 
             item {
                 Box(
