@@ -177,7 +177,7 @@ fun HomePage(navController: NavHostController) {
                     }
                 }
             }
-
+//
         }
         LaunchedEffect(Unit) {
             //Gives the list to fetchStockData so it returns the result linearly
