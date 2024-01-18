@@ -152,27 +152,21 @@ import okhttp3.Request
 //TODO: comment my code
     fun searchForStocks(searchInput: String, onResult: (List<String>) -> Unit){
     val apiKey = "d1c59870e3mshc6b4afee52e2841p113d3cjsn8952d4fd2407"
-
     CoroutineScope(Dispatchers.IO).launch {
             try {
                 val client = OkHttpClient()
-
                 val request = Request.Builder()
-                    .url("https://alpha-vantage.p.rapidapi.com/query?keywords=$searchInput&function=SYMBOL_SEARCH&datatype=json")
+                    .url("https://alpha-vantage.p.rapidapi.com/query?keywords=" +
+                            "$searchInput&function=SYMBOL_SEARCH&datatype=json")
                     .get()
                     .addHeader("X-RapidAPI-Key", apiKey)
                     .addHeader("X-RapidAPI-Host", "alpha-vantage.p.rapidapi.com")
                     .build()
-
                 val response = client.newCall(request).execute()
                 val responseData = response.body?.string()
-
                 withContext(Dispatchers.Main) {
                     // Parse the response and extract the stock price
-                    if (responseData != null) {
-                        onResult(parseSearch(responseData))
-                    }
-
+                    if (responseData != null) { onResult(parseSearch(responseData)) }
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
