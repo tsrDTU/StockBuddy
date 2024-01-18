@@ -58,7 +58,7 @@ fun StockBox (navController: NavController, title: String) {
         Box(
             
             modifier = Modifier
-                .width(dimensionResource(id = R.dimen.DefaultWidth))
+                    .width(dimensionResource(id = R.dimen.DefaultWidth))
 //.width(dimensionResource(id = R.dimen.DefaultWidth))
 
                 .height(146.dp)
