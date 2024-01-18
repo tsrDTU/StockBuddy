@@ -31,6 +31,7 @@ import com.stockbuddy.data.API.*
 import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.UserViewModel
 
+//
 //@Preview(name = "Home")
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
