@@ -75,6 +75,7 @@ fun PortfolioPage(navController : NavHostController) {
         TopBar(navController = navController, title = "Portfolio")
 
         ShowStockInformation( StockViewModel())
+
         LazyColumn {
             item {
                 Box(
@@ -315,86 +316,7 @@ fun PortfolioPage(navController : NavHostController) {
                 }
 
 
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(100.dp)
-//                    .background(Color.Gray)
-//                    .padding(16.dp)
-//            ) {
-//                // First item
-//                Text(
-//                    text = "Item 1",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//
-//                // Spacer to create space between items
-//                Spacer(modifier = Modifier.width(8.dp))
-//
-//                // Second item
-//                Text(
-//                    text = "Item 2",
-//                    color = Color.White,
-//                    fontWeight = FontWeight.Bold,
-//                    fontSize = 18.sp,
-//                    modifier = Modifier
-//                        .weight(1f)
-//                        .padding(8.dp)
-//                )
-//            }
 
-//                item {
-//                    Box(
-//                        modifier = Modifier
-//                            .width(360.dp)
-//                            .height(800.dp)
-//                            .clip(
-//                                RoundedCornerShape(
-//                                    topStart = 0.dp,
-//                                    topEnd = 0.dp,
-//                                    bottomStart = 0.dp,
-//                                    bottomEnd = 0.dp
-//                                )
-//                            )
-//                            .background(Color(red = 1f, green = 1f, blue = 1f, alpha = 1f))
-//                            .padding(start = 0.dp, top = 0.dp, end = 0.dp, bottom = 0.dp)
-//                            .alpha(1f)
-//                    ) {
-//
-//                        Box(
-//                            modifier = Modifier
-//                                .width(dimensionResource(id = R.dimen.DefaultWidth))
-//                                .height(146.dp)
-//                                .padding(8.dp)
-//                                .clip(
-//                                    RoundedCornerShape(
-//                                        topStart = 0.dp,
-//                                        topEnd = 0.dp,
-//                                        bottomStart = 0.dp,
-//                                        bottomEnd = 0.dp
-//                                    )
-//                                )
-//                                .align(Alignment.TopCenter)
-//
-//                                .background(
-//                                    Color(
-//                                        red = 0.8509804010391235f,
-//                                        green = 0.8509804010391235f,
-//                                        blue = 0.8509804010391235f,
-//                                        alpha = 1f
-//                                    )
-//                                )
-//                        )
-//                    }
-//                    StockBuddyNavHost(
-//                        navController = navController,
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
             }
         }
     }

@@ -37,7 +37,7 @@ fun StockBox (navController: NavController, title: String) {
     LaunchedEffect(Unit) {
         //Gives the list to fetchStockData so it returns the result linearly
         fetchStockData(title) { result ->
-            //appends to our dataList
+            //appends to our dataListdataList
             //returns the string: "(name of stock) is worth (price of stock)"
             //incase of error it returns "Error fetching data for (name of stock): (error)
             price.value = "$result$"

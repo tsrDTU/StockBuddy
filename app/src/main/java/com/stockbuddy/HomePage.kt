@@ -38,8 +38,6 @@ import com.stockbuddy.domain.users.getUserFirstAndLastName
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavHostController) {
-
-
     getUserFirstAndLastName()
     val stockData = remember { mutableStateListOf<Leader>() }
     Column {
@@ -57,32 +55,7 @@ fun HomePage(navController: NavHostController) {
 
 
                     ) {
-
                         ShowUserInformation(UserViewModel(), navController)
-                        /*
-                        Box(
-                            modifier = Modifier
-                                .width(329.dp)
-                                .height(146.dp)
-                                .background(colorResource(id = R.color.regularBox))
-                                .align(Alignment.TopCenter)
-                                .clickable {
-                                    navController.navigate("portfolioPage")
-                                },
-                            contentAlignment = Alignment.Center
-
-                        ) {
-
-
-                            Text(
-                                text = "Portfolio\nPreview",
-                                color = Color.White // Set the text color
-                            )
-
-
-                        }
-
-                         */
                     }
                 }
             }
@@ -122,9 +95,9 @@ fun HomePage(navController: NavHostController) {
                             .background(colorResource(id = R.color.black)),
                         contentAlignment = Alignment.Center,
 
-                    ) {
+                        ) {
                         Text(
-                            text = "Filter",
+                            text = "Search",
                             textAlign = TextAlign.Center,
                             fontSize = 16.sp,
                             textDecoration = TextDecoration.None,
@@ -144,69 +117,20 @@ fun HomePage(navController: NavHostController) {
 
                 }
             }
-
-
-            item {
-                StockBox(navController, "MSFT") }
-            item {
-                StockBox(navController, "AAPL")
-            }
-
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("tradingPage")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "Trading Example",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
+//
+        }
+        LaunchedEffect(Unit) {
+            //Gives the list to fetchStockData so it returns the result linearly
+            getStockRecommendations("INDU") { result ->
+                for(stock in result){
+                    stockData.add(stock)
                 }
             }
-            item {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(100.dp)
-                        .padding(8.dp)
-                        .clickable {
-                            navController.navigate("StockRecom")
-                        }
-                ) {
-                    // Content of the first Box
-                    Box(
-                        modifier = Modifier
-                            .width(329.dp)
-                            .height(146.dp)
-                            .background(colorResource(id = R.color.regularBox))
-                            .align(Alignment.TopCenter)
-                            .padding(8.dp),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Text(
-                            text = "DOW Jones top movers",
-                            color = Color.White // Set the text color
-
-                        )
-                    }
-                }
+        }
+        //stock.name+","+stock.symbol+","+stock.last
+        LazyColumn{
+            for(stock in stockData){
+                item { StockBoxCustomPrice(navController,stock.name,stock.symbol,stock.last) }
             }
         }
     }
