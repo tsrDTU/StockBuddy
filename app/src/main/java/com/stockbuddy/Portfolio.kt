@@ -74,7 +74,10 @@ fun PortfolioPage(navController : NavHostController) {
     Column {
         TopBar(navController = navController, title = "Portfolio")
 
-        ShowStockInformation( StockViewModel())
+        Box(modifier = Modifier
+            .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) { ShowStockInformation( StockViewModel()) }
 
         LazyColumn {
             item {

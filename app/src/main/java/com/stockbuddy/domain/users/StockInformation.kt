@@ -219,29 +219,32 @@ fun setHitorySummaryVarsToZero()
 fun ShowStockInformation(viewModel: StockViewModel) {
 
     val dataList by viewModel.actStock.collectAsState()
-Box(modifier = Modifier
- //   .fillMaxSize()
-, contentAlignment = Alignment.Center){
+    Box(
+        modifier = Modifier
+        //   .fillMaxSize()
+            .padding(top = 8.dp)
+        , contentAlignment = Alignment.Center
+    ) {
 
-}
-    LazyColumn {
-        items(dataList) { dataList ->
-            val stName : String = dataList.StockName.toString()
-            val stPrice : Double = dataList.PurPriceEuro!!.toDouble()
-            val  nrStocks : Int = dataList.NumberOfStocks!!.toInt()
-            val sold : String = dataList.Sold!!.toString()
-            val totVal = stPrice * nrStocks
 
-            if (sold.equals("false")) {
+        LazyColumn {
+            items(dataList) { dataList ->
+                val stName: String = dataList.StockName.toString()
+                val stPrice: Double = dataList.PurPriceEuro!!.toDouble()
+                val nrStocks: Int = dataList.NumberOfStocks!!.toInt()
+                val sold: String = dataList.Sold!!.toString()
+                val totVal = stPrice * nrStocks
 
-            Box(
-                modifier = Modifier
-                    .width(dimensionResource(id = R.dimen.DefaultWidth))
-                    .height(170.dp)
-                    .padding(top = 8.dp)
-                    .background(colorResource(id = R.color.regularBox))
+                if (sold.equals("false")) {
 
-                    /*
+                    Box(
+                        modifier = Modifier
+                            .width(dimensionResource(id = R.dimen.DefaultWidth))
+                            .height(170.dp)
+                            .padding(top = 8.dp)
+                            .background(colorResource(id = R.color.regularBox))
+
+                        /*
                     .align(
                         LineHeightStyle
                             .Alignment
@@ -249,7 +252,7 @@ Box(modifier = Modifier
                     )
 
                      */
-/*
+                        /*
                     .clickable {
                         navController.navigate("portfolioPage")
                     }
@@ -257,25 +260,25 @@ Box(modifier = Modifier
  */
 
 
-                //                 contentAlignment  LineHeightStyle.Alignment.Center
+                        //                 contentAlignment  LineHeightStyle.Alignment.Center
 
-            ) {
+                    ) {
 
-                    Text(
-                        text = "Stock Name: $stName\nAmount Owned: $nrStocks\nPurchase price pr. stock: ${dataList.PurPriceEuro} Euro\nDate for purchase: ${dataList.PurDate}\nPuschase trading cost: ${dataList.PurCostEuro} Euro\n Total Value: $totVal Euro",
-                        color = Color.White // Set the text color
-                    )
+                        Text(modifier = Modifier.padding(8.dp),
+                            text = "Stock Name: $stName\nAmount Owned: $nrStocks\nPurchase price pr. stock: ${dataList.PurPriceEuro} Euro\nDate for purchase: ${dataList.PurDate}\nPuschase trading cost: ${dataList.PurCostEuro} Euro\n Total Value: $totVal Euro",
+                            color = Color.White // Set the text color
+                        )
+                    }
+
+
                 }
 
-
             }
-
         }
+
     }
 
 }
-
-
 
 @Composable
 fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController) {
