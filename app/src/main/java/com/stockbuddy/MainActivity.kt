@@ -50,7 +50,6 @@ class MainActivity : ComponentActivity() {
                         composable("sellStockSelectedStock") { SellStockSelectedStock(navController) } //12
                         composable("back") { navController.navigateUp() } // back button
                         composable("backToStart") {navController.popBackStack(navController.graph.startDestinationId, inclusive = false) }
-                        composable("StockRecom"){ StockRecommendation(navController)}
                     }
                 }
             }

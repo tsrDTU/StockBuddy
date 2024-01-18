@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.StockBox
+import com.stockbuddy.UniversalDef.StockBoxCustomPrice
 import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.data.API.*
 import com.stockbuddy.domain.users.ShowUserInformation
@@ -38,6 +39,7 @@ fun HomePage(navController: NavHostController) {
 
 
     getUserFirstAndLastName()
+    val stockData = remember { mutableStateListOf<Leader>() }
     Column {
         TopBar(navController = navController, title = "Home")
 
@@ -55,7 +57,30 @@ fun HomePage(navController: NavHostController) {
                     ) {
 
                         ShowUserInformation(UserViewModel(), navController)
+                        /*
+                        Box(
+                            modifier = Modifier
+                                .width(329.dp)
+                                .height(146.dp)
+                                .background(colorResource(id = R.color.regularBox))
+                                .align(Alignment.TopCenter)
+                                .clickable {
+                                    navController.navigate("portfolioPage")
+                                },
+                            contentAlignment = Alignment.Center
 
+                        ) {
+
+
+                            Text(
+                                text = "Portfolio\nPreview",
+                                color = Color.White // Set the text color
+                            )
+
+
+                        }
+
+                         */
                     }
                 }
             }
