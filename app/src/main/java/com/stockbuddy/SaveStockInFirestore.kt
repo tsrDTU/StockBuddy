@@ -82,7 +82,7 @@ fun SaveStockInFirestore ( navController : NavHostController) {
                         modifier = Modifier
                             .width(329.dp)
                             .height(146.dp)
-                            .background(colorResource(id = R.color.gray_300))
+                            .background(colorResource(id = R.color.regularBox))
                             .align(Alignment.TopCenter)
                             .padding(8.dp),
                         contentAlignment = Alignment.CenterStart
