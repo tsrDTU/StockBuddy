@@ -59,7 +59,6 @@ fun StockBox (navController: NavController, title: String) {
             
             modifier = Modifier
                 .width(dimensionResource(id = R.dimen.DefaultWidth))
-//.width(dimensionResource(id = R.dimen.DefaultWidth))
 
                 .height(146.dp)
                 .background(colorResource(id = R.color.regularBox))
@@ -242,7 +241,6 @@ fun StockBoxCustomPrice (navController: NavController, title: String,ticker: Str
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
-            .padding(8.dp)
             .clickable {
                 nameOfTicker = ticker
                 navController.navigate("stockPage")
@@ -255,22 +253,20 @@ fun StockBoxCustomPrice (navController: NavController, title: String,ticker: Str
             modifier = Modifier
                 .width(dimensionResource(id = R.dimen.DefaultWidth))
 //.width(dimensionResource(id = R.dimen.DefaultWidth))
-
+                .padding(6.dp)
                 .height(146.dp)
-                .background(colorResource(id = R.color.regularBox))
-                .align(Alignment.TopCenter)
-                .padding(8.dp),
+                .align(Alignment.TopCenter),
             contentAlignment = Alignment.CenterStart
         ) {
             Text(
                 text = "Title",
-                color = Color.White // Set the text color
+                color = Color.White, // Set the text color
             )
             Row(
                 modifier = Modifier
                     .matchParentSize()
                     .matchParentSize()
-                    .background(colorResource(id = R.color.regularBox))
+                    .background(colorResource(id = R.color.topbar_Blue))
                     .align(Alignment.Center),
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
@@ -281,35 +277,25 @@ fun StockBoxCustomPrice (navController: NavController, title: String,ticker: Str
                     text = title+"\n"+ticker,
                     color = Color.White // Set the text color
                     ,style = TextStyle(fontSize = 17.sp),
-
+                    modifier = Modifier
+                        .padding(6.dp)
                     )
-
+                Spacer(modifier = Modifier
+                    .weight(1f)
+                )
                 // price
-                Box (modifier = Modifier
-                    .width(220.dp),
-                    contentAlignment = Alignment.CenterEnd
-                ){
+
                     Text(
                         text = price, // price
                         color = Color.White // Set the text color
                         ,style = TextStyle(fontSize = 24.sp),
+                        modifier = Modifier
+                            .padding(6.dp)
                     )
-                }
 
 
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(2.dp))
 
-
-                // positive negative or neutral
-                Box(
-                    modifier = Modifier
-                        .height(40.dp)
-                        .width(40.dp)
-                        .background(colorResource(id = R.color.regularBox))
-//                        .clickable { navController.navigate("accountPage") } // Navigate on click
-                    ,contentAlignment = Alignment.CenterEnd
-
-                ) {}
 
 
             }

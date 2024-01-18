@@ -45,7 +45,7 @@ fun TopBar(navController: NavController, title: String) {
                 modifier = Modifier
                     .height(56.dp)
                     .fillMaxWidth()
-                    .background(colorResource(id = R.color.regularBox))
+                    .background(colorResource(id = R.color.stockbox_Color))
                     .align(Alignment.Top)
 
             ) {
@@ -61,10 +61,11 @@ fun TopBar(navController: NavController, title: String) {
 
                     Box(
                         modifier = Modifier
+                            .weight(0.2f)
                             .height(20.dp)
                             .width(36.dp)
                             .padding(start = 16.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(colorResource(id = R.color.white))
                             .clickable { navController.navigate("back") }, // Navigate on click
                         contentAlignment = Alignment.Center
 
@@ -77,14 +78,16 @@ fun TopBar(navController: NavController, title: String) {
                     androidx.compose.material3.Text(
                         text = title,
                         color = Color.White // Set the text color
+
                     )
-                    Spacer(modifier = Modifier.width(200.dp))
+                    Spacer(modifier = Modifier.weight(1f))
 
                     Box(
                         modifier = Modifier
+                            .weight(0.25f)
                             .height(20.dp)
                             .width(20.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(colorResource(id = R.color.stockbox_Color))
                             .clickable { navController.navigate("accountPage") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center
@@ -96,9 +99,10 @@ fun TopBar(navController: NavController, title: String) {
                     }
                     Box(
                         modifier = Modifier
+                            .weight(0.25f)
                             .height(20.dp)
                             .width(20.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(colorResource(id = R.color.stockbox_Color))
                             .clickable { navController.navigate("searchBar") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center
@@ -112,9 +116,10 @@ fun TopBar(navController: NavController, title: String) {
                     }
                     Box(
                         modifier = Modifier
+                            .weight(0.25f)
                             .height(24.dp)
                             .width(24.dp)
-                            .background(colorResource(id = R.color.regularBox))
+                            .background(colorResource(id = R.color.stockbox_Color))
                             .clickable { navController.navigate("notificationsPage") } // Navigate on click
                         ,
                         contentAlignment = Alignment.Center

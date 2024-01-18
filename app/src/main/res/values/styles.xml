@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="DefaultWidth">370dp</dimen>
+    <dimen name="DefaultWidth">395dp</dimen>
 </resources>
