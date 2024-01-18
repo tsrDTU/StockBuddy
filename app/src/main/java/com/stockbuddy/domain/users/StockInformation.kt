@@ -244,24 +244,6 @@ fun ShowStockInformation(viewModel: StockViewModel) {
                             .padding(top = 8.dp)
                             .background(colorResource(id = R.color.regularBox))
 
-                        /*
-                    .align(
-                        LineHeightStyle
-                            .Alignment
-                            .Top
-                    )
-
-                     */
-                        /*
-                    .clickable {
-                        navController.navigate("portfolioPage")
-                    }
-
- */
-
-
-                        //                 contentAlignment  LineHeightStyle.Alignment.Center
-
                     ) {
 
                         Text(modifier = Modifier.padding(8.dp),

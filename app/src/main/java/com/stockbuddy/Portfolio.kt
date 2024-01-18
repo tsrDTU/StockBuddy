@@ -78,7 +78,7 @@ fun PortfolioPage(navController : NavHostController) {
             .fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) { ShowStockInformation( StockViewModel()) }
-
+/*
         LazyColumn {
             item {
                 Box(
@@ -322,6 +322,7 @@ fun PortfolioPage(navController : NavHostController) {
 
             }
         }
+        */
     }
 }
 
