@@ -33,15 +33,10 @@ import com.stockbuddy.UniversalDef.NotificationsBox
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-//import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 
-//import kotlin.coroutines.jvm.internal.CompletedContinuation.context
-
-//private var userIdFirestore = ""
 
 public var stockNameFirestore = ""
 
-//val inputStream: InputStream = context.resources.openRawResource(R.raw.my_file)
 
 fun purchaseStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Double, purCost: Double, purDate: String) {
    val stock = hashMapOf(
@@ -74,10 +69,12 @@ fun purchaseStock (userId: String, stockName: String, numOfStocks : Int, purPric
 
 
 
-
+/*
 fun selectStockInFirestore(stockName: String){
     stockNameFirestore = stockName
 }
+
+ */
 
 
 /* ChatGPT has given an example of how it is possible to update a field. Then the code is modified by Torben */
@@ -152,7 +149,6 @@ class StockViewModel : ViewModel() {
 
         db.collection("stockTradingHistory")
             .whereEqualTo("UserId", userId)
- //           .whereEqualTo("StockName", stockNameFirestore)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -265,7 +261,6 @@ fun ShowStockInformation(viewModel: StockViewModel) {
 @Composable
 fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController) {
 
-//    val dataList by viewModel.actNotification.collectAsState()
     val dataList by viewModel.actStock.collectAsState()
 
 
@@ -330,10 +325,6 @@ fun ShowInvestmentResult (navController : NavHostController) {
     Column {
 
 
-   //     val sortedList = dataList.sortedBy { it.PurDate } // sorting method info from from ChatGPT
-
-
-  //      items(sortedList) { item ->
 
             val totaProfit: Double = histProfitSellTotal - histPrifitPurTotal
             val totaProfitPct: Double = 100.0 * totaProfit / histPrifitPurTotal
@@ -346,10 +337,6 @@ fun ShowInvestmentResult (navController : NavHostController) {
 
 
         }
-
-
-
-
 
 }
 

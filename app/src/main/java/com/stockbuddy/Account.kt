@@ -30,10 +30,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.TopBar
-import com.stockbuddy.domain.users.ShowUserInformation
-import com.stockbuddy.domain.users.ShowUserTextLine
-import com.stockbuddy.domain.users.UserViewModel
-import com.stockbuddy.domain.users.getUserFirstAndLastName
 import com.stockbuddy.domain.users.userFirstname
 import com.stockbuddy.domain.users.userLastname
 
