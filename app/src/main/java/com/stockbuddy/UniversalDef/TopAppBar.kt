@@ -20,6 +20,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import com.stockbuddy.R
 
 
@@ -58,22 +59,23 @@ fun TopBar(navController: NavController, title: String) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    if(navController.currentDestination?.route.toString() != "homePage") {
+                        Box(
+                            modifier = Modifier
+                                .weight(0.2f)
+                                .height(20.dp)
+                                .width(36.dp)
+                                .padding(start = 16.dp)
+                                .background(colorResource(id = R.color.white))
+                                .clickable { navController.navigate("back") }, // Navigate on click
+                            contentAlignment = Alignment.Center
 
-                    Box(
-                        modifier = Modifier
-                            .weight(0.2f)
-                            .height(20.dp)
-                            .width(36.dp)
-                            .padding(start = 16.dp)
-                            .background(colorResource(id = R.color.white))
-                            .clickable { navController.navigate("back") }, // Navigate on click
-                        contentAlignment = Alignment.Center
-
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.img_back),
-                            contentDescription = null
-                        )
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_back),
+                                contentDescription = null
+                            )
+                        }
                     }
                     androidx.compose.material3.Text(
                         text = title,

@@ -136,7 +136,7 @@ fun HomePage(navController: NavHostController) {
                     Box(
                         modifier = Modifier
                             .width(200.dp)
-                            .height(35.dp)
+                            .height(3.dp)
                             .padding(end = 32.dp)
                             .clip(
                                 RoundedCornerShape(
