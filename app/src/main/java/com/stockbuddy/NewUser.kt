@@ -32,11 +32,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.stockbuddy.domain.users.ShowUserExsistInformation
-import com.stockbuddy.domain.users.UserExistViewModel
+//import com.stockbuddy.domain.users.ShowUserExsistInformation
+//import com.stockbuddy.domain.users.UserExistViewModel
 import com.stockbuddy.domain.users.addUser
 import com.stockbuddy.domain.users.selectUserInFirestore
-import com.stockbuddy.domain.users.verificateUserId
+//import com.stockbuddy.domain.users.verificateUserId
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @SuppressLint("RestrictedApi", "UnusedMaterial3ScaffoldPaddingParameter", "SuspiciousIndentation")

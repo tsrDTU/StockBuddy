@@ -28,25 +28,16 @@ import com.stockbuddy.UniversalDef.TopBar
 import com.stockbuddy.data.API.*
 import com.stockbuddy.domain.users.ShowUserInformation
 import com.stockbuddy.domain.users.UserViewModel
+import com.stockbuddy.domain.users.getUserFirstAndLastName
 
 //@Preview(name = "Home")
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavHostController) {
-//        Scaffold(
-//            topBar = {
-//                StockBuddyTabRow(
-//                    allScreens = stockBuddyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                        navController.navigate(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }
-//        ) { innerPadding ->
 
+
+    getUserFirstAndLastName()
     Column {
         TopBar(navController = navController, title = "Home")
 
@@ -64,30 +55,7 @@ fun HomePage(navController: NavHostController) {
                     ) {
 
                         ShowUserInformation(UserViewModel(), navController)
-                        /*
-                        Box(
-                            modifier = Modifier
-                                .width(329.dp)
-                                .height(146.dp)
-                                .background(colorResource(id = R.color.regularBox))
-                                .align(Alignment.TopCenter)
-                                .clickable {
-                                    navController.navigate("portfolioPage")
-                                },
-                            contentAlignment = Alignment.Center
 
-                        ) {
-
-
-                            Text(
-                                text = "Portfolio\nPreview",
-                                color = Color.White // Set the text color
-                            )
-
-
-                        }
-
-                         */
                     }
                 }
             }

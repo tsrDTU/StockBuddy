@@ -33,8 +33,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+
+//import androidx.compose.foundation.layout.BoxScopeInstance.align
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -61,7 +65,12 @@ import javax.inject.Singleton
 @Singleton
 var userIdFirestore : String = ""
 
+var userFirstname : String = "Name"
+var userLastname : String = "Namerson"
 
+/**
+ * Adding a user in Firestore.
+ */
 fun addUser (userId : String, first : String, last : String, email : String) {
 
    val user = hashMapOf(
@@ -83,21 +92,15 @@ fun addUser (userId : String, first : String, last : String, email : String) {
         }
 }
 
-/*
-@Composable
-fun selectUserInFirestore(userId: String, modifier: Modifier){
-
- */
     fun selectUserInFirestore(userId: String) {
 
- //   if (ShowUserExsistInformation(UserExistViewModel())) {
         userIdFirestore = userId
-  //  }
-}
+  }
 
 
-/*
-With assistance from chatGPT
+/**
+*  Viewmodel for retrieving user data from Firestore
+ * created by Torben Rasmussen With assistance from chatGPT
  */
 class UserViewModel : ViewModel() {
     private var _actUser = MutableStateFlow<List<UserData>>(emptyList())
@@ -150,7 +153,7 @@ class UserViewModel : ViewModel() {
     }
 }
 
-//@ComposableInferredTarget
+
 @Composable
 
 fun ShowUserInformation(viewModel: UserViewModel, navController : NavController) {
@@ -168,28 +171,16 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
                     .padding(top = 8.dp, bottom = 8.dp)
                     .height(146.dp)
                     .background(colorResource(id = R.color.regularBox))
-                    /*
-                    .align(
-                        LineHeightStyle
-                            .Alignment
-                            .Top
-                    )
 
-                     */
-                    
                     .clickable {
                         navController.navigate("portfolioPage")
                     }
 
 
 
-
-
-                //                 contentAlignment  LineHeightStyle.Alignment.Center
-
             ) {
-               val fnvn : String = dataList.firstName.toString()
-               val  lnvn : String = dataList.lastName.toString()
+                val fnvn : String = dataList.firstName.toString()
+                val  lnvn : String = dataList.lastName.toString()
 
                 Text(
                     text = "\n   User name: $fnvn $lnvn\n   Portfolio Preview",
@@ -202,6 +193,50 @@ fun ShowUserInformation(viewModel: UserViewModel, navController : NavController)
         }
     }
 }
+
+
+
+@Composable
+
+fun ShowUserTextLine(viewModel: UserViewModel/*, modifier: Modifier*/) {
+
+    val dataList by viewModel.actUser.collectAsState()
+/*
+
+ //   LazyColumn {
+     //   items(dataList) { dataList ->
+
+/*
+      Box {
+          Text(
+              text = "${dataList.firstName} ${dataList.lastName}",
+              color = Color.Black, // Set the text color
+              modifier = Modifier
+                  .fillMaxSize()
+                  .verticalScroll(rememberScrollState())
+                  .wrapContentWidth()
+                  .padding(top = 0.dp),
+          //        .align(Alignment.CenterHorizontally),
+              fontSize = 16.sp,
+
+              fontWeight = FontWeight.Bold,
+              textAlign = TextAlign.Center
+          )
+
+
+      }
+        }
+
+ */
+            userFirstname = dataList.firstName
+            userLastname = dataList.lastName
+        }
+   // }
+
+ */
+}
+
+
 
 
 
@@ -243,18 +278,6 @@ class UserExistViewModel : ViewModel() {
                         if (usr.userId == usr.userId ){
                             _userExist.value = true
                         }
-                        /*
-                        usr.firstName = document.getString("FirstName").toString()
-                        usr.lastName = document.getString("LastName").toString()
-                        usr.emailaddress = document.getString("Emailaddress").toString()
-
-
-                        val updatedList = _actUser.value.toMutableList().apply {
-                            add(usr)
-                        }
-                        _actUser.value = updatedList
-
-                         */
 
 
                     }
@@ -269,45 +292,7 @@ class UserExistViewModel : ViewModel() {
 }
 
 
-@Composable
-fun ShowUserExsistInformation(viewModel: UserExistViewModel): String {
 
-    val dataList by viewModel.actUser.collectAsState()
-    val userEks by  viewModel.userExist.collectAsState()
-/*
-    Column {
-
-              Text(text = userEks.toString())
-
-    }
-
- */
-
-    return userEks.toString()
-}
-
-/* Created by ChatGPT */
-/*
-fun verificateUserId(userId: String, navController: NavHostController) {
-    val db = Firebase.firestore
-
-    db.collection("users")
-        .whereEqualTo("UserId", userId)
-        .get()
-        .addOnSuccessListener { documents ->
-            for (document in documents) {
-                // UserId found, navigate to next screen
-                navController.navigate("HomePage")
-                return@addOnSuccessListener
-            }
-            // UserId not found, handle as needed
-        }
-        .addOnFailureListener { e ->
-            // Handle failure
-        }
-}
-
- */
 
 fun verificateUserId(navController: NavHostController) {
     val db = Firebase.firestore
@@ -327,3 +312,31 @@ fun verificateUserId(navController: NavHostController) {
             // Handle failure
         }
 }
+
+
+fun getUserFirstAndLastName() {
+    val db = Firebase.firestore
+
+    db.collection("users")
+        .whereEqualTo("UserId", userIdFirestore)
+        .get()
+
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                for (document in task.result) {
+                    Log.d("StateFlow", document.id + " => " + document.data)
+
+
+                    userFirstname = document.getString("FirstName").toString()
+                    userLastname = document.getString("LastName").toString()
+
+
+
+
+                }
+            } else {
+                Log.d("StateFlow", "Error getting documents: ", task.exception)
+            }
+        }
+}
+

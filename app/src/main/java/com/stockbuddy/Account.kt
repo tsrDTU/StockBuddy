@@ -30,15 +30,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.stockbuddy.UniversalDef.TopBar
+import com.stockbuddy.domain.users.ShowUserInformation
+import com.stockbuddy.domain.users.ShowUserTextLine
+import com.stockbuddy.domain.users.UserViewModel
+import com.stockbuddy.domain.users.getUserFirstAndLastName
+import com.stockbuddy.domain.users.userFirstname
+import com.stockbuddy.domain.users.userLastname
 
-//class Account : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContent {
-//            AccountPage()
-//        }
-//    }
-//}
 
 @OptIn(ExperimentalFoundationApi::class)
 @SuppressLint("RestrictedApi")
@@ -46,16 +44,7 @@ import com.stockbuddy.UniversalDef.TopBar
 @Composable
 fun AccountPage(navController: NavHostController) {
 
-//            topBar = {
-//                StockBuddyTabRow(
-//                    allScreens = stockBuddyTabRowScreens,
-//                    onTabSelected = { newScreen ->
-//                        navController
-//                        navController.navigate(newScreen.route)
-//                    },
-//                    currentScreen = currentScreen
-//                )
-//            }
+
 
 
     Column {
@@ -114,9 +103,14 @@ fun AccountPage(navController: NavHostController) {
                         .fillMaxWidth()
                         .wrapContentHeight()
                         .padding(top = 8.dp, bottom = 0.dp)
+
                 ) {
+
+                 //   ShowUserTextLine(UserViewModel() )
+                  //  getUserFirstAndLastName()
+
                     Text(
-                        text = "Name Namerson",
+                        text = "$userFirstname $userLastname",
                         color = Color.Black, // Set the text color
                         modifier = Modifier
                             .wrapContentWidth()
@@ -125,6 +119,8 @@ fun AccountPage(navController: NavHostController) {
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold
                     )
+
+
                 }
             }
             item {
