@@ -19,73 +19,6 @@ import androidx.compose.foundation.lazy.items
 import com.stockbuddy.domain.users.StockViewModel
 
 
-fun userNotification (userId : String, note : String) {
-
-    val user = hashMapOf(
-        "UserId" to userId,
-        "Note" to note
-
-    )
-
-
-    val db = Firebase.firestore
-    db.collection("notifications")
-        .add(user)
-        .addOnSuccessListener {documentReference ->
-            Log.d ("StateFlow",  "NoteSnapshot added with ID: $(documentReference.id)")
-        }
-        .addOnFailureListener { e ->
-            Log.d("StateFlow", "Error adding note", e)
-        }
-}
-
-class NotificationViewModel : ViewModel() {
-    private var _actNotification = MutableStateFlow<List<NotificationData>>(emptyList())
-    var actNotification: StateFlow<List<NotificationData>> = _actNotification
-
-    init {
-        ReadNotification(userIdFirestore)
-    }
-
-    private fun ReadNotification(userId: String){
-
-        val db = Firebase.firestore
-
-
-
-        db.collection("notifications")
-            .whereEqualTo("UserId", userId)
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result) {
-
-                        val note: NotificationData = NotificationData(
-                            UserId = "",
-                            Notification = ""
-                        )
-
-                        Log.d("StateFlow", document.id + " => " + document.data)
-
-                        note.UserId = document.getString("UserId").toString()
-                        note.Notification = document.getString("Note").toString()
-
-
-
-                        val updatedList = _actNotification.value.toMutableList().apply {
-                            add(note)
-                        }
-                        _actNotification.value = updatedList
-
-
-                    }
-                } else {
-                    Log.d("StateFlow", "Error getting documents: ", task.exception)
-                }
-            }
-
-    }
-}
 
 @Composable
 fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostController ) {
@@ -104,7 +37,7 @@ fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostContr
             val cost : Double = item.PurCostEuro!!.toDouble()
             var total : Double = sPrice * nrStock + cost;
             val sold : String = item.Sold.toString()
-            if (sold.equals("false")) {
+
             NotificationsBox(
 
                 navController,
@@ -112,8 +45,8 @@ fun ShowUserNotifications(viewModel: StockViewModel,navController : NavHostContr
                 "Date: ${item.PurDate}",
                 "You bought ${item.NumberOfStocks} amount of ${item.StockName} stock for ${item.PurPriceEuro} pr stock price: $total Euro"
             )
-                }
-            else {
+
+            if (sold.equals("true")) {
                 var total : Double = sPrice * nrStock + cost;
                 NotificationsBox(
 

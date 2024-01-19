@@ -59,7 +59,7 @@ fun purchaseStock (userId: String, stockName: String, numOfStocks : Int, purPric
         .addOnSuccessListener {documentReference ->
             Log.d (TAG,  "DocumentSnapshot added with ID: $(documentReference.id)")
 
-          userNotification(userIdFirestore,"$numOfStocks $stockName Stocks purchased at a price of $purPrice pr stock. Costs: $purCost. date of the trade: $purDate")
+      //    userNotification(userIdFirestore,"$numOfStocks $stockName Stocks purchased at a price of $purPrice pr stock. Costs: $purCost. date of the trade: $purDate")
         }
         .addOnFailureListener { e ->
             Log.d(TAG, "Error adding document", e)
@@ -111,8 +111,8 @@ fun sellStock (userId: String, stockName: String,sellPriceEuro: Double, sellCost
                     )
                     docRef.update(updatedData as Map<String, Any>)
                         .addOnSuccessListener {
-                            Log.d("StateFlow", "Document updated successfully!")
-                            userNotification(userId,"All stocks $stockName is sold at price of $sellPriceEuro. Cost: $sellCostEuro. Data of the trade: $sellDate")
+                            Log.d("StateFlow", "All stocks $stockName is sold at price of $sellPriceEuro. Cost: $sellCostEuro. Data of the trade: $sellDate")
+                   //         userNotification(userId,"All stocks $stockName is sold at price of $sellPriceEuro. Cost: $sellCostEuro. Data of the trade: $sellDate")
                         }
                         .addOnFailureListener { e ->
                             Log.w("StateFlow", "Error in updating document", e)
@@ -125,7 +125,8 @@ fun sellStock (userId: String, stockName: String,sellPriceEuro: Double, sellCost
 
     }
     else {
-        userNotification(userId,"The stock $stockName Stocks cannot be sold since it is already sold")
+     //   userNotification(userId,"The stock $stockName Stocks cannot be sold since it is already sold")
+        Log.d("StateFlow", "The stock $stockName Stocks cannot be sold since it is already sold")
     }
 }
 
