@@ -113,24 +113,6 @@ fun StockBox (navController: NavController, title: String) {
                     ,contentAlignment = Alignment.CenterEnd
 
                 ) {
-//                    if (priceChange > 0) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color),
-//                            contentDescription = null
-//                        )
-//                    }
-//                    else if (priceChange < 0){
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color_red_600),
-//                            contentDescription = null
-//                        )
-//                    }
-//                    else {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color_yellow_600),
-//                            contentDescription = null
-//                        )
-//                    }
 
                 }
             }
@@ -210,24 +192,7 @@ fun StockBoxSecond (navController : NavHostController, title: String) {
                     ,contentAlignment = Alignment.CenterEnd
 
                 ) {
-//                    if (priceChange > 0) {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color),
-//                            contentDescription = null
-//                        )
-//                    }
-//                    else if (priceChange < 0){
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color_red_600),
-//                            contentDescription = null
-//                        )
-//                    }
-//                    else {
-//                        Image(
-//                            painter = painterResource(id = R.drawable.img_color_yellow_600),
-//                            contentDescription = null
-//                        )
-//                    }
+
 
                 }
             }

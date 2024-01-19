@@ -27,13 +27,6 @@ import com.stockbuddy.R
 //@Preview(name ="apbar")
 @Composable
 fun TopBar(navController: NavController, title: String) {
-//    TopAppBar(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .height(56.dp),
-//        title = { Text(text = title) },
-//        backgroundColor = Color.Cyan
-//    )
 
 
         TopAppBar(

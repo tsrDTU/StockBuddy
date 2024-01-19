@@ -52,14 +52,6 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
-//class Stock : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContent {
-//            StockPage(navController)
-//        }
-//    }
-//}
 
 
 

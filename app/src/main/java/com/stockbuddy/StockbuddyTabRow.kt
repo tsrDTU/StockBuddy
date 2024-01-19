@@ -1,6 +1,6 @@
 package com.stockbuddy
 
-//import androidx.compose.material3.MaterialTheme
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,9 +27,8 @@ import com.stockbuddy.UniversalDef.TopBar
 
 @Composable
 fun StockBuddyTabRow(navController : NavHostController
-//    allScreens : List<StockBuddyDestination>,
-//    onTabSelected: (StockBuddyDestination) -> Unit,
-//    currentScreen: StockBuddyDestination
+
+
 ) {
     Column {
         TopBar(navController = navController, title = "Account")
@@ -94,62 +93,7 @@ fun StockBuddyTabRow(navController : NavHostController
         }
     }
 }
-//
-//@Composable
-//private fun StockBuddyTab(
-//    text: String,
-//    icon: ImageVector,
-//    onSelected: () -> Unit,
-//    selected: Boolean
-//) {
-//    val color = MaterialTheme.colors.onSurface
-//    val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
-//    val animSpec = remember {
-//        tween<Color>(
-//            durationMillis = durationMillis,
-//            easing = LinearEasing,
-//            delayMillis = TabFadeInAnimationDelay
-//        )
-//    }
-//
-////    val tabTintColor by animateColorAsState(
-////        targetValue = if (selected) color else color.copy(alpha = InactiveTabOpacity),
-////        animationSpec = animSpec
-////    )
-////    Row(
-////        modifier = Modifier
-////            .padding(16.dp)
-////            .animateContentSize()
-////            .height(TabHeight)
-////            .selectable(
-////                selected = selected,
-////                onClick = onSelected,
-////                role = Role.Tab,
-////                interactionSource = remember {
-////                    MutableInteractionSource()
-////                },
-////                indication = rememberRipple(
-////                    bounded = false,
-////                    radius = Dp.Unspecified,
-////                    color = Color.Unspecified
-////                )
-////            )
-////            .clearAndSetSemantics { contentDescription = text }
-////    ) {
-////        Icon(imageVector = icon, contentDescription = text, tint = tabTintColor)
-////        if (selected) {
-////            Spacer(Modifier.width(12.dp))
-////            Text(text.uppercase(Locale.getDefault()), color = tabTintColor)
-////        }
-////
-////
-////    }
-//}
-//
-//
+
+
 private val TabHeight = 56.dp
-//private const val InactiveTabOpacity = 0.60f
-//
-//private const val TabFadeInAnimationDuration = 150
-//private const val TabFadeInAnimationDelay = 100
-//private const val TabFadeOutAnimationDuration = 100
+

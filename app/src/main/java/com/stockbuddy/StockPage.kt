@@ -116,40 +116,7 @@ fun StockPage(navController: NavHostController) {
                 }
             }
         }
-            /*
-        item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-                    .padding(top = 4.dp, bottom = 4.dp)
-            ) {
-                // Content of the first Box
-                Box(
-                    modifier = Modifier
-                        .width(dimensionResource(id = R.dimen.DefaultWidth))
-                        .height(180.dp)
-                        .background(colorResource(id = R.color.regularBox))
-                        .align(Alignment.Center)
-                        .padding(8.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    // Third Text (Fills the rest of the space)
-                    Text(
-                        text = "Image - Graph",
-                        color = Color.White, // Set the text color
-                        modifier = Modifier
-                            .wrapContentWidth()
-                            .padding(top = 0.dp)
-                            .align(Alignment.Center),
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Normal
-                    )
-                }
-            }
-        }
 
-             */
         item {
             var allSelected by remember { mutableStateOf(true) }
             var yearSelected by remember { mutableStateOf(true) }
@@ -297,19 +264,3 @@ fun FilterButton(
     }
 }
 
-
-
-//fun StockPage(navController: NavHostController) {
-//    Column(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .padding(16.dp),
-//        verticalArrangement = Arrangement.Center
-//    ) {
-//        Text(text = "Screen 2", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-//        Spacer(modifier = Modifier.height(16.dp))
-//        Button(onClick = { navController.navigate("homePage") }) {
-//            Text("Go back to Screen 1")
-//        }
-//    }
-//}

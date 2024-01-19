@@ -52,9 +52,8 @@ import java.time.LocalDateTime
 @Composable
 fun SaveStockInFirestore ( navController : NavHostController) {
     var stockNumber : String
-    // var tradingTime = LocalDateTime.now()
-    var tradinCost : Double = 18.0
-   // val stockPrice = stockPriceFound.dropLast(1).toDouble()
+
+
 
     // From  ChatGPT next 3 lines
     val datePattern = Regex("""\b\d{4}-\d{2}-\d{2}\b""")
@@ -63,7 +62,6 @@ fun SaveStockInFirestore ( navController : NavHostController) {
 
 
     Column {
-        //  TopBar(navController = navController, title = "Search")
 
 
         LazyColumn {
@@ -126,9 +124,6 @@ fun SaveStockInFirestore ( navController : NavHostController) {
             //                    Log.w("StateFlow", "1 :Number of stocks: $stockNumber $stockToSearch ")
                                 val stockNum = stockNumber.toInt()
 
-                                //   val tradTime = tradingTime.toString()
-                                //              Log.w("StateFlow", "2 :Number of stocks: $stockNum $stockToSearch ")
-                    //            purchaseStock(userIdFirestore, stockToSearch, stockNum, stockPrice, tradinCost, tradingTime)
                                 navController.navigate("notificationsPage")
 
                             },

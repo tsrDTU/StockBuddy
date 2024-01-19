@@ -27,4 +27,3 @@ data class NotificationData(
     var Notification: String?
 )
 
-//var Stockhistory List<StockData>

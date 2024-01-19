@@ -6,8 +6,6 @@ import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -32,10 +30,15 @@ import com.stockbuddy.R
 import com.stockbuddy.UniversalDef.NotificationsBox
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-
+import javax.inject.Singleton
 
 
 public var stockNameFirestore = ""
+
+@Singleton
+var histValPurTotal : Double = 0.0
+var histValSellTotal : Double = 0.0
+var histActivePurAmount : Double = 0.0
 
 
 fun purchaseStock (userId: String, stockName: String, numOfStocks : Int, purPrice: Double, purCost: Double, purDate: String) {
@@ -69,15 +72,8 @@ fun purchaseStock (userId: String, stockName: String, numOfStocks : Int, purPric
 
 
 
-/*
-fun selectStockInFirestore(stockName: String){
-    stockNameFirestore = stockName
-}
 
- */
-
-
-/* ChatGPT has given an example of how it is possible to update a field. Then the code is modified by Torben */
+/* ChatGPT has given an example of how it is possible to update a field. Then the code is created using this by Torben */
 fun sellStock (userId: String, stockName: String,sellPriceEuro: Double, sellCostEuro: Double, sellDate: String) {
 
 
@@ -199,14 +195,10 @@ class StockViewModel : ViewModel() {
 
 }
 
-var histPrifitPurTotal : Double = 0.0
-var histProfitSellTotal : Double = 0.0
-var histActivePurAmount : Double = 0.0
-
 fun setHitorySummaryVarsToZero()
 {
-    histPrifitPurTotal  = 0.0
-    histProfitSellTotal  = 0.0
+    histValPurTotal  = 0.0
+    histValSellTotal  = 0.0
     histActivePurAmount  = 0.0
 
 }
@@ -281,7 +273,7 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
             val pcost: Double = item.PurCostEuro!!.toDouble()
             val ptotal: Double = pPrice * nrStock + pcost;
             if (sold.equals("true")) {
-                histPrifitPurTotal += ptotal
+                histValPurTotal += ptotal
             } else {
                 histActivePurAmount += ptotal
             }
@@ -291,7 +283,7 @@ fun ShowStockHistory(viewModel: StockViewModel,navController : NavHostController
 
             val stotal: Double = sPrice * nrStock + scost;
             if (sold.equals("true")) {
-                histProfitSellTotal += stotal
+                histValSellTotal += stotal
             }
 
             NotificationsBox(
@@ -327,13 +319,13 @@ fun ShowInvestmentResult (navController : NavHostController) {
 
 
 
-            val totaProfit: Double = histProfitSellTotal - histPrifitPurTotal
-            val totaProfitPct: Double = 100.0 * totaProfit / histPrifitPurTotal
+            val totalProfit: Double = histValSellTotal - histValPurTotal
+            val totalProfitPct: Double = 100.0 * totalProfit / histValPurTotal
             NotificationsBox(
                 navController,
-                "Imvestment result",
+                "Investment result",
                 "Date:  ",
-                "You total profit $totaProfit Euro  $totaProfitPct pct"
+                "You total profit $totalProfit Euro  $totalProfitPct pct"
             )
 
 
