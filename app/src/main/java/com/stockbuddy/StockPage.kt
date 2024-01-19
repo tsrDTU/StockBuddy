@@ -40,7 +40,7 @@ fun StockPage(navController: NavHostController) {
         }
     }
 
-    priceOfSearchedStock = stockInfo[0]
+    priceOfSearchedStock = stockInfo[0]//
 
 
 
