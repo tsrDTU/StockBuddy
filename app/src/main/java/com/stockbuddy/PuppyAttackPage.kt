@@ -55,6 +55,7 @@ fun PuppyAttackPage(navController : NavHostController) {
             color = MaterialTheme.colorScheme.background
         ) {
             LazyColumn {
+                item { PuppyFrame(navController, R.drawable.img_rectangle19) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle20) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle21) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle22) }
@@ -63,7 +64,6 @@ fun PuppyAttackPage(navController : NavHostController) {
                 //Added
                 item { PuppyFrame(navController, R.drawable.img_rectangle24) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle25) }
-                item { PuppyFrame(navController, R.drawable.img_rectangle26) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle27) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle28) }
                 item { PuppyFrame(navController, R.drawable.img_rectangle29) }

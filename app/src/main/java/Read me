@@ -5,3 +5,22 @@ All you need is a user ID.Existing user “bd” has traded a lot.
  Also “ll” and “kh” have done some trading. “tt” and “bb” also exist.
  If you enter a user ID that doesn't exist you are led to a form where
   you must enter the details for this user. Then the user is added in Firestore
+
+
+Navigation :
+Login->Home  ( if id = bd )
+Login->Signin
+Signin->Home
+Home->Search
+Home->Stock
+Home->Portfolio
+Account->PuppyAttack
+Account->Settings
+Account->History
+Search->Stock
+Stock->Trading
+
+All->Back
+All->Search
+All->Notifications
+All->Account
